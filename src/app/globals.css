@@ -52,3 +52,7 @@ body {
   -webkit-text-stroke: 2px #ffffff; /* Orange outline */
 }
 
+* {
+  cursor: none !important; /* Suppress the cursor globally */
+}
+

@@ -25,7 +25,7 @@ const RocketFire = () => {
       position.current.y += (targetPosition.current.y - position.current.y) * speed;
 
       if (followerRef.current) {
-        followerRef.current.style.top = `${position.current.y + 20}px`;
+        followerRef.current.style.top = `${position.current.y + 40}px`;
         followerRef.current.style.left = `${position.current.x - 21}px`;
       }
 
