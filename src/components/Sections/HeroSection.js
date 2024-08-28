@@ -1,5 +1,5 @@
 import Image from "next/image";
-import background from "@/images/background.png"; // Replace with your background image
+import background from "@/images/background/banner-one-shape-1.webp"; // Replace with your background image
 import DRNDigital from "@/images/drndigital_white.png"; // Replace with your video thumbnail
 import { Orbitron } from "next/font/google";
 // import useTranslation from "@/hooks/useTranslation";
@@ -8,7 +8,7 @@ const orbitron = Orbitron({ subsets: ["latin"] });
 
 export default function HeroSection() {
   return (
-    <section className="flex min-h-full flex-col items-center justify-between py-4 px-8 md:py-12 md:px-24">
+    <section className="flex min-h-full flex-col items-center justify-between pt-4 px-8 md:pt-12 md:px-24">
       {/* add backfround image */}
       {/* <div className="bg-black bg-opacity-50 w-full h-full absolute top-0 left-0 -z-50"></div> */}
       <Image
@@ -16,7 +16,7 @@ export default function HeroSection() {
         // layout="fill"
         // objectFit="cover"
         priority={true}
-        className="absolute -z-40 inset-0 w-full h-full object-cover"
+        className="absolute -z-40 inset-0 w-full h-full object-cover opacity-50"
         alt="Background"
       />
 
