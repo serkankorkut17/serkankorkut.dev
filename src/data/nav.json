@@ -5,8 +5,8 @@
             "url": "/home"
         },
         {
-            "name": "ABOUT ME",
-            "url": "/about"
+            "name": "PROJECTS",
+            "url": "/projects"
         },
         {
             "name": "CONTACT",
@@ -30,22 +30,26 @@
             "show": true
         }
     },
-    "socialLinks": [
-        {
-            "name": "Facebook",
-            "url": "https://www.facebook.com"
+    "socialLinks": {
+        "facebook": {
+            "url": "https://www.facebook.com/serkan.krktt/",
+            "show": true
         },
-        {
-            "name": "Twitter",
-            "url": "https://www.twitter.com"
+        "twitter": {
+            "url": "https://x.com/_blckfyre_",
+            "show": false
         },
-        {
-            "name": "Instagram",
-            "url": "https://www.instagram.com"
+        "instagram": {
+            "url": "https://www.instagram.com/serkan.krktt/",
+            "show": true
         },
-        {
-            "name": "LinkedIn",
-            "url": "https://www.linkedin.com"
+        "linkedin": {
+            "url": "https://www.linkedin.com/in/serkankorkut17",
+            "show": true
+        },
+        "github": {
+            "url": "https://github.com/serkankorkut17",
+            "show": true
         }
-    ]
+    }
 }
