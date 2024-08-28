@@ -15,6 +15,7 @@ export default function HeroSection() {
         src={background}
         // layout="fill"
         // objectFit="cover"
+        priority={true}
         className="absolute -z-40 inset-0 w-full h-full object-cover"
         alt="Background"
       />
