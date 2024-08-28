@@ -16,13 +16,19 @@
     "contactInfo": {
         "phone": {
             "number": "+90 536 492 5885",
-            "link": "https://wa.me/905364925885"
+            "link": "https://wa.me/905364925885",
+            "show": false
         },
         "email": {
             "address": "serkankorkut17@gmail.com",
-            "link": "mailto:serkankorkut17@gmail.com"
+            "link": "mailto:serkankorkut17@gmail.com",
+            "show": true
         },
-        "address": "1234 Elm St, Springfield, IL 62701"
+        "address": {
+            "text": "Maltepe/Istanbul, Turkey",
+            "link": "https://maps.app.goo.gl/KtYSiBhabhDD3BKV8",
+            "show": true
+        }
     },
     "socialLinks": [
         {
