@@ -1,10 +1,16 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import MobileNavigation from "./MobileNavigation";
 import DRNDigitalLogo from "@/images/drndigital_white.png";
 // import useTranslation from "@/hooks/useTranslation";
 import NavData from "@/data/nav.json";
+import { Montserrat } from "next/font/google";
+
+const openSans = Montserrat({
+  weight: ["500", "600", "700"],
+  subsets: ["latin"],
+});
 
 const NavigationBar = () => {
   // const { t } = useTranslation();
@@ -14,7 +20,7 @@ const NavigationBar = () => {
   const contactInfo = NavData.contactInfo;
 
   return (
-    <nav className="text-white py-2 px-4">
+    <nav className={`${openSans.className} text-white py-2 px-4 `}>
       <div className="max-w-screen-xl mx-auto lg:mx-24 xl:mx-48 flex justify-between items-center">
         <div className="md:basis-1/4 flex items-center space-x-3">
           <img
@@ -37,7 +43,12 @@ const NavigationBar = () => {
                 >
                   <path d="M7.978 4a2.553 2.553 0 0 0-1.926.877C4.233 6.7 3.699 8.751 4.153 10.814c.44 1.995 1.778 3.893 3.456 5.572 1.68 1.679 3.577 3.018 5.57 3.459 2.062.456 4.115-.073 5.94-1.885a2.556 2.556 0 0 0 .001-3.861l-1.21-1.21a2.689 2.689 0 0 0-3.802 0l-.617.618a.806.806 0 0 1-1.14 0l-1.854-1.855a.807.807 0 0 1 0-1.14l.618-.62a2.692 2.692 0 0 0 0-3.803l-1.21-1.211A2.555 2.555 0 0 0 7.978 4Z" />
                 </svg>
-                <a className="hover:text-orange-500 transition-colors duration-300" href={contactInfo.phone.link}>Phone: {contactInfo.phone.number}</a>
+                <a
+                  className="hover:text-orange-500 transition-colors duration-300"
+                  href={contactInfo.phone.link}
+                >
+                  Phone: {contactInfo.phone.number}
+                </a>
               </div>
               <div className="flex items-center space-x-1">
                 <svg
@@ -49,7 +60,12 @@ const NavigationBar = () => {
                   <path d="M2.038 5.61A2.01 2.01 0 0 0 2 6v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6c0-.12-.01-.238-.03-.352l-.866.65-7.89 6.032a2 2 0 0 1-2.429 0L2.884 6.288l-.846-.677Z" />
                   <path d="M20.677 4.117A1.996 1.996 0 0 0 20 4H4c-.225 0-.44.037-.642.105l.758.607L12 10.742 19.9 4.7l.777-.583Z" />
                 </svg>
-                <a className="hover:text-orange-500 transition-colors duration-300" href={contactInfo.email.link}>Email: {contactInfo.email.address}</a>
+                <a
+                  className="hover:text-orange-500 transition-colors duration-300"
+                  href={contactInfo.email.link}
+                >
+                  Email: {contactInfo.email.address}
+                </a>
               </div>
             </div>
             <div className="flex space-x-3">
@@ -120,24 +136,24 @@ const NavigationBar = () => {
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-black md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
               {navLinks.map((link) => (
                 <li key={link.name} className="md:mt-0">
-                <Link href={link.url}>
-                  <span className="hover:text-orange-500 transition-colors duration-300 cursor-pointer">
-                  {link.name}
-                  </span>
-                </Link>
+                  <Link href={link.url}>
+                    <span className="hover:text-orange-500 transition-colors duration-300 cursor-pointer">
+                      {link.name}
+                    </span>
+                  </Link>
                 </li>
               ))}
             </ul>
             <div className="hidden md:flex items-center space-x-4 mt-4 md:mt-0">
-            <Link href="#" className="">
-              <button
-                type="button"
-                id="navbar-btn"
-                className="text-white bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-800 font-medium rounded-lg text-sm px-4 py-2 text-center"
-              >
-                Contact
-              </button>
-            </Link>
+              <Link href="#" className="">
+                <button
+                  type="button"
+                  id="navbar-btn"
+                  className="text-white bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-800 font-medium rounded-lg text-sm px-4 py-2 text-center"
+                >
+                  Contact
+                </button>
+              </Link>
             </div>
           </div>
         </div>

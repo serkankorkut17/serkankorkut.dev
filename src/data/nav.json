@@ -1,15 +1,15 @@
 {
     "navLinks": [
         {
-            "name": "Home",
+            "name": "HOME",
             "url": "/home"
         },
         {
-            "name": "About",
+            "name": "ABOUT ME",
             "url": "/about"
         },
         {
-            "name": "Contact",
+            "name": "CONTACT",
             "url": "/contact"
         }
     ],
