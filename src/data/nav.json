@@ -14,8 +14,14 @@
         }
     ],
     "contactInfo": {
-        "phone": "123-456-7890",
-        "email": "serkankorkut17@gmail.com",
+        "phone": {
+            "number": "+90 536 492 5885",
+            "link": "https://wa.me/905364925885"
+        },
+        "email": {
+            "address": "serkankorkut17@gmail.com",
+            "link": "mailto:serkankorkut17@gmail.com"
+        },
         "address": "1234 Elm St, Springfield, IL 62701"
     },
     "socialLinks": [
