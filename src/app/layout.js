@@ -18,9 +18,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className} style={{
         cursor: 'none', }} >
         <RocketCursor />
+        <RocketFire />
         <NavigationBar />
         {children}
-        <RocketFire />
       </body>
     </html>
   );

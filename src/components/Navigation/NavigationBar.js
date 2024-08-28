@@ -7,7 +7,7 @@ import DRNDigitalLogo from "@/images/drndigital_white.png";
 import NavData from "@/data/nav.json";
 import { Montserrat } from "next/font/google";
 
-const openSans = Montserrat({
+const montserrat = Montserrat({
   weight: ["500", "600", "700"],
   subsets: ["latin"],
 });
@@ -20,7 +20,7 @@ const NavigationBar = () => {
   const contactInfo = NavData.contactInfo;
 
   return (
-    <nav className={`${openSans.className} text-white py-2 px-4 `}>
+    <nav className={`${montserrat.className} text-white py-2 px-4 `}>
       <div className="max-w-screen-xl mx-auto lg:mx-24 xl:mx-48 flex justify-between md:justify-evenly items-center">
         <div className="flex space-x-3">
           <img
