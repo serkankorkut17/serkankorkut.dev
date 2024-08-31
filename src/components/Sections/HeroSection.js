@@ -8,16 +8,17 @@ const orbitron = Orbitron({ subsets: ["latin"] });
 export default function HeroSection() {
   return (
     <section className="flex min-h-full flex-col items-center justify-between py-2 px-8 md:py-8 md:px-24">
-      <Image
-        src={background}
-        priority={true}
-        className="absolute -z-40 inset-0 w-full h-full object-cover opacity-50"
-        alt="Background"
-      />
-
+      <div className="absolute inset-0 w-full h-full -z-40">
+        <Image
+          src={background}
+          priority={true}
+          className="object-cover w-full h-full opacity-50"
+          alt="Background"
+        />
+      </div>
       <div className="text-center relative z-10">
         <div className="flex justify-center mx-20 sm:mx-28 md:mx-40 xl:mx-60">
-          <div className="relative w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 1.5xl:w-72 1.5xl:h-72">
+          <div className="relative w-48 h-48 md:w-48 md:h-48 lg:w-56 lg:h-56 1.5xl:w-64 1.5xl:h-64">
             <Image
               src={PP}
               className="w-full h-full object-contain rounded-full"
@@ -28,12 +29,12 @@ export default function HeroSection() {
 
         <div className="flex flex-col items-center">
           <h1
-            className={`${orbitron.className} text-orange-500 text-outline mt-8 md:mt-2 xl:mt-8 text-6xl sm:text-7xl md:text-8xl font-extrabold leading-loose sm:leading-relaxed md:leading-tight lg:leading-tight animate-slideInFromRight`}
+            className={`${orbitron.className} text-orange-500 text-outline mt-8 md:mt-2 xl:mt-8 text-6xl md:text-7xl xl:text-8xl font-extrabold leading-tight animate-slideInFromRight`}
           >
             Hello, I'm Serkan Korkut.
           </h1>
           <h2
-            className={`${orbitron.className} text-white mt-4 md:mt-2 xl:mt-4 text-2xl sm:text-3xl md:text-4xl font-bold leading-loose sm:leading-relaxed md:leading-tight lg:leading-tight animate-slideInFromLeft`}
+            className={`${orbitron.className} text-white pb-4 mt-4 md:mt-2 xl:mt-4 text-2xl md:text-3xl xl:text-4xl font-bold leading-tight animate-slideInFromLeft`}
           >
             I'm a Computer Engineering Student at Marmara University
           </h2>
