@@ -1,7 +1,7 @@
 "use client";
 
 import RocketPointerImg from "@/images/rocket_orange.png";
-import RocketImg from "@/images/rocket_white.png";
+import RocketImg from "@/images/rocket_white_line-20.png";
 import { useState, useEffect, useRef } from "react";
 
 const RocketCursor = () => {

@@ -1,12 +1,18 @@
 import Image from "next/image";
 import background from "@/images/background/page-header-bg.webp";
-import { Orbitron } from "next/font/google";
 
+import { Orbitron } from "next/font/google";
 const orbitron = Orbitron({ subsets: ["latin"] });
+
+import { Montserrat } from "next/font/google";
+const montserrat = Montserrat({
+  weight: ["500", "600", "700"],
+  subsets: ["latin"],
+});
 
 export default function PageHeader({ title }) {
   return (
-    <section className="relative flex items-center justify-center h-64 md:h-80 lg:h-96 w-full overflow-hidden">
+    <section className={`${montserrat.className} relative flex items-center justify-center h-64 md:h-80 lg:h-96 w-full overflow-hidden`}>
       <Image
         src={background}
         priority={true}
@@ -15,7 +21,7 @@ export default function PageHeader({ title }) {
       />
       <div className="text-center pb-24">
         <h1
-          className={`${orbitron.className} text-white text-4xl md:text-5xl lg:text-6xl font-extrabold`}
+          className="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold"
         >
           {title.toUpperCase()}
         </h1>
