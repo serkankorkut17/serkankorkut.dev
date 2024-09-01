@@ -4,6 +4,7 @@ import NavigationBar from "@/components/Navigation/NavigationBar";
 import RocketFire from "@/components/Mouse/RocketFire";
 import RocketCursor from "@/components/Mouse/RocketCursor";
 import ScrollToTopButton from "@/components/Scroll";
+import Footer from "@/components/Navigation/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
         <ScrollToTopButton />
         <NavigationBar />
         {children}
+        <Footer />
       </body>
     </html>
   );
