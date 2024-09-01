@@ -3,6 +3,7 @@ import "./globals.css";
 import NavigationBar from "@/components/Navigation/NavigationBar";
 import RocketFire from "@/components/Mouse/RocketFire";
 import RocketCursor from "@/components/Mouse/RocketCursor";
+import ScrollToTopButton from "@/components/Scroll";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         cursor: 'none', }} >
         <RocketCursor />
         <RocketFire />
+        <ScrollToTopButton />
         <NavigationBar />
         {children}
       </body>
