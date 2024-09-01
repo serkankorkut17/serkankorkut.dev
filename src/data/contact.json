@@ -1,0 +1,21 @@
+{
+    "contactSection": {
+        "title": ".: HAVE QUESTIONS?",
+        "subtitle": "Get In Touch!",
+        "location": {
+            "title": "Location",
+            "address": "Maltepe/Istanbul, Turkey",
+            "link": "https://maps.app.goo.gl/KtYSiBhabhDD3BKV8"
+        },
+        "phone": {
+            "title": "Phone No.",
+            "number": "+90 536 492 5885",
+            "link": "https://wa.me/905364925885"
+        },
+        "email": {
+            "title": "Email",
+            "email": "serkankorkut17@gmail.com",
+            "link": "mailto:serkankorkut17@gmail.com"
+        }
+    }
+}
