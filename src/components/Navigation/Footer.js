@@ -19,7 +19,7 @@ const montserrat = Montserrat({
 
 const Footer = () => {
   return (
-    <footer class={`${montserrat.className} relative`}>
+    <footer className={`${montserrat.className} relative`}>
       <div className="absolute inset-0 w-full h-full -z-40">
         <Image
           src={background}
@@ -28,43 +28,43 @@ const Footer = () => {
           alt="Background"
         />
       </div>
-      <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div class="md:flex md:justify-between">
-          <div class="mb-6 md:mb-0">
+      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div className="md:flex md:justify-between">
+          <div className="mb-6 md:mb-0">
             <Link href="/">
               <Image src={Logo} width={150} height={50} alt="DRN Digital Logo" />
-              <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">
+              <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
                 Serkan Korkut
               </span>
             </Link>
           </div>
-          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 class="mb-6 text-sm font-semibold uppercase text-white">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-white">
                 Resources
               </h2>
-              <ul class="text-gray-400 font-medium">
-                <li class="mb-4">
-                  <a href="https://flowbite.com/" class="hover:underline">
+              <ul className="text-gray-400 font-medium">
+                <li className="mb-4">
+                  <a href="https://flowbite.com/" className="hover:underline">
                     Flowbite
                   </a>
                 </li>
                 <li>
-                  <a href="https://tailwindcss.com/" class="hover:underline">
+                  <a href="https://tailwindcss.com/" className="hover:underline">
                     Tailwind CSS
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 class="mb-6 text-sm font-semibold uppercase text-white">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-white">
                 Follow us
               </h2>
-              <ul class="text-gray-400 font-medium">
-                <li class="mb-4">
+              <ul className="text-gray-400 font-medium">
+                <li className="mb-4">
                   <a
                     href="https://github.com/themesberg/flowbite"
-                    class="hover:underline "
+                    className="hover:underline "
                   >
                     Github
                   </a>
@@ -72,7 +72,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://discord.gg/4eeurUVvTy"
-                    class="hover:underline"
+                    className="hover:underline"
                   >
                     Discord
                   </a>
@@ -80,17 +80,17 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 class="mb-6 text-sm font-semibold uppercase text-white">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-white">
                 Legal
               </h2>
-              <ul class="text-gray-400 font-medium">
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
+              <ul className="text-gray-400 font-medium">
+                <li className="mb-4">
+                  <a href="#" className="hover:underline">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="hover:underline">
+                  <a href="#" className="hover:underline">
                     Terms &amp; Conditions
                   </a>
                 </li>
@@ -98,11 +98,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <hr class="my-6 sm:mx-auto border-gray-700 lg:my-8" />
-        <div class="sm:flex sm:items-center sm:justify-between">
-          <span class="text-sm sm:text-center text-gray-400">
+        <hr className="my-6 sm:mx-auto border-gray-700 lg:my-8" />
+        <div className="sm:flex sm:items-center sm:justify-between">
+          <span className="text-sm sm:text-center text-gray-400">
             © 2024{" "}
-            <a href="https://drndigital.com/" class="hover:underline">
+            <a href="https://drndigital.com/" className="hover:underline">
               DRN Digital™
             </a>
             . All Rights Reserved.
