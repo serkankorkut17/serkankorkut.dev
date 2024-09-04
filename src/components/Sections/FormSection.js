@@ -6,7 +6,7 @@ import ContactData from "@/data/contact.json";
 import Link from "next/link";
 
 const montserrat = Montserrat({
-  weight: ["500", "600", "700"],
+  weight: ["500"],
   subsets: ["latin"],
 });
 

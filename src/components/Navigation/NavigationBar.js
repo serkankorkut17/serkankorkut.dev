@@ -10,7 +10,7 @@ import NavData from "@/data/nav.json";
 import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({
-  weight: ["500", "600", "700"],
+  weight: ["500"],
   subsets: ["latin"],
 });
 
