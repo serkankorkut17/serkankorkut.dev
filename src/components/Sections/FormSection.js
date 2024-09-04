@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import { Montserrat } from "next/font/google";
-import ContactData from "@/data/contact.json";
-import Link from "next/link";
 
 const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "800", "900"],

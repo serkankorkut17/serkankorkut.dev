@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Transition } from "@headlessui/react";
 import NavData from "@/data/nav.json";
 import Link from "next/link";
-import DRNDigitalLogo from "@/images/drndigital-logo.png";
+import Logo from "@/images/drndigital-logo.png";
 import Image from "next/image";
 
 export default function MobileNavigation() {
@@ -77,11 +77,11 @@ export default function MobileNavigation() {
           {/* Logo and Title */}
           <div className="flex flex-col justify-center items-center mb-8">
             <Image
-              src={DRNDigitalLogo}
+              src={Logo}
               className="h-48"
               alt="DRN Digital Logo"
             />
-            <p className="block text-gray-800 text-xl font-semibold text-center">
+            <p className="block text-gray-800 text-xl font-bold text-center">
               Serkan Korkut
             </p>
           </div>
@@ -91,7 +91,7 @@ export default function MobileNavigation() {
             {navLinks.map((link, index) => (
               <div key={link.name}>
                 <Link href={link.url}>
-                  <span className="block text-gray-700 text-lg hover:text-orange-500 transition duration-200 ease-in-out cursor-pointer">
+                  <span className="block text-gray-700 text-lg font-medium hover:text-orange-500 transition duration-200 ease-in-out cursor-pointer">
                     {link.name}
                   </span>
                 </Link>
