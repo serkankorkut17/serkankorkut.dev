@@ -3,6 +3,7 @@
 import RocketPointerImg from "@/images/rocket_orange.png";
 import RocketImg from "@/images/rocket_white_line-20.png";
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 const RocketCursor = () => {
   const rocketRef = useRef(null);
@@ -71,20 +72,34 @@ const RocketCursor = () => {
     };
   }, []); // Empty dependency array ensures this runs only once on mount
 
-  return (
-    <img
-      ref={rocketRef}
-      src={isPointer ? RocketPointerImg.src : RocketImg.src} // Path to your rocket image
-      alt="Rocket Cursor"
-      style={{
-        position: "fixed",
-        width: "40px",
-        height: "40px",
-        pointerEvents: "none", // Prevent the rocket from capturing mouse events
-        zIndex: 1000,
-      }}
-    />
-  );
+  // return (
+  //   <img
+  //     ref={rocketRef}
+  //     src={isPointer ? RocketPointerImg.src : RocketImg.src} // Path to your rocket image
+  //     alt="Rocket Cursor"
+  //     style={{
+  //       position: "fixed",
+  //       width: "40px",
+  //       height: "40px",
+  //       pointerEvents: "none", // Prevent the rocket from capturing mouse events
+  //       zIndex: 1000,
+  //     }}
+  //   />
+  // );
+    return (
+      <Image
+        ref={rocketRef}
+        src={isPointer ? RocketPointerImg : RocketImg} // Path to your rocket image
+        alt="Rocket Cursor"
+        width={40}
+        height={40}
+        style={{
+          position: "fixed",
+          pointerEvents: "none", // Prevent the rocket from capturing mouse events
+          zIndex: 1000,
+        }}
+      />
+    );
 };
 
 export default RocketCursor;

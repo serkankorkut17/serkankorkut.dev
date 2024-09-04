@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import FireImg from '@/images/rocket_fire.png'; // Adjust the path to your fire image
+import Image from "next/image";
 
 const RocketFire = () => {
   const followerRef = useRef(null);
@@ -40,15 +41,29 @@ const RocketFire = () => {
     };
   }, []); // Empty dependency array ensures this runs only once on mount
 
+  // return (
+  //   <img
+  //     ref={followerRef}
+  //     src={FireImg.src} // Path to your fire image
+  //     alt="Rocket Fire"
+  //     style={{
+  //       position: 'fixed',
+  //       width: '40px',
+  //       height: '40px',
+  //       pointerEvents: 'none', // Prevent the fire from capturing mouse events
+  //       zIndex: 1000,
+  //     }}
+  //   />
+  // );
   return (
-    <img
+    <Image
       ref={followerRef}
-      src={FireImg.src} // Path to your fire image
+      src={FireImg} // Path to your fire image
       alt="Rocket Fire"
+      width={40}
+      height={40}
       style={{
         position: 'fixed',
-        width: '40px',
-        height: '40px',
         pointerEvents: 'none', // Prevent the fire from capturing mouse events
         zIndex: 1000,
       }}

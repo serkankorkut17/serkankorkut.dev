@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import MobileNavigation from "./MobileNavigation";
 import Logo from "@/images/drndigital_white.png";
 // import useTranslation from "@/hooks/useTranslation";
@@ -39,7 +40,8 @@ const NavigationBar = () => {
       <div className="max-w-full mx-auto lg:mx-24 xl:mx-48 flex justify-between md:justify-evenly items-center">
         <div className="flex space-x-3">
           <Link href="/">
-            <img src={Logo.src} className="h-28" alt="DRN Digital Logo" />
+            {/* <img src={Logo.src} className="h-28" alt="DRN Digital Logo" /> */}
+            <Image src={Logo} alt="DRN Digital Logo" width={112} height={112} />
           </Link>
           {/* <span className="text-2xl font-semibold">Serkan Korkut</span> */}
         </div>

@@ -3,6 +3,7 @@ import { Transition } from "@headlessui/react";
 import NavData from "@/data/nav.json";
 import Link from "next/link";
 import DRNDigitalLogo from "@/images/drndigital-logo.png";
+import Image from "next/image";
 
 export default function MobileNavigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -75,8 +76,8 @@ export default function MobileNavigation() {
 
           {/* Logo and Title */}
           <div className="flex flex-col justify-center items-center mb-8">
-            <img
-              src={DRNDigitalLogo.src}
+            <Image
+              src={DRNDigitalLogo}
               className="h-48"
               alt="DRN Digital Logo"
             />
