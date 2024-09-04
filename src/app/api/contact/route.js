@@ -1,4 +1,7 @@
 import nodemailer from "nodemailer";
+import EmailData from "@/data/email.json";
+
+const { EMAIL_USER, EMAIL_PASS, EMAIL_TO } = EmailData;
 
 export async function POST(req) {
   try {
@@ -9,15 +12,15 @@ export async function POST(req) {
     const transporter = nodemailer.createTransport({
       service: "Gmail", // You can use any email service provider
       auth: {
-        user: process.env.EMAIL_USER, // Your email address
-        pass: process.env.EMAIL_PASS, // Your email password or app password
+        user: EMAIL_USER, // Your email address
+        pass: EMAIL_PASS, // Your email password or app password
       },
     });
 
     // Email options
     const mailOptions = {
       from: email, // The sender's email address
-      to: process.env.EMAIL_TO, // Your email address to receive the form data
+      to: EMAIL_TO, // Your email address to receive the form data
       subject: `New Message from ${name}: ${subject}`,
       text: `
         You have received a new message from serkankorkut.dev contact form:
