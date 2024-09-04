@@ -57,7 +57,7 @@ export default function ContactForm() {
     <section
       className={`${montserrat.className} flex flex-col py-16 px-8 md:px-40 text-black  bg-white`}
     >
-      <h2 className="text-4xl font-bold mb-8">What Are You Looking For?</h2>
+      <h2 className="text-4xl font-bold mb-8">Do You Want to Contact Me?</h2>
       <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
         <input
           type="text"

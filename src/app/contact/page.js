@@ -3,7 +3,6 @@ import PageHeader from "@/components/Sections/PageHeader";
 import ContactSection from "@/components/Sections/ContactSection";
 import MapSection from "@/components/Sections/MapSection";
 import ContactForm from "@/components/Sections/FormSection";
-import WhiteSection from "@/components/Sections/WhiteSection";
 
 const ContactPage = () => {
   return (
@@ -12,7 +11,6 @@ const ContactPage = () => {
       <ContactSection />
       <MapSection />
       <ContactForm />
-      <WhiteSection />
     </main>
   );
 };
