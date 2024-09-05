@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "@/images/drndigital_white.png";
+import Logo from "@/images/SK_white.png";
 import Link from "next/link";
 import background from "@/images/background/main-footer-two-bg-1.webp";
 import Image from "next/image";
@@ -102,8 +102,8 @@ const Footer = () => {
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm sm:text-center text-gray-400">
             © 2024{" "}
-            <a href="https://drndigital.com/" className="hover:underline">
-              DRN Digital™
+            <a href="https://serkankorkut.dev/" className="hover:underline">
+              Serkan Korkut™
             </a>
             . All Rights Reserved.
           </span>

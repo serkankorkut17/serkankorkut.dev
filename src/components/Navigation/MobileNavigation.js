@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Transition } from "@headlessui/react";
 import NavData from "@/data/nav.json";
 import Link from "next/link";
-import Logo from "@/images/drndigital-logo.png";
+import Logo from "@/images/SK_black.png";
 import Image from "next/image";
 
 export default function MobileNavigation() {
