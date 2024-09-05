@@ -33,7 +33,7 @@ const StickyNav = ({ font, navLinks }) => {
       <div className="max-w-full h-20 mx-auto lg:mx-24 xl:mx-48 flex justify-between md:justify-evenly items-center">
         <div className="flex space-x-3">
           <Link href="/">
-            <Image src={Logo} alt="DRN Digital Logo" width={80} height={80} />
+            <Image src={Logo} alt="DRN Digital Logo" width={75} height={75} />
           </Link>
           {/* <span className="text-2xl font-semibold">Serkan Korkut</span> */}
         </div>

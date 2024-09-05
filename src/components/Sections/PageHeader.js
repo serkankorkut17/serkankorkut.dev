@@ -1,18 +1,9 @@
 import Image from "next/image";
 import background from "@/images/background/page-header-bg.webp";
 
-import { Orbitron } from "next/font/google";
-const orbitron = Orbitron({ subsets: ["latin"] });
-
-import { Montserrat } from "next/font/google";
-const montserrat = Montserrat({
-  weight: ["400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
-
-export default function PageHeader({ title }) {
+export default function PageHeader({ title, font }) {
   return (
-    <section className={`${montserrat.className} flex items-center justify-center h-64 md:h-80 lg:h-96 w-full`}>
+    <section className={`flex items-center justify-center h-64 md:h-80 lg:h-96 w-full`}>
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full -z-40 bg-black">
         <Image

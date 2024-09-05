@@ -2,13 +2,13 @@
 
 import React from "react";
 
-const HireMeSection = ({font}) => {
+const HireMeSection = () => {
   const navigateToLinkedIn = () => {
     window.open("https://www.linkedin.com/in/serkankorkut17", "_blank");
   };
 
   return (
-    <div className={`${font.className} relative`}>
+    <div className={`relative`}>
       {/* Scrolling Text Section */}
       <div className="w-full bg-black py-4 overflow-hidden relative">
         <div className="scrolling-container">

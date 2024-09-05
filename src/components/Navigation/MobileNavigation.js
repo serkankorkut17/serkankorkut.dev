@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Transition } from "@headlessui/react";
 import NavData from "@/data/nav.json";
 import Link from "next/link";
@@ -7,12 +7,36 @@ import Image from "next/image";
 
 export default function MobileNavigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const sidebarRef = useRef(null); // Reference for sidebar
 
   const navLinks = NavData.navLinks;
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleCloseSidebar = () => {
+    setIsOpen(false);
+  };
+
+  // Detect click outside sidebar
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        handleCloseSidebar(); // Close sidebar if clicked outside
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <div>
@@ -49,7 +73,10 @@ export default function MobileNavigation() {
         leaveFrom="translate-x-0"
         leaveTo="-translate-x-full"
       >
-        <div className="fixed inset-y-0 left-0 z-30 w-64 p-6 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out">
+        <div
+          className="fixed inset-y-0 left-0 z-30 w-64 p-6 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out"
+          ref={sidebarRef}
+        >
           {/* Close button positioned to the right */}
           <div className="flex justify-end mb-4">
             <button
@@ -76,11 +103,7 @@ export default function MobileNavigation() {
 
           {/* Logo and Title */}
           <div className="flex flex-col justify-center items-center mb-8">
-            <Image
-              src={Logo}
-              className="h-48"
-              alt="DRN Digital Logo"
-            />
+            <Image src={Logo} className="h-48" alt="DRN Digital Logo" />
             <p className="block text-gray-800 text-xl font-bold text-center">
               Serkan Korkut
             </p>
@@ -90,7 +113,7 @@ export default function MobileNavigation() {
           <nav className="flex flex-col">
             {navLinks.map((link, index) => (
               <div key={link.name}>
-                <Link href={link.url}>
+                <Link href={link.url} onClick={toggleSidebar}>
                   <span className="block text-gray-700 text-lg font-medium hover:text-orange-500 transition duration-200 ease-in-out cursor-pointer">
                     {link.name}
                   </span>

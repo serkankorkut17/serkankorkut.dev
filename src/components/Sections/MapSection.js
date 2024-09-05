@@ -5,7 +5,7 @@ export default function MapSection() {
   const link = ContactData.mapSection.link;
 
   return (
-    <section className="flex justify-center py-16 px-8 md:px-40 bg-white">
+    <section className="flex justify-center py-8 px-8 md:px-40 bg-white">
       <div className="w-full h-[500px]">
         <iframe
           src={link}

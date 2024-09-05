@@ -1,21 +1,15 @@
 import { PiMapPinArea } from "react-icons/pi";
 import { PiPhoneCall } from "react-icons/pi";
 import { TfiEmail } from "react-icons/tfi";
-import { Montserrat } from "next/font/google";
 import ContactData from "@/data/contact.json";
 import Link from "next/link";
-
-const montserrat = Montserrat({
-  weight: ["400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
 
 export default function ContactSection() {
   const { title, subtitle, location, phone, email } = ContactData.contactSection;
 
   return (
     <section
-      className={`${montserrat.className} flex flex-col py-16 px-8 md:px-40 bg-white`}
+      className={`flex flex-col py-8 px-8 md:px-40 bg-white`}
     >
       <div className="text-start pb-12">
         <p className="text-orange-500 text-lg font-extrabold">

@@ -18,12 +18,11 @@ const NavigationBar = ({font}) => {
 
   return (
     <>
-    <StickyNav navLinks={navLinks} font={font}/>
     <nav className={`${font.className} text-white py-2 px-4`}>
       <div className="max-w-full mx-auto lg:mx-24 xl:mx-48 flex justify-between md:justify-evenly items-center h-24">
         <div className="flex space-x-3">
           <Link href="/">
-            <Image src={Logo} alt="DRN Digital Logo" width={112} height={112} />
+            <Image src={Logo} alt="DRN Digital Logo" width={90} height={90} />
           </Link>
           {/* <span className="text-2xl font-semibold">Serkan Korkut</span> */}
         </div>
@@ -213,6 +212,7 @@ const NavigationBar = ({font}) => {
         </div>
       </div>
     </nav>
+    <StickyNav navLinks={navLinks} font={font}/>
     </>
   );
 };

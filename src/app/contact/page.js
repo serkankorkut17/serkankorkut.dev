@@ -15,12 +15,12 @@ const ContactPage = () => {
 
 
   return (
-    <main className="min-h-screen">
+    <main className={`${montserrat.className} min-h-screen`}>
       <PageHeader title="Contact Me" />
       <ContactSection />
       <MapSection />
       <ContactForm />
-      <HireMeSection font={montserrat}/>
+      <HireMeSection />
       
     </main>
   );
