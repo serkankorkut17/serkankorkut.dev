@@ -18,14 +18,14 @@ const HireMeSection = ({font}) => {
             <span className="scroll-item text-white text-xl font-medium">Hire a Developer - </span>
             <span className="scroll-item text-orange-500 text-xl font-medium">Bring Your Ideas to Life - </span>
             <span className="scroll-item text-white text-xl font-medium">Freelance Projects Available - </span>
-            <span className="scroll-item text-orange-500 text-xl font-medium">Let’s Build Something Amazing Together - </span>
+            <span className="scroll-item text-orange-500 text-xl font-medium">Let&apos;s Build Something Amazing Together - </span>
             <span className="scroll-item text-white text-xl font-medium">Innovative Solutions - </span>
             <span className="scroll-item text-orange-500 text-xl font-medium">Hire Me - </span>
             {/* Duplicate content for seamless scrolling */}
             <span className="scroll-item text-white text-xl font-medium">Hire a Developer - </span>
             <span className="scroll-item text-orange-500 text-xl font-medium">Bring Your Ideas to Life - </span>
             <span className="scroll-item text-white text-xl font-medium">Freelance Projects Available - </span>
-            <span className="scroll-item text-orange-500 text-xl font-medium">Let’s Build Something Amazing Together - </span>
+            <span className="scroll-item text-orange-500 text-xl font-medium">Let&apos;s Build Something Amazing Together - </span>
             <span className="scroll-item text-white text-xl font-medium">Innovative Solutions - </span>
             <span className="scroll-item text-orange-500 text-xl font-medium">Hire Me - </span>
           </div>
@@ -35,9 +35,9 @@ const HireMeSection = ({font}) => {
       {/* Main Content */}
       <div className="bg-gradient-to-r from-orange-50 to-orange-100 py-16 px-8 md:px-40">
         <div className="text-center">
-          <h2 className="text-5xl font-bold text-black mb-4">Let's work together</h2>
+          <h2 className="text-5xl font-bold text-black mb-4">Let&apos;s work together</h2>
           <p className="text-lg text-gray-600 leading-relaxed max-w-xl mx-auto">
-            I'm available for freelance projects or a job. Let's work together
+            I&apos;m available for freelance projects or a job. Let&apos;s work together
             to build something amazing and innovative.
           </p>
           <button
