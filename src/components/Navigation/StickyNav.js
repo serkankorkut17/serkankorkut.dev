@@ -24,7 +24,7 @@ const StickyNav = ({ font, navLinks }) => {
     <nav
       className={`${
         font.className
-      } w-full top-0 left-0 z-50 transition-transform ease-in-out duration-1000 transform ${
+      } py-2 px-4 w-full top-0 left-0 z-30 transition-transform ease-in-out duration-1000 transform ${
         isSticky
           ? "fixed bg-black shadow-lg translate-y-0"
           : "hidden -translate-y-full"

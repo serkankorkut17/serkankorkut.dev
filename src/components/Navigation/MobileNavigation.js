@@ -74,7 +74,7 @@ export default function MobileNavigation() {
         leaveTo="-translate-x-full"
       >
         <div
-          className="fixed inset-y-0 left-0 z-30 w-64 p-6 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out"
+          className="absolute z-50 inset-y-0 left-0 w-64 p-6 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out"
           ref={sidebarRef}
         >
           {/* Close button positioned to the right */}
@@ -103,7 +103,7 @@ export default function MobileNavigation() {
 
           {/* Logo and Title */}
           <div className="flex flex-col justify-center items-center mb-8">
-            <Image src={Logo} className="h-48" alt="DRN Digital Logo" />
+            <Image src={Logo} className="h-48" alt="Serkan Korkut Logo" />
             <p className="block text-gray-800 text-xl font-bold text-center">
               Serkan Korkut
             </p>
