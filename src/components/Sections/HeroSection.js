@@ -8,11 +8,11 @@ const orbitron = Orbitron({ subsets: ["latin"] });
 export default function HeroSection() {
   return (
     <section className="flex min-h-full flex-col items-center justify-between py-2 px-8 md:py-8 md:px-24">
-      <div className="absolute inset-0 w-full h-full -z-40">
+      <div className="absolute inset-0 w-full h-full -z-40 bg-black">
         <Image
           src={background}
           priority={true}
-          className="object-cover w-full h-full opacity-50"
+          className="object-cover w-full h-full opacity-25"
           alt="Background"
         />
       </div>

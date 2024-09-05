@@ -3,8 +3,6 @@
 import React from "react";
 
 const HireMeSection = ({font}) => {
-    console.log(font);
-    
   const navigateToLinkedIn = () => {
     window.open("https://www.linkedin.com/in/serkankorkut17", "_blank");
   };
