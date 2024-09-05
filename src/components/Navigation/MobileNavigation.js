@@ -74,7 +74,7 @@ export default function MobileNavigation() {
         leaveTo="-translate-x-full"
       >
         <div
-          className="absolute z-50 inset-y-0 left-0 w-64 p-6 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out"
+          className="fixed inset-0 z-50 w-64 h-screen p-6 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out overflow-y-auto"
           ref={sidebarRef}
         >
           {/* Close button positioned to the right */}
