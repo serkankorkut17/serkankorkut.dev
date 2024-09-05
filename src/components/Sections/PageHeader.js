@@ -12,14 +12,17 @@ const montserrat = Montserrat({
 
 export default function PageHeader({ title }) {
   return (
-    <section className={`${montserrat.className} relative flex items-center justify-center h-64 md:h-80 lg:h-96 w-full overflow-hidden`}>
-      <Image
-        src={background}
-        priority={true}
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10 bg-black"
-        alt="Background"
-      />
-      <div className="text-center pb-24">
+    <section className={`${montserrat.className} flex items-center justify-center h-64 md:h-80 lg:h-96 w-full`}>
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full -z-40 bg-black">
+        <Image
+          src={background}
+          priority={true}
+          className="object-cover w-full h-[352px] md:h-[416px] lg:h-[480px]"
+          alt="Background"
+        />
+      </div>
+      <div className="relative z-10 text-center pb-24">
         <h1
           className="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold"
         >
