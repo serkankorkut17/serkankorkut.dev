@@ -53,7 +53,7 @@ export default function ContactForm() {
 
   return (
     <section
-      className={`${montserrat.className} flex flex-col py-16 px-8 md:px-40 text-black  bg-white`}
+      className={`${montserrat.className} flex flex-col py-16 px-8 md:px-40 text-black bg-white`}
     >
       <h2 className="text-4xl font-bold mb-8">Do You Want to Contact Me?</h2>
       <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">

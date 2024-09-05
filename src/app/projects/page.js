@@ -5,7 +5,7 @@ import WhiteSection from "@/components/Sections/WhiteSection";
 const ProjectsPage = () => {
   return (
     <main className="min-h-screen">
-      <PageHeader title="Contact Us" />
+      <PageHeader title="My Projects" />
       <WhiteSection />
     </main>
   );
