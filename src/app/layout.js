@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         <ScrollToTopButton />
         <NavigationBar font={montserrat} />
         {children}
-        <Footer />
+        <Footer font={montserrat}/>
       </body>
     </html>
   );

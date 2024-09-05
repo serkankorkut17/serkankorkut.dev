@@ -9,22 +9,14 @@ import { FaDiscord } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
-
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({
-  weight: ["400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
-
-const Footer = () => {
+const Footer = ({font}) => {
   return (
-    <footer className={`${montserrat.className} relative`}>
-      <div className="absolute inset-0 w-full h-full -z-40">
+    <footer className={`${font.className} relative`}>
+      <div className="absolute inset-0 w-full h-full -z-40 bg-black">
         <Image
           src={background}
           priority={true}
-          className="object-cover w-full h-full opacity-50"
+          className="object-cover w-full h-full opacity-25"
           alt="Background"
         />
       </div>

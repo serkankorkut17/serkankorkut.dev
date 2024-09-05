@@ -16,7 +16,7 @@ export default function PageHeader({ title }) {
       <Image
         src={background}
         priority={true}
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+        className="absolute top-0 left-0 w-full h-full object-cover -z-10 bg-black"
         alt="Background"
       />
       <div className="text-center pb-24">
