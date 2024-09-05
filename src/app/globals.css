@@ -56,7 +56,7 @@ body {
   cursor: none !important; /* Suppress the cursor globally */
 }
 
-/* Container to ensure no gap between the scrolling text */
+/* Scrolling */
 .scrolling-container {
   display: flex;
   overflow: hidden;
@@ -65,7 +65,11 @@ body {
 
 .scrolling-text {
   display: flex;
-  animation: scroll-text 10s linear infinite;
+  animation: scroll-text 20s linear infinite;
+}
+
+.scrolling-container:hover .scrolling-text {
+  animation-play-state: paused; /* Pause animation on hover */
 }
 
 .scroll-item {
@@ -82,7 +86,3 @@ body {
     transform: translateX(-50%);
   }
 }
-
-
-
-
