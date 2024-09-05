@@ -6,6 +6,12 @@ import RocketCursor from "@/components/Mouse/RocketCursor";
 import ScrollToTopButton from "@/components/Scroll";
 import Footer from "@/components/Navigation/Footer";
 
+import { Montserrat } from "next/font/google";
+const montserrat = Montserrat({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -14,15 +20,18 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
   return (
     <html lang="en">
-      <body className={inter.className} style={{
-        cursor: 'none', }} >
+      <body
+        className={inter.className}
+        style={{
+          cursor: "none",
+        }}
+      >
         <RocketCursor />
         <RocketFire />
         <ScrollToTopButton />
-        <NavigationBar />
+        <NavigationBar font={montserrat} />
         {children}
         <Footer />
       </body>

@@ -4,43 +4,25 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import MobileNavigation from "./MobileNavigation";
+import StickyNav from "./StickyNav";
 import Logo from "@/images/SK_white.png";
 // import useTranslation from "@/hooks/useTranslation";
 import NavData from "@/data/nav.json";
-import { Montserrat } from "next/font/google";
 
-const montserrat = Montserrat({
-  weight: ["400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
-
-const NavigationBar = () => {
+const NavigationBar = ({font}) => {
   // const { t } = useTranslation();
 
   const socialLinks = NavData.socialLinks;
   const navLinks = NavData.navLinks;
   const contactInfo = NavData.contactInfo;
 
-  // const handleScroll = () => {
-  //   if (window.scrollY > 100) {
-  //     // Adjust this value as needed
-  //     setShowNav(true);
-  //   } else {
-  //     setShowNav(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
   return (
-    <nav className={`${montserrat.className} text-white py-2 px-4 `}>
-      <div className="max-w-full mx-auto lg:mx-24 xl:mx-48 flex justify-between md:justify-evenly items-center">
+    <>
+    <StickyNav navLinks={navLinks} font={font}/>
+    <nav className={`${font.className} text-white py-2 px-4`}>
+      <div className="max-w-full mx-auto lg:mx-24 xl:mx-48 flex justify-between md:justify-evenly items-center h-24">
         <div className="flex space-x-3">
           <Link href="/">
-            {/* <img src={Logo.src} className="h-28" alt="DRN Digital Logo" /> */}
             <Image src={Logo} alt="DRN Digital Logo" width={112} height={112} />
           </Link>
           {/* <span className="text-2xl font-semibold">Serkan Korkut</span> */}
@@ -205,7 +187,7 @@ const NavigationBar = () => {
             className="items-center justify-between hidden w-full md:flex flex-col md:flex-row md:w-auto md:order-1"
             id="navbar-cta"
           >
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-black md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
               {navLinks.map((link) => (
                 <li key={link.name} className="md:mt-0">
                   <Link href={link.url}>
@@ -231,6 +213,7 @@ const NavigationBar = () => {
         </div>
       </div>
     </nav>
+    </>
   );
 };
 
