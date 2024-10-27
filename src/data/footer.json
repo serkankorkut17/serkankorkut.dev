@@ -1,0 +1,74 @@
+{
+    "aboutMe": {
+        "title": "About Me",
+        "description": "Hi, I'm Serkan Korkut, a passionate backend developer with experience in modern web development. I thrive on building efficient applications and love to learn new technologies."
+    },
+    "resources": {
+        "title": "Resources",
+        "items": [
+            {
+                "name": "Next.js",
+                "url": "https://nextjs.org/"
+            },
+            {
+                "name": "Tailwind CSS",
+                "url": "https://tailwindcss.com/"
+            },
+            {
+                "name": "Flowbite",
+                "url": "https://flowbite.com/"
+            },
+            {
+                "name": "Plesk",
+                "url": "https://www.plesk.com/"
+            }
+        ]
+    },
+    "followMe": {
+        "title": "Follow Me",
+        "items": [
+            {
+                "name": "LinkedIn",
+                "url": "https://www.linkedin.com/in/serkankorkut17"
+            },
+            {
+                "name": "GitHub",
+                "url": "https://github.com/serkankorkut17"
+            },
+            {
+                "name": "Instagram",
+                "url": "https://www.instagram.com/serkan.krktt/"
+            },
+            {
+                "name": "Facebook",
+                "url": "https://www.facebook.com/serkan.krktt/"
+            }
+        ]
+    },
+    "accounts": {
+        "facebook": {
+            "url": "https://www.facebook.com/serkan.krktt/",
+            "show": true
+        },
+        "twitter": {
+            "url": "https://x.com/_blckfyre_",
+            "show": false
+        },
+        "instagram": {
+            "url": "https://www.instagram.com/serkan.krktt/",
+            "show": true
+        },
+        "linkedIn": {
+            "url": "https://www.linkedin.com/in/serkankorkut17",
+            "show": true
+        },
+        "github": {
+            "url": "https://github.com/serkankorkut17",
+            "show": true
+        },
+        "discord": {
+            "url": "https://discord.gg/serkankorkut17",
+            "show": false
+        }
+    }
+}

@@ -1,6 +1,6 @@
 {
   "contactSection": {
-    "title": ".: HAVE QUESTIONS?",
+    "title": ".: DO YOU HAVE ANY QUESTIONS?",
     "subtitle": "Get In Touch!",
     "location": {
       "title": "Location",
@@ -9,8 +9,8 @@
     },
     "phone": {
       "title": "Phone No.",
-      "number": "+90 536 492 5885",
-      "link": "https://wa.me/905364925885"
+      "number": "-",
+      "link": "/"
     },
     "email": {
       "title": "Email",
@@ -22,5 +22,54 @@
     "title": "Location",
     "address": "Maltepe/Istanbul, Turkey",
     "link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12053.369121484178!2d29.124409!3d40.95208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac689ab10c585%3A0x154f7aab1a0f4be0!2sAyd%C4%B1nevler%2C%2034854%20Maltepe%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1725128603156!5m2!1str!2str"
+  },
+  "formSection": {
+    "title": "Do You Want to Contact Me?",
+    "success": "Your message has been sent successfully.",
+    "error": "Something went wrong. Please try again.",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Name",
+        "error": "Name is required"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Email",
+        "error": "Email is required"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Subject",
+        "error": "Subject is required"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Phone",
+        "error": "Phone is required"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Message",
+        "error": "Message is required"
+      },
+      "button": "Send Message"
+    }
+  },
+  "scrollingContainer": {
+    "scrollingText": [
+      "Hire a Developer",
+      "Seeking Internship Opportunities",
+      "Backend Developer in Progress",
+      "Looking for Backend Internships",
+      "Open to Fullstack Roles If Needed",
+      "Backend First, But Open to Fullstack"
+    ]
+  },
+  "hireMeSection": {
+    "linkedIn": "https://www.linkedin.com/in/serkankorkut17",
+    "title": "Let's work together",
+    "text": "I'm currently studying and seeking internship or job opportunities, primarily focused on backend development. However, I'm also open to fullstack roles if needed. Let's collaborate to create impactful and innovative solutions together.",
+    "button": "Hire Me"
   }
 }
