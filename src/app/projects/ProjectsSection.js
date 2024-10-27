@@ -172,7 +172,7 @@ const ProjectsSection = () => {
             key={id}
             className={`flex flex-col ${
               isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-            } w-full gap-8 mb-32 lg:mb-16`}
+            } w-full gap-8 mb-36`}
           >
             {/* Carousel for each project */}
             <div className="w-full lg:w-1/2">
