@@ -1,19 +1,20 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import NavigationBar from "@/components/Navigation/NavigationBar";
 import RocketFire from "@/components/Mouse/RocketFire";
 import RocketCursor from "@/components/Mouse/RocketCursor";
-import ScrollToTopButton from "@/components/Scroll";
+import ScrollToTopButton from "@/components/Mouse/Scroll";
 import Footer from "@/components/Navigation/Footer";
+// import 'flowbite/dist/flowbite.min.css';
 
+
+// Import the Montserrat font
 import { Montserrat } from "next/font/google";
 const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
 
-const inter = Inter({ subsets: ["latin"] });
-
+// Export the metadata
 export const metadata = {
   title: "Serkan Korkut",
   description: "Welcome to my personal website",
@@ -22,8 +23,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <link rel="icon" href="/favicon.png" />
+      </head>
       <body
-        className={inter.className}
+        className={montserrat.className}
         style={{
           cursor: "none",
         }}
@@ -31,9 +39,9 @@ export default function RootLayout({ children }) {
         <RocketCursor />
         <RocketFire />
         <ScrollToTopButton />
-        <NavigationBar font={montserrat} />
+        <NavigationBar />
         {children}
-        <Footer font={montserrat}/>
+        <Footer />
       </body>
     </html>
   );

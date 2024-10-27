@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import ContactData from "@/data/contact.json";
 
 export default function ContactForm() {
+  const { title, success, error, form } = ContactData.formSection;
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,7 +32,7 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        alert("Message sent successfully!");
+        alert(success);
         setFormData({
           name: "",
           email: "",
@@ -38,7 +41,7 @@ export default function ContactForm() {
           message: "",
         });
       } else {
-        alert("Failed to send message.");
+        alert(error);
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -49,14 +52,14 @@ export default function ContactForm() {
     <section
       className={`flex flex-col pt-8 pb-16 px-8 md:px-40 text-black bg-white`}
     >
-      <h2 className="text-4xl font-bold mb-8">Do You Want to Contact Me?</h2>
+      <h2 className="text-4xl font-bold mb-8">{title}</h2>
       <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Name"
+          placeholder={form.name.placeholder}
           className="font-medium border border-gray-300 p-4"
           required
         />
@@ -65,7 +68,7 @@ export default function ContactForm() {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="Email"
+          placeholder={form.email.placeholder}
           className="font-medium border border-gray-300 p-4"
           required
         />
@@ -74,7 +77,7 @@ export default function ContactForm() {
           name="subject"
           value={formData.subject}
           onChange={handleChange}
-          placeholder="Subject"
+          placeholder={form.subject.placeholder}
           className="font-medium border border-gray-300 p-4"
           required
         />
@@ -83,7 +86,7 @@ export default function ContactForm() {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          placeholder="Phone"
+          placeholder={form.phone.placeholder}
           className="font-medium border border-gray-300 p-4"
           required
         />
@@ -91,7 +94,7 @@ export default function ContactForm() {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          placeholder="Message"
+          placeholder={form.message.placeholder}
           className="font-medium border border-gray-300 p-4 col-span-2"
           rows="4"
           required
@@ -100,7 +103,7 @@ export default function ContactForm() {
           type="submit"
           className="bg-black text-white font-bold py-2 px-4 mt-4 col-span-2"
         >
-          Send Comment
+          {form.button}
         </button>
       </form>
     </section>

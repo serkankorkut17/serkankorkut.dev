@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import MobileNavigation from "./MobileNavigation";
-import Logo from "@/images/SK_white.png";
+import Logo from "@/images/logo/logo-transparent.png";
 // import useTranslation from "@/hooks/useTranslation";
 import NavData from "@/data/nav.json";
 
-const NavigationBar = ({ font }) => {
+const NavigationBar = () => {
   // const { t } = useTranslation();
 
   const socialLinks = NavData.socialLinks;
@@ -19,8 +19,8 @@ const NavigationBar = ({ font }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 120);
-      //setIsSticky(window.scrollY > window.innerHeight); // Makes nav sticky after scrolling 1 full screen height
+      setIsSticky(window.scrollY > 112);
+      // setIsSticky(window.scrollY > window.innerHeight);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -30,20 +30,46 @@ const NavigationBar = ({ font }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isSticky) {
+      // window.scrollBy({
+      //   top: -112,  // Scroll 112px down
+      //   left: 0,
+      //   behavior: 'smooth'  // Enable smooth scrolling
+      // });
+    } else {
+      // window.scrollBy({
+      //   top: 112,  // Scroll 112px up
+      //   left: 0,
+      //   behavior: 'smooth'  // Enable smooth scrolling
+      // });
+    }
+  }, [isSticky]); // This effect runs whenever isSticky changes
+
   return (
     <>
+      <div className={`${isSticky ? "h-24" : "h-0"}`} />
+
       <nav
-        className={`${font.className} text-white py-2 px-4 ${
+        className={`text-white py-2 px-4 ${
           isSticky
-            ? "w-full top-0 left-0 z-30 transition-transform ease-in-out duration-1000 transform fixed bg-black shadow-lg translate-y-0"
+            ? "translate-y-24 fixed w-full -top-24 left-0 z-40 transition ease-in-out duration-500 bg-black shadow-lg"
             : ""
-        }`}
+        } transition-transform duration-300 ease-in-out`}
       >
-        <div className={`max-w-full mx-auto lg:mx-24 xl:mx-48 flex justify-between md:justify-evenly items-center ${
-          isSticky ? "h-20":"h-24"}`}>
-          <div className="flex space-x-3">
+        <div
+          className={`max-w-full mx-auto lg:mx-24 xl:mx-48 flex justify-between md:justify-evenly items-center ${
+            isSticky ? "h-20" : "h-24"
+          }`}
+        >
+          <div className="flex items-center space-x-3">
             <Link href="/">
-              <Image src={Logo} alt="DRN Digital Logo" width={isSticky ? 75:90} height={isSticky ? 75:90} />
+              <Image
+                src={Logo}
+                alt="DRN Digital Logo"
+                width={isSticky ? 75 : 90}
+                height={isSticky ? 75 : 90}
+              />
             </Link>
             {/* <span className="text-2xl font-semibold">Serkan Korkut</span> */}
           </div>
@@ -223,7 +249,7 @@ const NavigationBar = ({ font }) => {
                   <button
                     type="button"
                     id="navbar-btn"
-                    className="text-white bg-orange-500 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-800 font-medium rounded-lg text-sm px-4 py-2 text-center"
+                    className="text-white bg-orange-500 hover:bg-orange-700 transition-colors duration-300 focus:ring-4 focus:outline-none focus:ring-orange-800 font-medium rounded-lg text-sm px-4 py-2 text-center"
                   >
                     Contact
                   </button>

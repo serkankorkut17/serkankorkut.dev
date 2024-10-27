@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'flowbite/dist/flowbite.min.css';
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -78,6 +80,7 @@ body {
   padding-right: 2rem; /* Optional: Adjust spacing between items */
 }
 
+/* Scroll animation */
 @keyframes scroll-text {
   0% {
     transform: translateX(0);
@@ -85,4 +88,16 @@ body {
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* custom.css */
+.carousel {
+  position: relative !important; /* Override absolute positioning */
+  overflow: hidden; /* Ensure images do not overflow */
+}
+
+.carousel img {
+  position: relative !important; /* Remove absolute positioning */
+  width: 100%; /* Make images full width */
+  height: auto; /* Maintain aspect ratio */
 }

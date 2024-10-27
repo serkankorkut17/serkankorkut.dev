@@ -1,27 +1,21 @@
 import React from "react";
 import PageHeader from "@/components/Sections/PageHeader";
-import ContactSection from "@/components/Sections/ContactSection";
-import MapSection from "@/components/Sections/MapSection";
-import ContactForm from "@/components/Sections/FormSection";
-import HireMeSection from "@/components/Sections/HireMeSection";
+import ContactSection from "@/components/Contact/ContactSection";
+import MapSection from "@/components/Contact/MapSection";
+import ContactForm from "@/components/Contact/FormSection";
+import ScrollingContainer from "@/components/Contact/ScrollingContainer";
+import HireMeSection from "@/components/Contact/HireMeSection";
 
-import { Montserrat } from "next/font/google";
-const montserrat = Montserrat({
-  weight: ["400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-});
-
+// This page is about contacting me. You can find my contact information here.
 const ContactPage = () => {
-
-
   return (
-    <main className={`${montserrat.className} min-h-screen`}>
+    <main className={`min-h-screen`}>
       <PageHeader title="Contact Me" />
       <ContactSection />
       <MapSection />
       <ContactForm />
+      <ScrollingContainer />
       <HireMeSection />
-      
     </main>
   );
 };

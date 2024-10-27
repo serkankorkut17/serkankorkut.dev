@@ -1,27 +1,22 @@
 import Image from "next/image";
-import background from "@/images/background/banner-one-shape-1.webp";
+// import background from "@/images/background/banner-one-shape-1.webp";
 import PP from "@/images/pp.jpeg";
 import { Orbitron } from "next/font/google";
 
-const orbitron = Orbitron({ subsets: ["latin"] });
+const orbitron = Orbitron({
+  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 export default function HeroSection() {
   return (
-    <section className="flex min-h-full flex-col items-center justify-between py-2 px-8 md:py-8 md:px-24">
-      <div className="absolute inset-0 w-full h-full -z-40 bg-black">
-        <Image
-          src={background}
-          priority={true}
-          className="object-cover w-full h-full opacity-25"
-          alt="Background"
-        />
-      </div>
-      <div className="text-center relative z-10">
+    <section className="flex bg-black h-[calc(100vh-112px)] flex-col overflow-hidden items-center justify-between py-2 px-8 md:py-8 md:px-24">
+      <div className="text-center relativ z-10">
         <div className="flex justify-center mx-20 sm:mx-28 md:mx-40 xl:mx-60">
-          <div className="relative w-48 h-48 md:w-48 md:h-48 lg:w-56 lg:h-56 1.5xl:w-64 1.5xl:h-64">
+          <div className="relativ w-48 h-48 md:w-48 md:h-48 lg:w-56 lg:h-56 1.5xl:w-64 1.5xl:h-64">
             <Image
               src={PP}
-              className="w-full h-full object-contain rounded-full"
+              className="w-full h-full object-contain rounded-full transform transition-transform duration-300 hover:scale-110 hover:shadow-lg"
               alt="Profile Picture"
             />
           </div>

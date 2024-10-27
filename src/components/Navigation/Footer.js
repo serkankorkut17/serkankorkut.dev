@@ -1,164 +1,141 @@
 import React from "react";
-import Logo from "@/images/SK_white.png";
+import Logo from "@/images/logo/logo-transparent.png";
 import Link from "next/link";
-import background from "@/images/background/main-footer-two-bg-1.webp";
 import Image from "next/image";
-import { FaFacebookF } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaDiscord } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaDiscord,
+  FaTwitter,
+  FaGithub,
+  FaLinkedin,
+} from "react-icons/fa";
+import footerData from "@/data/footer.json";
 
-const Footer = ({ font }) => {
+const Footer = () => {
+  const { aboutMe, resources, followMe, accounts } = footerData;
   return (
-    <footer className={`${font.className} relative`}>
-      <div className="absolute inset-0 w-full h-full -z-40 bg-black">
-        <Image
-          src={background}
-          priority={true}
-          className="object-cover w-full h-full opacity-25"
-          alt="Background"
-        />
-      </div>
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <footer className="relative bg-gradient-to-b from-gray-900 to-black text-gray-300">
+      <div className="mx-auto w-full max-w-screen-xl p-6 lg:py-10 relative">
+        {/* Top Section */}
         <div className="md:flex md:justify-between">
-          <div className="mb-6 md:mb-0">
+          {/* Logo & Title */}
+          <div className="mb-10 md:mr-20 lg:mr-40 md:mb-0 flex flex-col items-start">
             <Link href="/">
-              <Image
-                src={Logo}
-                width={150}
-                height={50}
-                alt="DRN Digital Logo"
-              />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
-                Serkan Korkut
-              </span>
+              <div className="flex items-center space-x-2">
+                <Image
+                  src={Logo}
+                  width={150}
+                  height={150}
+                  alt="Serkan Korkut Logo"
+                />
+              </div>
             </Link>
+            <p className="text-3xl font-extrabold text-gray-100">
+              Serkan Korkut
+            </p>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-white">
-                Resources
+
+          {/* Links Sections */}
+          <div className="grid grid-cols-1 xs:grid-cols-2 gap-12 sm:grid-cols-3 text-right">
+            {/* About Me */}
+            <div className="flex flex-col">
+              <h2 className="mb-4 text-xl font-bold text-white uppercase">
+                {aboutMe.title}
               </h2>
-              <ul className="text-gray-500 font-medium">
-                <li className="mb-4">
-                  <Link href="https://nextjs.org/" className="hover:underline">
-                    Next.js
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    href="https://tailwindcss.com/"
-                    className="hover:underline"
-                  >
-                    Tailwind CSS
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    href="https://flowbite.com/"
-                    className="hover:underline"
-                  >
-                    Flowbite
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    href="https://www.plesk.com/"
-                    className="hover:underline"
-                  >
-                    Plesk
-                  </Link>
-                </li>
+              <p className="text-sm leading-relaxed text-gray-400">
+                {aboutMe.description}
+              </p>
+            </div>
+
+            {/* Resources */}
+            <div className="flex flex-col">
+              <h2 className="mb-4 text-xl font-bold text-white uppercase">
+                {resources.title}
+              </h2>
+              <ul className="text-sm text-gray-400 space-y-2">
+                {resources.items.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.url}
+                      className="hover:text-orange-500 transition"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
-            <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-white">
-                Follow me
+
+            {/* Social Media */}
+            <div className="flex flex-col">
+              <h2 className="mb-4 text-xl font-bold text-white uppercase">
+                {followMe.title}
               </h2>
-              <ul className="text-gray-500 font-medium">
-                <li className="mb-4">
-                  <Link
-                    href="https://github.com/serkankorkut17"
-                    className="hover:underline "
-                  >
-                    Github
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    href="https://www.linkedin.com/in/serkankorkut17"
-                    className="hover:underline"
-                  >
-                    LinkedIn
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    href="https://www.instagram.com/serkan.krktt/"
-                    className="hover:underline"
-                  >
-                    Instagram
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    href="https://discord.gg/4eeurUVvTy"
-                    className="hover:underline"
-                  >
-                    Discord
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-white">
-                Legal
-              </h2>
-              <ul className="text-gray-500 font-medium">
-                <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:underline">
-                    Terms &amp; Conditions
-                  </a>
-                </li>
+              <ul className="text-sm text-gray-400 space-y-2">
+                {followMe.items.map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      href={link.url}
+                      className="hover:text-orange-500 transition"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
-        <hr className="my-6 sm:mx-auto border-gray-700 lg:my-8" />
-        <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm sm:text-center text-gray-500">
+
+        <hr className="my-8 border-gray-700" />
+
+        {/* Bottom Section */}
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center">
+          {/* Copyright */}
+          <span className="text-sm text-gray-400 sm:text-center">
             © 2024{" "}
-            <a href="https://serkankorkut.dev/" className="hover:underline">
+            <Link
+              href="/"
+              className="hover:text-orange-500 transition"
+            >
               Serkan Korkut™
-            </a>
+            </Link>
             . All Rights Reserved.
           </span>
-          <div className="flex mt-4 sm:justify-center sm:mt-0">
-            <Link href="https://www.facebook.com/serkan.krktt/">
-              <FaFacebookF className="text-gray-500 hover:text-white ms-5" />
-            </Link>
-            <Link href="https://www.instagram.com/serkan.krktt/">
-              <FaInstagram className="text-gray-500 hover:text-white ms-5" />
-            </Link>
-            <Link href="https://www.linkedin.com/in/serkankorkut17">
-              <FaLinkedin className="text-gray-500 hover:text-white ms-5" />
-            </Link>
-            <Link href="https://discord.gg/4eeurUVvTy">
-              <FaDiscord className="text-gray-500 hover:text-white ms-5" />
-            </Link>
-            <Link href="https://twitter.com/">
-              <FaTwitter className="text-gray-500 hover:text-white ms-5" />
-            </Link>
-            <Link href="https://github.com/serkankorkut17">
-              <FaGithub className="text-gray-500 hover:text-white ms-5" />
-            </Link>
+
+          {/* Social Media Icons */}
+          <div className="flex space-x-6 mt-4 sm:mt-0 justify-center">
+            {accounts.linkedIn.show && (
+              <Link href={accounts.linkedIn.url}>
+                <FaLinkedin className="text-gray-400 hover:text-white transition-transform transform hover:scale-125" />
+              </Link>
+            )}
+            {accounts.github.show && (
+              <Link href={accounts.github.url}>
+                <FaGithub className="text-gray-400 hover:text-white transition-transform transform hover:scale-125" />
+              </Link>
+            )}
+            {accounts.facebook.show && (
+              <Link href={accounts.facebook.url}>
+                <FaFacebookF className="text-gray-400 hover:text-white transition-transform transform hover:scale-125" />
+              </Link>
+            )}
+            {accounts.instagram.show && (
+              <Link href={accounts.instagram.url}>
+                <FaInstagram className="text-gray-400 hover:text-white transition-transform transform hover:scale-125" />
+              </Link>
+            )}
+            {accounts.discord.show && (
+              <Link href={accounts.discord.url}>
+                <FaDiscord className="text-gray-400 hover:text-white transition-transform transform hover:scale-125" />
+              </Link>
+            )}
+            {accounts.twitter.show && (
+              <Link href={accounts.twitter.url}>
+                <FaTwitter className="text-gray-400 hover:text-white transition-transform transform hover:scale-125" />
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -1,17 +1,13 @@
 import React from "react";
 import PageHeader from "@/components/Sections/PageHeader";
-import CarouselSection from "@/components/Carousel";
-import WhiteSection from "@/components/Sections/WhiteSection";
+import ProjectsSection from "./ProjectsSection";
 
+// This page is about my projects. I will list my projects here.
 const ProjectsPage = () => {
-
   return (
     <main className="min-h-screen">
       <PageHeader title="My Projects" />
-      <div className="flex justify-center items-center bg-white">
-        <CarouselSection />
-      </div>
-      <WhiteSection />
+      <ProjectsSection />
     </main>
   );
 };

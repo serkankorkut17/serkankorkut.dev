@@ -1,14 +1,12 @@
-import { Orbitron } from "next/font/google";
-import HeroSection from "@/components/Sections/HeroSection";
-import WhiteSection from "@/components/Sections/WhiteSection";
+import HeroSection from "@/components/Home/HeroSection";
+import AboutSection from "@/components/Home/AboutSection";
 
-const orbitron = Orbitron({ subsets: ["latin"] });
-
+// This is the home page of the website. It contains the hero section and the about section.
 export default function Home() {
   return (
     <main className="min-h-screen">
       <HeroSection />
-      <WhiteSection />
+      <AboutSection />
     </main>
   );
 }

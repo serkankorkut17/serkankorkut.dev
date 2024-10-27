@@ -1,6 +1,7 @@
+// NOT USED IN THIS PROJECT
 import { useEffect, useState } from "react";
-import MobileNavigation from "./MobileNavigation";
-import Logo from "@/images/SK_white.png";
+import MobileNavigation from "../Navigation/MobileNavigation";
+import Logo from "@/images/logo/logo-transparent.png"
 import Image from "next/image";
 import Link from "next/link";
 
