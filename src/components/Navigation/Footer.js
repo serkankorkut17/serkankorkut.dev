@@ -15,7 +15,7 @@ import footerData from "@/data/footer.json";
 const Footer = () => {
   const { aboutMe, resources, followMe, accounts } = footerData;
   return (
-    <footer className="relative bg-gradient-to-b from-gray-900 to-black text-gray-300">
+    <footer className="relative bg-black text-gray-300">
       <div className="mx-auto w-full max-w-screen-xl p-6 lg:py-10 relative">
         {/* Top Section */}
         <div className="md:flex md:justify-between">

@@ -51,7 +51,7 @@ const NavigationBar = () => {
       <div className={`${isSticky ? "h-24" : "h-0"}`} />
 
       <nav
-        className={`text-white py-2 px-4 ${
+        className={`text-white bg-black py-2 px-4 ${
           isSticky
             ? "translate-y-24 fixed w-full -top-24 left-0 z-40 transition ease-in-out duration-500 bg-black shadow-lg"
             : ""
