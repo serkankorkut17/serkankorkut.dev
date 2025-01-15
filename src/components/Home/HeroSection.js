@@ -10,8 +10,7 @@ const orbitron = Orbitron({
 
 export default function HeroSection() {
   return (
-    <section className="flex bg-black h-[calc(100vh-112px)] flex-col overflow-hidden items-center justify-between py-2 px-8 md:py-8 md:px-24">
-      <div className="text-center relativ z-10">
+    <section className="flex bg-black h-[calc(100vh-96px)] flex-col overflow-hidden items-center justify-center py-2 px-8 md:py-8 md:px-24 text-center">
         <div className="flex justify-center mx-20 sm:mx-28 md:mx-40 xl:mx-60">
           <div className="relativ w-48 h-48 md:w-48 md:h-48 lg:w-56 lg:h-56 1.5xl:w-64 1.5xl:h-64">
             <Image
@@ -34,7 +33,6 @@ export default function HeroSection() {
             I&apos;m a Computer Engineering Student at Marmara University
           </h2>
         </div>
-      </div>
     </section>
   );
 }

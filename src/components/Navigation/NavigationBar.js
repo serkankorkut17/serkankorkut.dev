@@ -51,7 +51,7 @@ const NavigationBar = () => {
       <div className={`${isSticky ? "h-24" : "h-0"}`} />
 
       <nav
-        className={`text-white bg-black py-2 px-4 ${
+        className={`text-white bg-black px-4 ${
           isSticky
             ? "translate-y-24 fixed w-full -top-24 left-0 z-40 transition ease-in-out duration-500 bg-black shadow-lg"
             : ""
@@ -59,23 +59,23 @@ const NavigationBar = () => {
       >
         <div
           className={`max-w-full mx-auto lg:mx-24 xl:mx-48 flex justify-between md:justify-evenly items-center ${
-            isSticky ? "h-20" : "h-24"
+            isSticky ? "h-24" : "h-24"
           }`}
         >
-          <div className="flex items-center space-x-3">
-            <Link href="/">
+          <div className="flex items-center justify-center space-x-3 h-24 pt-2">
+            <Link className="block" href="/">
               <Image
                 src={Logo}
-                alt="DRN Digital Logo"
+                alt="Serkan Korkut Logo"
                 width={isSticky ? 75 : 90}
                 height={isSticky ? 75 : 90}
               />
             </Link>
             {/* <span className="text-2xl font-semibold">Serkan Korkut</span> */}
           </div>
-          <div className="md:basis-3/4 flex flex-col md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <div className="h-24 md:basis-3/4 flex flex-col md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <MobileNavigation />
-            <div className="hidden md:flex items-center justify-between border-b border-zinc-800 pb-2 mb-2">
+            <div className="h-12 hidden md:flex items-center justify-between border-b border-zinc-800">
               <div className="flex items-center space-x-4 text-sm">
                 {contactInfo.phone.show && (
                   <div className="flex items-center space-x-1">
@@ -91,7 +91,7 @@ const NavigationBar = () => {
                       className="font-medium hover:text-orange-500 transition-colors duration-300"
                       href={contactInfo.phone.link}
                     >
-                      Phone: {contactInfo.phone.number}
+                      {contactInfo.phone.number}
                     </a>
                   </div>
                 )}
@@ -110,7 +110,7 @@ const NavigationBar = () => {
                       className="font-medium hover:text-orange-500 transition-colors duration-300"
                       href={contactInfo.email.link}
                     >
-                      Email: {contactInfo.email.address}
+                      {contactInfo.email.address}
                     </a>
                   </div>
                 )}
@@ -136,7 +136,7 @@ const NavigationBar = () => {
                       className="font-medium hover:text-orange-500 transition-colors duration-300"
                       href={contactInfo.address.link}
                     >
-                      Location: {contactInfo.address.text}
+                      {contactInfo.address.text}
                     </a>
                   </div>
                 )}
@@ -230,10 +230,10 @@ const NavigationBar = () => {
               </div>
             </div>
             <div
-              className="items-center justify-between hidden w-full md:flex flex-col md:flex-row md:w-auto md:order-1"
+              className="h-12 items-center justify-between hidden w-full md:flex flex-col md:flex-row md:w-auto md:order-1"
               id="navbar-cta"
             >
-              <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+              <ul className="flex flex-col font-medium p-4 md:p-0 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
                 {navLinks.map((link) => (
                   <li key={link.name} className="md:mt-0">
                     <Link href={link.url}>

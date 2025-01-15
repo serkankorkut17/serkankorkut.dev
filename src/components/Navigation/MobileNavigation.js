@@ -39,7 +39,7 @@ export default function MobileNavigation() {
   }, [isOpen]);
 
   return (
-    <div className="z-50">
+    <div className="z-50 h-full md:h-0 flex items-center justify-between">
       <button
         onClick={toggleSidebar}
         type="button"
@@ -103,7 +103,7 @@ export default function MobileNavigation() {
 
           {/* Logo and Title */}
           <div className="flex flex-col justify-center items-center mb-8">
-            <Image src={Logo} height="48" width="48" className="h-48" alt="Serkan Korkut Logo" />
+            <Image src={Logo} height="48" width="48" className="h-48 w-48" alt="Serkan Korkut Logo" />
             <p className="block text-gray-800 text-xl font-bold text-center">
               Serkan Korkut
             </p>

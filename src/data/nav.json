@@ -11,6 +11,10 @@
         {
             "name": "CONTACT",
             "url": "/contact"
+        },
+        {
+            "name": "EMAIL",
+            "url": "/email"
         }
     ],
     "contactInfo": {
