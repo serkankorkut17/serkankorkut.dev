@@ -88,14 +88,6 @@ export default function NewTemplatePage() {
     }
   };
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="relative flex items-center justify-center h-screen opacity-10">
-  //       <Spinner size="xl" />
-  //     </div>
-  //   );
-  // }
-
   return (
     <section className="flex flex-col py-8 px-8 md:px-40 mb-16 bg-white text-black">
       <div className="text-start pb-12">
@@ -107,7 +99,7 @@ export default function NewTemplatePage() {
 
       {/* Hata Mesajı */}
       {error && (
-        <Alert color="failure" className="mb-4">
+        <Alert color="failure" className="mb-4" onDismiss={() => setError(null)}>
           {error}
         </Alert>
       )}
