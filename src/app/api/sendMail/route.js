@@ -31,7 +31,7 @@ export async function POST(req) {
       service: "gmail", // Gmail hizmetini belirtin
       auth: {
         user: process.env.GMAIL_USER, // E-posta adresi
-        pass: process.env.GMAIL_PASSWORD, // E-posta şifresi
+        pass: process.env.GMAIL_PASS, // E-posta şifresi
       },
     });
 
