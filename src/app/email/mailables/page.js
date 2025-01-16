@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button, Modal, Spinner } from "flowbite-react";
-import { FaTrash, FaEye } from "react-icons/fa";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaTrash, FaEye, FaArrowLeft } from "react-icons/fa";
 
 export default function MailablesPage() {
   const [mailables, setMailables] = useState([]);

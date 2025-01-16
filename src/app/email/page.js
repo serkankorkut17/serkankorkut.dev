@@ -4,6 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "flowbite-react";
 
+// This page is about managing email templates and mailables.
 const EmailsPage = () => {
   const router = useRouter();
 

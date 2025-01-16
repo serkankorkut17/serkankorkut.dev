@@ -77,7 +77,6 @@ export default function MobileNavigation() {
           className="fixed inset-0 z-50 w-64 h-screen p-6 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out overflow-y-auto"
           ref={sidebarRef}
         >
-          {/* Close button positioned to the right */}
           <div className="flex justify-end mb-4">
             <button
               onClick={toggleSidebar}

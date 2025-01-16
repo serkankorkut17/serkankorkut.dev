@@ -1,9 +1,9 @@
 "use client";
-import { FaEdit, FaTrash, FaArrowLeft } from "react-icons/fa";
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Spinner, Button, Modal } from "flowbite-react";
+import { FaEdit, FaTrash, FaArrowLeft } from "react-icons/fa";
 
 export default function TemplatesPage() {
   const [templates, setTemplates] = useState([]);

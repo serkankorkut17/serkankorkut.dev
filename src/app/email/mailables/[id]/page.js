@@ -12,19 +12,18 @@ import {
   Spinner,
   Modal,
 } from "flowbite-react";
-import { HiMail } from "react-icons/hi";
-import { HiPlus } from "react-icons/hi";
+import { HiMail, HiPlus } from "react-icons/hi";
 
 export default function MailableDetailPage() {
-  const { id } = useParams(); // Dinamik rota parametresi
+  const { id } = useParams(); // Dynamic route parameter
   const router = useRouter();
 
-  const [mailable, setMailable] = useState(null);
-  const [templates, setTemplates] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [templateUrl, setTemplateUrl] = useState(""); // HTML içeriğini dinamik olarak gösterecek URL
+  const [mailable, setMailable] = useState(null); // Mailable data
+  const [templates, setTemplates] = useState([]); // Templates list
+  const [loading, setLoading] = useState(true); // Loading state
+  const [templateUrl, setTemplateUrl] = useState(""); // Template URL for iframe
   const [isSending, setIsSending] = useState(false);
-  const [showSendModal, setShowSendModal] = useState(false);
+  const [showSendModal, setShowSendModal] = useState(false); // Send mail modal
   const [newRecipients, setNewRecipients] = useState(""); // Multiple emails input field value
 
   // Email validation function
@@ -33,7 +32,7 @@ export default function MailableDetailPage() {
     return emailRegex.test(email);
   };
 
-  // Sayfa yüklendiğinde mailable ve template bilgilerini getir
+  // Fetch mailable and templates data
   useEffect(() => {
     Promise.all([
       fetch(`/api/mailables?id=${id}`).then((res) => res.json()),
@@ -45,15 +44,15 @@ export default function MailableDetailPage() {
     });
   }, [id]);
 
-  // Template html içeriğini güncelle
+  // Update the template URL when mailable or templates change
   useEffect(() => {
     if (mailable && templates.length > 0) {
       const template = templates.find((t) => t._id === mailable.templateId);
       if (template) {
-        // Template html içeriğini Blob olarak dönüştür
+        // Convert HTML string to Blob and create a URL
         const blob = new Blob([template.html], { type: "text/html" });
         const url = URL.createObjectURL(blob);
-        setTemplateUrl(url); // URL'yi state'e aktar
+        setTemplateUrl(url); // Set the URL to the iframe
       }
     }
   }, [mailable, templates]);

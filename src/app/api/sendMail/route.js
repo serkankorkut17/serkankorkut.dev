@@ -10,7 +10,7 @@ export async function POST(req) {
     const body = await req.json();
     const { mailableId } = body;
 
-    // Mailable detaylarını al
+    // Get mailable details
     const mailable = await Mailable.findById(mailableId);
     if (!mailable) {
       return new Response(JSON.stringify({ error: "Mailable not found" }), {
@@ -18,7 +18,7 @@ export async function POST(req) {
       });
     }
 
-    // Template detaylarını al
+    // Get template details
     const template = await Template.findById(mailable.templateId);
     if (!template) {
       return new Response(JSON.stringify({ error: "Template not found" }), {
@@ -26,28 +26,26 @@ export async function POST(req) {
       });
     }
 
-    // Nodemailer transport oluştur
+    // Create a transporter object with your email service configuration
     const transporter = nodemailer.createTransport({
-      service: "gmail", // Gmail hizmetini belirtin
+      service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER, // E-posta adresi
-        pass: process.env.GMAIL_PASS, // E-posta şifresi
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS,
       },
     });
 
-    // Mail seçenekleri
     const mailOptions = {
-      from: process.env.GMAIL_USER, // Gönderen
-      to: mailable.recipients.join(", "), // Alıcılar
-      subject: mailable.subject, // Konu
-      html: template.html, // HTML içeriği
+      from: process.env.GMAIL_USER,
+      to: mailable.recipients.join(", "),
+      subject: mailable.subject,
+      html: template.html, // HTML template
       attachments: mailable.attachments?.map((file) => ({
         filename: file.name,
         content: Buffer.from(file.content, "base64"),
-      })), // Ek dosyalar
+      })), // Attachments
     };
 
-    // Mail gönderimi
     await transporter.sendMail(mailOptions);
     return new Response(
       JSON.stringify({ message: "Mail sent successfully!" }),

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const TemplateSchema = new mongoose.Schema(
     {
       name: { type: String, required: true },
-      design: { type: String, required: true }, // JSON representation of the template
+      design: { type: String, required: true },
       html: { type: String, required: true },
     },
     { timestamps: true }

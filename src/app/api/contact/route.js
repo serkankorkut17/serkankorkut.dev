@@ -8,7 +8,7 @@ export async function POST(req) {
 
     // Create a transporter object with your email service configuration
     const transporter = nodemailer.createTransport({
-      service: "Gmail", // You can use any email service provider
+      service: "Gmail",
       auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_PASS,
@@ -17,7 +17,7 @@ export async function POST(req) {
 
     // Email options
     const mailOptions = {
-      from: email, // The sender's email address
+      from: process.env.GMAIL_USER, // The sender's email address
       to: process.env.EMAIL_TO || process.env.GMAIL_USER, // The recipient's email address
       subject: `New Message from ${name}: ${subject}`,
       text: `

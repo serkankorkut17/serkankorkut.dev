@@ -17,10 +17,8 @@ export async function POST(req) {
 
 export async function GET() {
   await connectToDatabase();
-  console.log("heyeeeeee");
 
   try {
-    console.log("heyeeeeee2");
     const mailables = await Mailable.find();
     return new Response(JSON.stringify(mailables), { status: 200 });
   } catch (error) {

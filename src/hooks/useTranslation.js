@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation'; // Update import path for the new router
+import { useRouter } from 'next/navigation';
 
 import en from '@/locales/en/common.json';
 import tr from '@/locales/tr/common.json';

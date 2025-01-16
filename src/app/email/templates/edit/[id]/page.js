@@ -4,11 +4,14 @@ import dynamic from "next/dynamic";
 import { useRef, useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { Button, TextInput, Spinner } from "flowbite-react";
-import { FaDownload, FaUpload } from "react-icons/fa";
-import { FaSave, FaTimes } from "react-icons/fa";
-import { FaArrowLeft } from "react-icons/fa";
+import {
+  FaDownload,
+  FaUpload,
+  FaSave,
+  FaTimes,
+  FaArrowLeft,
+} from "react-icons/fa";
 import { TbReload } from "react-icons/tb";
-
 
 const EmailEditor = dynamic(() => import("react-email-editor"), { ssr: false });
 
@@ -27,7 +30,7 @@ export default function EditTemplatePage() {
         .then((res) => res.json())
         .then((template) => {
           console.log("Template data:", template);
-          
+
           setName(template.name);
           // const design = JSON.parse(template.design);
           setDesign(JSON.parse(template.design));
@@ -56,7 +59,7 @@ export default function EditTemplatePage() {
       const { design } = data;
       const json = JSON.stringify(design);
 
-      // Panoya kopyalama işlemi
+      // Copy the design to the clipboard
       navigator.clipboard.writeText(json).then(() => {
         alert("Design copied to clipboard!");
       });
@@ -64,7 +67,7 @@ export default function EditTemplatePage() {
   };
 
   const importDesign = () => {
-    // Panodaki veriyi alıp tasarımı import etme
+    // Import design from clipboard
     navigator.clipboard.readText().then((text) => {
       try {
         const design = JSON.parse(text);
@@ -79,9 +82,9 @@ export default function EditTemplatePage() {
     setUnlayerLoaded(true);
   };
   const handleReloadUnlayer = () => {
-    // Unlayer editoru yeniden yükleme
+    // Reload the unlayer editor
     emailEditorRef.current?.editor.loadDesign(design);
-  }
+  };
 
   if (loading) {
     return (
@@ -116,7 +119,6 @@ export default function EditTemplatePage() {
           <FaArrowLeft className="w-5 h-5 mr-2" />
           Go back
         </Button>
-        {/* reload button */}
         <Button
           color="primary"
           onClick={handleReloadUnlayer}
@@ -140,10 +142,10 @@ export default function EditTemplatePage() {
         />
       </div>
 
-      {/* Butonlar */}
+      {/* Buttons */}
       <div className="flex justify-between mt-6">
         <div className="flex gap-4">
-          {/* Update Template Butonu */}
+          {/* Update Template Button */}
           <Button
             color="primary"
             className="bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition"
@@ -153,7 +155,7 @@ export default function EditTemplatePage() {
             Update Template
           </Button>
 
-          {/* Cancel Butonu */}
+          {/* Cancel Button */}
           <Button
             className="py-2 rounded-lg transition"
             color="gray"
@@ -164,7 +166,7 @@ export default function EditTemplatePage() {
           </Button>
         </div>
 
-        {/* Copy Design ve Import Design Butonları */}
+        {/* Copy Design ve Import Design Buttons */}
         <div className="flex gap-4">
           <Button
             color="primary"

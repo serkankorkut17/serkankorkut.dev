@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 const MailableSchema = new Schema(
   {
     name: { type: String, required: true },
-    recipients: { type: [String], required: true }, // E-posta adreslerini içeren bir dizi
+    recipients: { type: [String], required: true },
     subject: { type: String, required: true },
-    templateId: { type: mongoose.Schema.Types.ObjectId, ref: 'Template', required: true }, // Template referansı
-    attachments: { type: [String], default: [] }, // Dosya yolları veya base64 stringler
+    templateId: { type: mongoose.Schema.Types.ObjectId, ref: 'Template', required: true },
+    attachments: { type: [String], default: [] },
   },
   { timestamps: true }
 );

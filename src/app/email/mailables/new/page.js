@@ -36,11 +36,11 @@ export default function NewMailablePage() {
 
   const saveMailable = () => {
     const recipientList = recipients
-      .split(/[\n,]+/) // Hem virgül hem de satır başına göre ayırır
-      .map((email) => email.trim()) // Boşlukları temizler
-      .filter((email) => email); // Boş girişleri kaldırır
+      .split(/[\n,]+/) // Split by new line or comma
+      .map((email) => email.trim()) // Trim whitespace
+      .filter((email) => email); // Remove empty strings
 
-    // Alanların boş olup olmadığını kontrol et
+    // Validate form fields
     if (!name.trim()) {
       alert("Name field cannot be empty.");
       return;
@@ -54,7 +54,7 @@ export default function NewMailablePage() {
       return;
     }
 
-    // E-posta doğrulaması
+    // Validate email addresses
     if (!validateEmails(recipientList)) {
       alert(
         "One or more recipients have an invalid email address. Please check and try again."

@@ -53,7 +53,7 @@ export default function NewTemplatePage() {
           throw new Error("Failed to save template");
         }
 
-        router.push("/email/templates"); // Redirect on success
+        router.push("/email/templates");
       } catch (error) {
         setError(err.message);
         alert("Failed to save template. Please try again.");
@@ -64,7 +64,7 @@ export default function NewTemplatePage() {
   };
 
   const importDesign = () => {
-    // Panodaki veriyi alıp tasarımı import etme
+    // Import design from clipboard
     navigator.clipboard.readText().then((text) => {
       try {
         const design = JSON.parse(text);
@@ -76,7 +76,7 @@ export default function NewTemplatePage() {
   };
 
   const importFromKeyboard = () => {
-    // Kullanıcının klavye üzerinden gelen verileri alarak tasarımı yükler
+    // Import design from keyboard
     const design = prompt("Paste your design JSON here:");
     if (design) {
       try {
@@ -97,7 +97,7 @@ export default function NewTemplatePage() {
         <h2 className="text-6xl font-extrabold mt-2">Create Your Template</h2>
       </div>
 
-      {/* Hata Mesajı */}
+      {/* Error Alert */}
       {error && (
         <Alert color="failure" className="mb-4" onDismiss={() => setError(null)}>
           {error}
@@ -137,11 +137,10 @@ export default function NewTemplatePage() {
         />
       </div>
 
-      {/* Butonlar için flex düzeni */}
+      {/* Buttons */}
       <div className="flex justify-between mt-6">
-        {/* Soldaki Butonlar */}
+        {/* Left Buttons */}
         <div className="flex gap-4">
-          {/* Update Template Butonu */}
           <Button
             className="bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition"
             onClick={saveTemplate}
@@ -157,8 +156,6 @@ export default function NewTemplatePage() {
             "Save Template"
           )}
           </Button>
-
-          {/* Cancel Butonu */}
           <Button
             className="py-2 px-4 rounded-lg transition"
             color="gray"
@@ -169,7 +166,7 @@ export default function NewTemplatePage() {
           </Button>
         </div>
 
-        {/* Sağdaki Butonlar */}
+        {/* Right Buttons */}
         <div className="flex gap-4">
           <Button
             color="gray"
@@ -179,7 +176,6 @@ export default function NewTemplatePage() {
             <FaUpload className="mr-2" />
             Import Design from Clipboard
           </Button>
-          {/* Import from Keyboard Butonu */}
           <Button
             onClick={importFromKeyboard}
             color="gray"
