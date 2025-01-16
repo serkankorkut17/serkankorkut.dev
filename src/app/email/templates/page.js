@@ -131,8 +131,8 @@ export default function TemplatesPage() {
         <Modal.Header>Delete Template</Modal.Header>
         <Modal.Body>
           <p className="text-gray-500">
-            Are you sure you want to delete the template `&quot;`
-            <span className="font-semibold">{templateToDelete?.name}</span>`&quot;`?
+            Are you sure you want to delete the template &quot;
+            <span className="font-semibold">{templateToDelete?.name}</span>&quot;?
           </p>
         </Modal.Body>
         <Modal.Footer>

@@ -133,8 +133,8 @@ export default function MailablesPage() {
         <Modal.Header>Delete Mailable</Modal.Header>
         <Modal.Body>
           <p className="text-gray-500">
-            Are you sure you want to delete the mailable `&quot;`
-            <span className="font-semibold">{mailableToDelete?.name}</span>`&quot;`?
+            Are you sure you want to delete the mailable &quot;
+            <span className="font-semibold">{mailableToDelete?.name}</span>&quot;?
           </p>
         </Modal.Body>
         <Modal.Footer>
