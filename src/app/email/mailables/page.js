@@ -1,9 +1,10 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button, Modal, Spinner } from "flowbite-react";
 import { FaTrash, FaEye } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function MailablesPage() {
   const [mailables, setMailables] = useState([]);
@@ -49,8 +50,8 @@ export default function MailablesPage() {
         <p className="text-orange-500 text-lg font-extrabold">.: MAILABLES</p>
         <h2 className="text-6xl font-extrabold mt-2">Manage Mailables</h2>
       </div>
-
-      <div className="flex justify-end mb-6">
+      <div className="flex flex-col md:flex-row justify-between items-center">
+      <div className="flex justify-start mb-6">
         <Button
           color="primary"
           className="bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition"
@@ -58,6 +59,17 @@ export default function MailablesPage() {
         >
           New Mailable
         </Button>
+      </div>
+      <div className="flex justify-end mb-6">
+        <Button
+          color="primary"
+          onClick={() => router.push("/email")}
+          className="bg-black text-white hover:bg-gray-700 py-2 rounded-lg transition flex items-center"
+        >
+          <FaArrowLeft className="w-5 h-5 mr-2" />
+          Go back
+        </Button>
+      </div>
       </div>
 
       {mailables.length > 0 ? (

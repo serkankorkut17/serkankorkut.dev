@@ -7,6 +7,7 @@ import { Button, TextInput, Spinner } from "flowbite-react";
 import { FaDownload, FaUpload } from "react-icons/fa";
 import { FaSave, FaTimes } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
+import { TbReload } from "react-icons/tb";
 
 
 const EmailEditor = dynamic(() => import("react-email-editor"), { ssr: false });
@@ -14,6 +15,8 @@ const EmailEditor = dynamic(() => import("react-email-editor"), { ssr: false });
 export default function EditTemplatePage() {
   const emailEditorRef = useRef(null);
   const [name, setName] = useState("");
+  const [design, setDesign] = useState({});
+  const [unlayerLoaded, setUnlayerLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { id } = useParams();
@@ -23,13 +26,16 @@ export default function EditTemplatePage() {
       fetch(`/api/templates?id=${id}`)
         .then((res) => res.json())
         .then((template) => {
+          console.log("Template data:", template);
+          
           setName(template.name);
-          const design = JSON.parse(template.design);
+          // const design = JSON.parse(template.design);
+          setDesign(JSON.parse(template.design));
           emailEditorRef.current?.editor.loadDesign(design);
           setLoading(false);
         });
     }
-  }, [id]);
+  }, [id, unlayerLoaded]);
 
   const updateTemplate = () => {
     emailEditorRef.current?.editor.exportHtml((data) => {
@@ -69,6 +75,14 @@ export default function EditTemplatePage() {
     });
   };
 
+  const handleEditorLoad = () => {
+    setUnlayerLoaded(true);
+  };
+  const handleReloadUnlayer = () => {
+    // Unlayer editoru yeniden yükleme
+    emailEditorRef.current?.editor.loadDesign(design);
+  }
+
   if (loading) {
     return (
       <div className="relative flex items-center justify-center h-screen opacity-10">
@@ -97,16 +111,26 @@ export default function EditTemplatePage() {
         <Button
           color="primary"
           onClick={() => router.push("/email/templates")}
-          className="bg-black text-white hover:bg-gray-700 py-2 px-4 rounded-lg transition flex items-center"
+          className="bg-black text-white hover:bg-gray-700 py-2 rounded-lg transition flex items-center"
         >
           <FaArrowLeft className="w-5 h-5 mr-2" />
           Go back
+        </Button>
+        {/* reload button */}
+        <Button
+          color="primary"
+          onClick={handleReloadUnlayer}
+          className="bg-black text-white hover:bg-gray-700 py-2 rounded-lg transition flex items-center"
+        >
+          <TbReload className="w-5 h-5 mr-2" />
+          Reload
         </Button>
       </div>
 
       <div className="mb-6">
         <EmailEditor
           ref={emailEditorRef}
+          onLoad={handleEditorLoad}
           options={{
             version: "latest",
             appearance: {
@@ -116,44 +140,43 @@ export default function EditTemplatePage() {
         />
       </div>
 
-      {/* Butonlar için flex düzeni */}
+      {/* Butonlar */}
       <div className="flex justify-between mt-6">
-        {/* Soldaki Butonlar */}
         <div className="flex gap-4">
           {/* Update Template Butonu */}
           <Button
             color="primary"
-            className="bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition"
+            className="bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition"
             onClick={updateTemplate}
           >
-            <FaSave className="mr-2" /> {/* Save ikonu */}
+            <FaSave className="mr-2" />
             Update Template
           </Button>
 
           {/* Cancel Butonu */}
           <Button
-            className="py-2 px-4 rounded-lg transition"
+            className="py-2 rounded-lg transition"
             color="gray"
             onClick={() => router.push("/email/templates")}
           >
-            <FaTimes className="mr-2" /> {/* Times (kapat) ikonu */}
+            <FaTimes className="mr-2" />
             Cancel
           </Button>
         </div>
 
-        {/* Sağdaki Butonlar */}
+        {/* Copy Design ve Import Design Butonları */}
         <div className="flex gap-4">
           <Button
             color="primary"
             onClick={exportDesign}
-            className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition"
+            className="bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
           >
             <FaDownload className="mr-2" />
             Copy Design to Clipboard
           </Button>
           <Button
             color="gray"
-            className="py-2 px-4 rounded-lg hover:bg-gray-600 transition"
+            className="py-2 rounded-lg hover:bg-gray-600 transition"
             onClick={importDesign}
           >
             <FaUpload className="mr-2" />

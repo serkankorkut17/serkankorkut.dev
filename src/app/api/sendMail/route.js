@@ -6,46 +6,38 @@ import { Mailable } from "@/models/Mailable";
 export async function POST(req) {
   try {
     await connectToDatabase();
-    
-    
+
     const body = await req.json();
     const { mailableId } = body;
-    console.log(body);
-
-    console.log("mailelableID: ", mailableId);
 
     // Mailable detaylarını al
     const mailable = await Mailable.findById(mailableId);
     if (!mailable) {
-      console.log("mailable not found");
-      return new Response(JSON.stringify({ error: "Mailable not found"  }), {
+      return new Response(JSON.stringify({ error: "Mailable not found" }), {
         status: 404,
       });
     }
-    console.log("mailable: ", mailable);
 
     // Template detaylarını al
     const template = await Template.findById(mailable.templateId);
     if (!template) {
-      console.log("template not found");
-      return new Response(JSON.stringify({ error: "Template not found"  }), {
+      return new Response(JSON.stringify({ error: "Template not found" }), {
         status: 404,
       });
     }
-    console.log("template: ", template);
 
     // Nodemailer transport oluştur
     const transporter = nodemailer.createTransport({
       service: "gmail", // Gmail hizmetini belirtin
       auth: {
-        user: "gkblackfyre@gmail.com", // Gönderen e-posta adresi
-        pass: "dasx vkmv oxct iktz", // Şifre veya uygulama şifresi
+        user: process.env.GMAIL_USER, // E-posta adresi
+        pass: process.env.GMAIL_PASSWORD, // E-posta şifresi
       },
     });
 
     // Mail seçenekleri
     const mailOptions = {
-      from: "gkblackfyre@gmail.com", // Gönderen e-posta
+      from: process.env.GMAIL_USER, // Gönderen
       to: mailable.recipients.join(", "), // Alıcılar
       subject: mailable.subject, // Konu
       html: template.html, // HTML içeriği
@@ -57,13 +49,19 @@ export async function POST(req) {
 
     // Mail gönderimi
     await transporter.sendMail(mailOptions);
-    return new Response(JSON.stringify({ message: "Mail sent successfully!"  }), {
-      status: 200,
-    });
+    return new Response(
+      JSON.stringify({ message: "Mail sent successfully!" }),
+      {
+        status: 200,
+      }
+    );
   } catch (error) {
     console.error(error);
-    return new Response(JSON.stringify({ error: "Failed to send mail", details: error.message  }), {
-      status: 500,
-    });
+    return new Response(
+      JSON.stringify({ error: "Failed to send mail", details: error.message }),
+      {
+        status: 500,
+      }
+    );
   }
 }

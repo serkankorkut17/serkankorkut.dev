@@ -1,14 +1,16 @@
 "use client";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash, FaArrowLeft } from "react-icons/fa";
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Spinner } from "flowbite-react";
-import { Button } from "flowbite-react";
+import { Spinner, Button, Modal } from "flowbite-react";
 
 export default function TemplatesPage() {
   const [templates, setTemplates] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [deleting, setDeleting] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [templateToDelete, setTemplateToDelete] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -23,6 +25,17 @@ export default function TemplatesPage() {
   const deleteTemplate = async (id) => {
     await fetch(`/api/templates?id=${id}`, { method: "DELETE" });
     setTemplates((prev) => prev.filter((template) => template._id !== id));
+  };
+
+  const handleDelete = (id) => {
+    setDeleting(true);
+    fetch(`/api/templates?id=${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      setTemplates((prev) => prev.filter((template) => template._id !== id));
+      setDeleting(false);
+      setShowDeleteModal(false);
+    });
   };
 
   if (loading) {
@@ -42,14 +55,26 @@ export default function TemplatesPage() {
 
       <div className="flex flex-col xl:flex-row justify-between items-center">
         <div className="w-full">
-          <div className="flex justify-end mb-6">
-            <Button
-              color="primary"
-              onClick={() => router.push("/email/templates/new")}
-              className="bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition"
-            >
-              New Template
-            </Button>
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="justify-start mb-6">
+              <Button
+                color="primary"
+                onClick={() => router.push("/email/templates/new")}
+                className="bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition"
+              >
+                New Template
+              </Button>
+            </div>
+            <div className="flex justify-end mb-6">
+              <Button
+                color="primary"
+                onClick={() => router.push("/email")}
+                className="bg-black text-white hover:bg-gray-700 py-2 rounded-lg transition flex items-center"
+              >
+                <FaArrowLeft className="w-5 h-5 mr-2" />
+                Go back
+              </Button>
+            </div>
           </div>
           {templates.length > 0 ? (
             <div className="overflow-x-auto">
@@ -83,7 +108,10 @@ export default function TemplatesPage() {
                           <FaEdit className="text-white" />
                         </button>
                         <button
-                          onClick={() => deleteTemplate(template._id)}
+                          onClick={() => {
+                            setTemplateToDelete(template);
+                            setShowDeleteModal(true);
+                          }}
                           className="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition"
                         >
                           <FaTrash className="text-white" />
@@ -99,6 +127,32 @@ export default function TemplatesPage() {
           )}
         </div>
       </div>
+      <Modal show={showDeleteModal} onClose={() => setShowDeleteModal(false)}>
+        <Modal.Header>Delete Template</Modal.Header>
+        <Modal.Body>
+          <p className="text-gray-500">
+            Are you sure you want to delete the template "
+            <span className="font-semibold">{templateToDelete?.name}</span>"?
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            color="primary"
+            onClick={() => setShowDeleteModal(false)}
+            className="bg-gray-200 text-gray-800 hover:bg-gray-300"
+          >
+            Cancel
+          </Button>
+          <Button
+            color="failure"
+            onClick={() => handleDelete(templateToDelete._id)}
+            className="bg-red-500 text-white hover:bg-red-600"
+            disabled={deleting}
+          >
+            {deleting ? "Deleting..." : "Delete"}
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </section>
   );
 }

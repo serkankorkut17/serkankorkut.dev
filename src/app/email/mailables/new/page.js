@@ -169,7 +169,7 @@ export default function NewMailablePage() {
               Save
             </Button>
             <Button
-              onClick={() => router.push("/mailables")}
+              onClick={() => router.push("/email/mailables")}
               color="gray"
               className="py-3 px-6 rounded-lg hover:bg-gray-300 transition-all"
             >
