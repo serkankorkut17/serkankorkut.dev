@@ -15,6 +15,10 @@
         {
             "name": "EMAIL",
             "url": "/email"
+        },
+        {
+            "name": "QR CODE",
+            "url": "/qr"
         }
     ],
     "contactInfo": {
