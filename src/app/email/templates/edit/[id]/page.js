@@ -38,7 +38,7 @@ export default function EditTemplatePage() {
           setLoading(false);
         });
     }
-  }, [id, unlayerLoaded]);
+  }, [id, unlayerLoaded, design]);
 
   const updateTemplate = () => {
     emailEditorRef.current?.editor.exportHtml((data) => {

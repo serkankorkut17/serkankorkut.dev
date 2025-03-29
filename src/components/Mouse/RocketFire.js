@@ -58,6 +58,7 @@ const RocketFire = () => {
       alt="Rocket Fire"
       width={40}
       height={40}
+      className="hidden md:block"
       style={{
         position: "fixed",
         pointerEvents: "none", // Prevent the fire from capturing mouse events

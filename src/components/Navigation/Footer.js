@@ -25,9 +25,10 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <Image
                   src={Logo}
-                  width={150}
-                  height={150}
+                  width="160"
+                  className="h-auto w-40"
                   alt="Serkan Korkut Logo"
+                  priority
                 />
               </div>
             </Link>

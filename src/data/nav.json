@@ -9,16 +9,12 @@
             "url": "/projects"
         },
         {
-            "name": "CONTACT",
-            "url": "/contact"
-        },
-        {
-            "name": "EMAIL",
-            "url": "/email"
-        },
-        {
-            "name": "QR CODE",
-            "url": "/qr"
+            "name": "EXTRAS",
+            "subLinks": [
+                { "name": "EMAIL", "url": "/email" },
+                { "name": "QR CODE", "url": "/qr" },
+                { "name": "CS2", "url": "/cs2" }
+            ]
         }
     ],
     "contactInfo": {

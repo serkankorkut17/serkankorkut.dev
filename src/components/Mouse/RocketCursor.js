@@ -93,6 +93,7 @@ const RocketCursor = () => {
       alt="Rocket Cursor"
       width={40}
       height={40}
+      className="hidden md:block"
       style={{
         position: "fixed",
         pointerEvents: "none", // Prevent the rocket from capturing mouse events

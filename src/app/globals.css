@@ -3,99 +3,103 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))
+        )
+        rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
 }
 
 .text-outline {
-  position: relative;
-  color: transparent;
-  -webkit-text-stroke: 2px #ff6600; /* Orange outline */
+    position: relative;
+    color: transparent;
+    -webkit-text-stroke: 2px #ff6600; /* Orange outline */
 }
 
 .text-outline::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #ffffff;
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ffffff;
 }
 
 .arrow-outline {
-  position: relative;
-  color: transparent;
-  -webkit-text-stroke: 2px #ffffff; /* Orange outline */
+    position: relative;
+    color: transparent;
+    -webkit-text-stroke: 2px #ffffff; /* Orange outline */
 }
 
 * {
-  cursor: none !important; /* Suppress the cursor globally */
+    cursor: none !important; /* Suppress the cursor globally */
 }
 
 /* Scrolling */
 .scrolling-container {
-  display: flex;
-  overflow: hidden;
-  position: relative;
+    display: flex;
+    overflow: hidden;
+    position: relative;
 }
 
 .scrolling-text {
-  display: flex;
-  animation: scroll-text 20s linear infinite;
+    display: flex;
+    animation: scroll-text 20s linear infinite;
 }
 
 .scrolling-container:hover .scrolling-text {
-  animation-play-state: paused; /* Pause animation on hover */
+    animation-play-state: paused; /* Pause animation on hover */
 }
 
 .scroll-item {
-  flex-shrink: 0;
-  white-space: nowrap;
-  padding-right: 2rem; /* Optional: Adjust spacing between items */
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding-right: 2rem; /* Optional: Adjust spacing between items */
 }
 
 /* Scroll animation */
 @keyframes scroll-text {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* custom.css */
 .carousel {
-  position: relative !important; /* Override absolute positioning */
-  overflow: hidden; /* Ensure images do not overflow */
+    position: relative !important; /* Override absolute positioning */
+    overflow: hidden; /* Ensure images do not overflow */
 }
 
 .carousel img {
-  position: relative !important; /* Remove absolute positioning */
-  width: 100%; /* Make images full width */
-  height: auto; /* Maintain aspect ratio */
+    position: relative !important; /* Remove absolute positioning */
+    width: 100%; /* Make images full width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
 }

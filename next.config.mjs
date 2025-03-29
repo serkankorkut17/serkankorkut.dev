@@ -1,9 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  i18n: {
-    locales: ["en", "tr", "de"], // Add your supported languages here
-    defaultLocale: "tr", // Default language
-  },
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "res.cloudinary.com",
+                port: "",
+                pathname: "/serkankorkut/image/upload/**",
+            },
+        ],
+    },
 };
 
 export default nextConfig;

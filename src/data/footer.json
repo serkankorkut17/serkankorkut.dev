@@ -11,16 +11,16 @@
                 "url": "https://nextjs.org/"
             },
             {
+                "name": "MongoDB",
+                "url": "https://www.mongodb.com/"
+            },
+            {
                 "name": "Tailwind CSS",
                 "url": "https://tailwindcss.com/"
             },
             {
                 "name": "Flowbite",
                 "url": "https://flowbite.com/"
-            },
-            {
-                "name": "Plesk",
-                "url": "https://www.plesk.com/"
             }
         ]
     },
@@ -51,7 +51,7 @@
             "show": true
         },
         "twitter": {
-            "url": "https://x.com/_blckfyre_",
+            "url": "https://x.com/",
             "show": false
         },
         "instagram": {
