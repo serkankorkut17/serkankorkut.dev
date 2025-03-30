@@ -39,15 +39,15 @@ export default async function EditNadesPage() {
                         <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                             <div className="relative w-full h-48 overflow-hidden">
                                 <Image
-                                    src={nade.images.placement}
-                                    alt={nade.description}
+                                    src={nade.images.land}
+                                    alt={nade.name}
                                     fill
                                     sizes="100%"
                                     className="object-cover object-center transition-transform duration-300 hover:scale-110 w-auto h-auto"
                                 />
                             </div>
                             <div className="p-4">
-                                <p className="text-gray-800">{nade.position}</p>
+                                <p className="text-gray-800">{nade.name}</p>
                             </div>
                         </div>
                     </Link>

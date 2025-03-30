@@ -63,7 +63,7 @@ const GrenadeTitle = ({ nade = {}, map = {} }) => {
             <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
                 <div className="flex items-center mb-2 flex-wrap">
                     <h1 className="text-5xl font-extrabold text-gray-800 mb-2 break-words min-w-0 flex-[1_1_100%] md:flex-none">
-                        {nadeName} Grenade
+                        {nadeName}
                     </h1>
                     <SideBadge side={nadeSide} />
                 </div>
@@ -105,7 +105,7 @@ const GrenadeTitle = ({ nade = {}, map = {} }) => {
                     aria-label="Close video modal"
                 >
                     <div
-                        className="relative w-full max-w-4xl aspect-video"
+                        className="relative w-full max-w-7xl aspect-video"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <button

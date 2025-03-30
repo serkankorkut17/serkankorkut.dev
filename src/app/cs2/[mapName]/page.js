@@ -46,7 +46,7 @@ export default async function NadesPage({ params }) {
                         <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                             <div className="relative w-full h-48 overflow-hidden">
                                 <Image
-                                    src={nade.images.placement}
+                                    src={nade.images.land}
                                     alt={nade.description}
                                     fill
                                     sizes="100%"
@@ -54,7 +54,7 @@ export default async function NadesPage({ params }) {
                                 />
                             </div>
                             <div className="p-4">
-                                <p className="text-gray-800">{nade.position}</p>
+                                <p className="text-gray-800 font-semibold">{nade.name}</p>
                             </div>
                         </div>
                     </Link>
