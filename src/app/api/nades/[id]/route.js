@@ -2,9 +2,10 @@ import { connectToDatabase } from "@/utils/database";
 import Nade from "@/models/Nade";
 
 export async function GET(request, { params }) {
+    const { id } = await params;
     await connectToDatabase();
     try {
-        const nade = await Nade.findById(params.id);
+        const nade = await Nade.findById(id);
         if (!nade) {
             return new Response(JSON.stringify({ error: "Nade not found" }), {
                 status: 404,

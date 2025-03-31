@@ -33,7 +33,7 @@ export default async function EditNadesPage() {
                     Select a Nade to Edit
                 </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                 {nades.map((nade) => (
                     <Link key={nade.id} href={`/admin/edit-nade/${nade.id}`}>
                         <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
@@ -47,7 +47,7 @@ export default async function EditNadesPage() {
                                 />
                             </div>
                             <div className="p-4">
-                                <p className="text-gray-800">{nade.name}</p>
+                                <p className="text-gray-800 font-semibold">{nade.name}</p>
                             </div>
                         </div>
                     </Link>

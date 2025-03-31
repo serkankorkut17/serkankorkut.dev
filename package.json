@@ -13,6 +13,7 @@
     "cookie": "^1.0.2",
     "flowbite": "^2.5.2",
     "flowbite-react": "^0.10.2",
+    "lucide-react": "^0.485.0",
     "mongoose": "^8.9.5",
     "next": "^15.1.4",
     "nodemailer": "^6.9.14",
