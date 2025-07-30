@@ -25,12 +25,12 @@ export default function HeroSection() {
 
 			<div className="flex flex-col items-center">
 				<h1
-					className={`${orbitron.className} text-orange-500 text-outline mt-8 md:mt-2 xl:mt-8 text-6xl md:text-7xl xl:text-8xl font-extrabold leading-tight animate-slideInFromRight`}
+					className={`${orbitron.className} text-orange-500 text-outline mt-8 md:mt-2 xl:mt-8 text-6xl md:text-7xl xl:text-8xl font-extrabold leading-tight animate-slide-in-from-right`}
 				>
 					{title}
 				</h1>
 				<h2
-					className={`${orbitron.className} text-white pb-4 mt-4 md:mt-2 xl:mt-4 text-2xl md:text-3xl xl:text-4xl font-bold leading-tight animate-slideInFromLeft`}
+					className={`${orbitron.className} text-white pb-4 mt-4 md:mt-2 xl:mt-4 text-2xl md:text-3xl xl:text-4xl font-bold leading-tight animate-slide-in-from-left`}
 				>
 					{subtitle}
 				</h2>

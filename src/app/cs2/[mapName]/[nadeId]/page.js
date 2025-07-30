@@ -18,7 +18,7 @@ export default async function NadeDetailPage({ params }) {
     }
 
     return (
-        <div className="bg-gradient-to-b from-gray-100 to-gray-200 w-full min-h-screen py-12">
+        <div className="bg-linear-to-b from-gray-100 to-gray-200 w-full min-h-screen py-12">
             <div className="mx-auto px-4">
                 <GrenadeTitle nade={nade} map={map} />
                 <GrenadeInstruction nade={nade} />

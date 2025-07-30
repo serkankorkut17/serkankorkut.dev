@@ -16,7 +16,7 @@ const Footer = () => {
   const { aboutMe, resources, followMe, accounts } = footerData;
   return (
     <footer className="relative bg-black text-gray-300">
-      <div className="mx-auto w-full max-w-screen-xl p-6 lg:py-10 relative">
+      <div className="mx-auto w-full max-w-(--breakpoint-xl) p-6 lg:py-10 relative">
         {/* Top Section */}
         <div className="md:flex md:justify-between">
           {/* Logo & Title */}

@@ -1,11 +1,11 @@
 {
 	"heroSection": {
 		"title": "Hello, I'm Serkan Korkut.",
-		"subtitle": "I&apos;m a Computer Engineering Student at Marmara University"
+		"subtitle": "I'm a Computer Engineering Student at Marmara University"
 	},
 	"aboutSection": {
 		"title": "About Me",
-		"description": "I'm Serkan Korkut, a software engineer passionate about back-end development. I have a solid foundation in various technologies and frameworks, and I&apos;m always looking for new opportunities to grow and collaborate on exciting projects.",
+		"description": "I'm Serkan Korkut, a software engineer passionate about back-end development. I have a solid foundation in various technologies and frameworks, and I'm always looking for new opportunities to grow and collaborate on exciting projects.",
 		"skills": {
 			"node": {
 				"title": "Node.js & Express",

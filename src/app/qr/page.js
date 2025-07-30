@@ -80,7 +80,7 @@ const QRCodeGenerator = () => {
               placeholder="Enter text or URL"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded text-sm sm:text-base"
+              className="w-full p-2 border border-gray-300 rounded-sm text-sm sm:text-base"
             />
           </div>
 
@@ -90,7 +90,7 @@ const QRCodeGenerator = () => {
             <select 
               value={qrLevel} 
               onChange={(e) => setQrLevel(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded text-sm sm:text-base"
+              className="w-full p-2 border border-gray-300 rounded-sm text-sm sm:text-base"
             >
               <option value="L">L - Low</option>
               <option value="M">M - Medium</option>
@@ -121,7 +121,7 @@ const QRCodeGenerator = () => {
                   onChange={(e) => setLogoWidth(Number(e.target.value))}
                   min="20"
                   max="150"
-                  className="w-full p-2 border border-gray-300 rounded text-sm sm:text-base"
+                  className="w-full p-2 border border-gray-300 rounded-sm text-sm sm:text-base"
                 />
               </div>
               <div className="space-y-2">
@@ -132,7 +132,7 @@ const QRCodeGenerator = () => {
                   onChange={(e) => setLogoHeight(Number(e.target.value))}
                   min="20"
                   max="150"
-                  className="w-full p-2 border border-gray-300 rounded text-sm sm:text-base"
+                  className="w-full p-2 border border-gray-300 rounded-sm text-sm sm:text-base"
                 />
               </div>
             </div>
@@ -165,13 +165,13 @@ const QRCodeGenerator = () => {
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <button 
                 onClick={downloadSVG} 
-                className="flex-1 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm sm:text-base"
+                className="flex-1 px-4 py-2 bg-blue-500 text-white rounded-sm hover:bg-blue-600 text-sm sm:text-base"
               >
                 Download SVG
               </button>
               <button 
                 onClick={downloadPNG} 
-                className="flex-1 px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 text-sm sm:text-base"
+                className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-sm hover:bg-orange-600 text-sm sm:text-base"
               >
                 Download PNG (HD)
               </button>

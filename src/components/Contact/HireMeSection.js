@@ -13,7 +13,7 @@ const HireMeSection = () => {
   return (
     <div className={`relative`}>
       {/* Main Content */}
-      <div className="bg-gradient-to-r from-orange-50 to-orange-100 py-16 px-8 md:px-40">
+      <div className="bg-linear-to-r from-orange-50 to-orange-100 py-16 px-8 md:px-40">
         <div className="text-center">
           <h2 className="text-5xl font-bold text-black mb-4">
             {title}

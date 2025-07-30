@@ -121,7 +121,7 @@ export default function EditNadePage() {
                     <select
                         value={map}
                         onChange={(e) => setMap(e.target.value)}
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     >
                         {maps.map((m) => (
                             <option key={m.name} value={m.name}>
@@ -139,7 +139,7 @@ export default function EditNadePage() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
 
@@ -149,7 +149,7 @@ export default function EditNadePage() {
                     <select
                         value={type}
                         onChange={(e) => setType(e.target.value)}
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     >
                         <option value="smoke">Smoke</option>
                         <option value="molotov">Molotov</option>
@@ -164,7 +164,7 @@ export default function EditNadePage() {
                     <select
                         value={side}
                         onChange={(e) => setSide(e.target.value)}
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     >
                         <option value="T">T</option>
                         <option value="CT">CT</option>
@@ -179,7 +179,7 @@ export default function EditNadePage() {
                         value={position}
                         onChange={(e) => setPosition(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
                 <div>
@@ -189,7 +189,7 @@ export default function EditNadePage() {
                         value={landing}
                         onChange={(e) => setLanding(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
 
@@ -210,13 +210,13 @@ export default function EditNadePage() {
                                 setThrowInput
                             );
                         }}
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                     <ul className="mt-2">
                         {throwMethods.map((t, index) => (
                             <li
                                 key={index}
-                                className="bg-gray-200 px-2 py-1 inline-flex items-center mr-2 rounded"
+                                className="bg-gray-200 px-2 py-1 inline-flex items-center mr-2 rounded-sm"
                             >
                                 {t}
                                 <button
@@ -236,7 +236,7 @@ export default function EditNadePage() {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
 
@@ -250,7 +250,7 @@ export default function EditNadePage() {
                         value={location}
                         onChange={(e) => setLocation(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
 
@@ -263,7 +263,7 @@ export default function EditNadePage() {
                         value={placement}
                         onChange={(e) => setPlacement(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
 
@@ -285,13 +285,13 @@ export default function EditNadePage() {
                                 setLineupInput
                             );
                         }}
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                     <ul className="mt-2">
                         {lineupImages.map((img, index) => (
                             <li
                                 key={index}
-                                className="bg-gray-200 px-2 py-1 inline-flex items-center mr-2 rounded"
+                                className="bg-gray-200 px-2 py-1 inline-flex items-center mr-2 rounded-sm"
                             >
                                 {img}
                                 <button
@@ -315,7 +315,7 @@ export default function EditNadePage() {
                         value={land}
                         onChange={(e) => setLand(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
 
@@ -327,13 +327,13 @@ export default function EditNadePage() {
                         value={video}
                         onChange={(e) => setVideo(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
 
                 <button
                     type="submit"
-                    className="bg-blue-500 text-white px-4 py-2 rounded"
+                    className="bg-blue-500 text-white px-4 py-2 rounded-sm"
                 >
                     Değişiklikleri Kaydet
                 </button>

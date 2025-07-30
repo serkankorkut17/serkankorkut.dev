@@ -44,7 +44,7 @@ export default function VideoUploader() {
 					/>
 					<button
 						onClick={captureFrame}
-						className="mt-2 bg-blue-500 text-white px-4 py-2 rounded"
+						className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-sm"
 					>
 						Bu anı kaydet (screenshot)
 					</button>

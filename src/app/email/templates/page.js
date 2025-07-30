@@ -103,7 +103,7 @@ export default function TemplatesPage() {
                           onClick={() =>
                             router.push(`templates/edit/${template._id}`)
                           }
-                          className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
+                          className="bg-blue-500 text-white p-2 rounded-sm hover:bg-blue-600 transition"
                         >
                           <FaEdit className="text-white" />
                         </button>
@@ -112,7 +112,7 @@ export default function TemplatesPage() {
                             setTemplateToDelete(template);
                             setShowDeleteModal(true);
                           }}
-                          className="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition"
+                          className="bg-red-500 text-white p-2 rounded-sm hover:bg-red-600 transition"
                         >
                           <FaTrash className="text-white" />
                         </button>

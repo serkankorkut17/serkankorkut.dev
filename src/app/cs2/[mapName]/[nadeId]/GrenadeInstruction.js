@@ -112,7 +112,7 @@ const GrenadeInstruction = ({ nade = {} }) => {
                             key={index}
                             className="flex items-center space-x-3 mb-4 flex-wrap"
                         >
-                            <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold flex-shrink-0">
+                            <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">
                                 {index + 1}
                             </div>
                             <p className="text-gray-700 break-words min-w-0 flex-1">

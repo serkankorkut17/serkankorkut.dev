@@ -125,8 +125,8 @@ const NadesList = ({ nades, mapName }) => {
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                 {filteredNades.map((nade) => (
                     <Link key={nade._id} href={`/cs2/${mapName}/${nade._id}`} className="h-full">
-                        <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col">
-                            <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
+                        <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col">
+                            <div className="relative w-full h-48 overflow-hidden shrink-0">
                                 <Image
                                     src={nade.images.land}
                                     alt={nade.description}
@@ -141,7 +141,7 @@ const NadesList = ({ nades, mapName }) => {
                                     {sideIcons[nade.side]}
                                 </div>
                             </div>
-                            <div className="p-4 flex justify-between items-center flex-grow">
+                            <div className="p-4 flex justify-between items-center grow">
                                 <p className="text-gray-800 font-semibold">
                                     {nade.name}
                                 </p>

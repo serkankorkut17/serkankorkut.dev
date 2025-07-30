@@ -39,7 +39,7 @@ export default function AddMapPage() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
                 <div>
@@ -49,7 +49,7 @@ export default function AddMapPage() {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
                 <div>
@@ -68,7 +68,7 @@ export default function AddMapPage() {
                         value={image}
                         onChange={(e) => setImage(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
                 <div>
@@ -77,12 +77,12 @@ export default function AddMapPage() {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
                 <button
                     type="submit"
-                    className="bg-blue-500 text-white px-4 py-2 rounded"
+                    className="bg-blue-500 text-white px-4 py-2 rounded-sm"
                 >
                     Harita Ekle
                 </button>

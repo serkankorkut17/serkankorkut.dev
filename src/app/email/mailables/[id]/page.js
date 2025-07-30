@@ -183,7 +183,7 @@ export default function MailableDetailPage() {
                 mailable.recipients.map((email, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-2 bg-gray-200 px-3 py-1 rounded-lg shadow-sm"
+                    className="flex items-center gap-2 bg-gray-200 px-3 py-1 rounded-lg shadow-xs"
                   >
                     <span className="text-sm">{email}</span>
                     <button
@@ -291,7 +291,7 @@ export default function MailableDetailPage() {
           {templateUrl && (
             <iframe
               src={templateUrl}
-              className="w-full h-80 border rounded-lg shadow-sm"
+              className="w-full h-80 border rounded-lg shadow-xs"
               frameBorder="0"
             />
           )}

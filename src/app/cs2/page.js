@@ -19,8 +19,8 @@ export default async function MapSelectionPage() {
             <div className="grid grid-cols-1 md:grid-cols-2  xl:grid-cols-3 gap-4 mb-8">
                 {maps.map((map) => (
                     <Link key={map.name} href={`/cs2/${map.name}`} className="h-full">
-                        <div className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col">
-                            <div className="relative w-full h-48 overflow-hidden flex-shrink-0">
+                        <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full flex flex-col">
+                            <div className="relative w-full h-48 overflow-hidden shrink-0">
                                 <Image
                                     src={map.image}
                                     alt={map.title}

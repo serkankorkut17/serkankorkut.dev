@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function PageHeader({ title, font }) {
   return (
-    <section className={`flex items-center justify-center h-64 md:h-80 lg:h-96 w-full bg-gradient-to-b from-black to-gray-950`}>
+    <section className={`flex items-center justify-center h-64 md:h-80 lg:h-96 w-full bg-linear-to-b from-black to-gray-950`}>
       {/* Background Image */}
       {/* <div className="absolute inset-0 w-full h-full -z-40 bg-black">
         <Image

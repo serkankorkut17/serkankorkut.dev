@@ -36,7 +36,7 @@ function EditMapForm({ map }) {
                         type="text"
                         value={map.name}
                         disabled
-                        className="w-full p-2 border rounded bg-gray-100"
+                        className="w-full p-2 border rounded-sm bg-gray-100"
                     />
                 </div>
                 <div>
@@ -46,7 +46,7 @@ function EditMapForm({ map }) {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
                 <div>
@@ -65,7 +65,7 @@ function EditMapForm({ map }) {
                         value={image}
                         onChange={(e) => setImage(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
                 <div>
@@ -74,12 +74,12 @@ function EditMapForm({ map }) {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         required
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border rounded-sm"
                     />
                 </div>
                 <button
                     type="submit"
-                    className="bg-green-500 text-white px-4 py-2 rounded"
+                    className="bg-green-500 text-white px-4 py-2 rounded-sm"
                 >
                     Haritayı Güncelle
                 </button>
