@@ -1,8 +1,9 @@
 "use client";
 
+import withAdminAuth from "@/components/Admin/withAdminAuth";
 import { useRef, useState } from "react";
 
-export default function VideoUploader() {
+function VideoUploader() {
 	const [videoURL, setVideoURL] = useState(null);
 	const videoRef = useRef(null);
 	const canvasRef = useRef(null);
@@ -60,3 +61,5 @@ export default function VideoUploader() {
 		</div>
 	);
 }
+
+export default withAdminAuth(VideoUploader);

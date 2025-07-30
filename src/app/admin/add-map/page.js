@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import withAdminAuth from "@/components/Admin/withAdminAuth";
 
-export default function AddMapPage() {
+function AddMapPage() {
     const [name, setName] = useState("");
     const [title, setTitle] = useState("");
     const [active, setActive] = useState(true);
@@ -90,3 +91,5 @@ export default function AddMapPage() {
         </section>
     );
 }
+
+export default withAdminAuth(AddMapPage);

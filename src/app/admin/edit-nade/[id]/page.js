@@ -1,9 +1,10 @@
 "use client";
 
+import withAdminAuth from "@/components/Admin/withAdminAuth";
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 
-export default function EditNadePage() {
+function EditNadePage() {
     const [maps, setMaps] = useState([]);
     const [map, setMap] = useState("");
     const [name, setName] = useState("");
@@ -341,3 +342,5 @@ export default function EditNadePage() {
         </section>
     );
 }
+
+export default withAdminAuth(EditNadePage);

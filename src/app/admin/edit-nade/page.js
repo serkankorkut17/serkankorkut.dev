@@ -1,11 +1,42 @@
-import { connectToDatabase } from "@/utils/database";
-import Nade from "@/models/Nade";
+"use client";
+
+import { useState, useEffect } from "react";
+import withAdminAuth from "@/components/Admin/withAdminAuth";
 import Link from "next/link";
 import Image from "next/image";
 
-export default async function EditNadesPage() {
-    await connectToDatabase();
-    const nades = await Nade.find();
+function EditNadesPage() {
+    const [nades, setNades] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchNades = async () => {
+            try {
+                const response = await fetch('/api/nades');
+                const data = await response.json();
+                setNades(data || []);
+            } catch (error) {
+                console.error('Error fetching nades:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchNades();
+    }, []);
+
+    if (loading) {
+        return (
+            <section className="flex flex-col py-16 px-8 md:px-40 bg-white text-black min-h-screen">
+                <div className="flex items-center justify-center min-h-[60vh]">
+                    <div className="text-center">
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
+                        <p className="text-gray-600">Loading nades...</p>
+                    </div>
+                </div>
+            </section>
+        );
+    }
 
 
     if (nades.length === 0) {
@@ -56,3 +87,5 @@ export default async function EditNadesPage() {
         </section>
     );
 }
+
+export default withAdminAuth(EditNadesPage);

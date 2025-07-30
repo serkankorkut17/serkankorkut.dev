@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import withAdminAuth from "@/components/Admin/withAdminAuth";
 
-export default function AddNadePage() {
+function AddNadePage() {
     const [maps, setMaps] = useState([]);
     const [map, setMap] = useState("");
     const [name, setName] = useState("");
@@ -323,3 +324,5 @@ export default function AddNadePage() {
         </section>
     );
 }
+
+export default withAdminAuth(AddNadePage);
