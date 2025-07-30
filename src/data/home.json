@@ -1,0 +1,61 @@
+{
+	"heroSection": {
+		"title": "Hello, I'm Serkan Korkut.",
+		"subtitle": "I&apos;m a Computer Engineering Student at Marmara University"
+	},
+	"aboutSection": {
+		"title": "About Me",
+		"description": "I'm Serkan Korkut, a software engineer passionate about back-end development. I have a solid foundation in various technologies and frameworks, and I&apos;m always looking for new opportunities to grow and collaborate on exciting projects.",
+		"skills": {
+			"node": {
+				"title": "Node.js & Express",
+				"description": "Experienced in building RESTful APIs and backend services using Node.js and Express.js.",
+				"show": true
+			},
+			"python": {
+				"title": "Python",
+				"description": "Proficient in developing high-performance backend applications with Python.",
+				"show": true
+			},
+			"dotnet": {
+				"title": "C# & .NET Core",
+				"description": "Familiar with building enterprise applications using C# and .NET Core, including ASP.NET Core.",
+				"show": true
+			},
+			"react": {
+				"title": "React & Next.js",
+				"description": "Experienced with React and Next.js for building interactive and dynamic web applications.",
+				"show": true
+			},
+			"fastapi": {
+				"title": "FastAPI",
+				"description": "Built fast and efficient backend services using FastAPI, integrated with GraphQL for flexible and precise data handling.",
+				"show": true
+			},
+			"database": {
+				"title": "SQL & MongoDB",
+				"description": "Strong knowledge of relational databases (PostgreSQL, MySQL) and NoSQL databases (MongoDB).",
+				"show": true
+			},
+			"graphql": {
+				"title": "GraphQL",
+				"description": "Skilled in developing robust APIs with GraphQL, enabling efficient data retrieval and flexible query capabilities.",
+				"show": true
+			},
+			"restapi": {
+				"title": "RESTful APIs",
+				"description": "Experienced in designing and implementing scalable REST APIs for seamless integration and high-performance web services.",
+				"show": true
+			},
+			"wordpress": {
+				"title": "WordPress Development",
+				"description": "Developed WordPress websites and optimized SEO to boost visibility and search rankings, delivering scalable solutions.",
+				"show": true
+			}
+		},
+		"cta": {
+			"text": "Interested in collaborating or hiring me?",
+			"buttonText": "Get In Touch"
+		}
+	}
+}
