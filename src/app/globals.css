@@ -1,0 +1,156 @@
+@import 'tailwindcss';
+@plugin 'flowbite-react/plugin/tailwindcss';
+@source '../../.flowbite-react/class-list.json';
+
+@config '../../tailwind.config.js';
+
+@plugin 'flowbite/plugin';
+
+@source '../../node_modules/flowbite/**/*.js';
+@source '../../node_modules/flowbite-react/**/*.js';
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@layer utilities {
+  /* @import 'flowbite/dist/flowbite.min.css'; */
+
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+    }
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+.text-outline {
+    position: relative;
+    color: transparent;
+    -webkit-text-stroke: 2px #ff6600; /* Orange outline */
+}
+
+.text-outline::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ffffff;
+}
+
+.arrow-outline {
+    position: relative;
+    color: transparent;
+    -webkit-text-stroke: 2px #ffffff; /* Orange outline */
+}
+
+* {
+    cursor: none !important; /* Suppress the cursor globally */
+}
+
+/* Scrolling */
+.scrolling-container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.scrolling-text {
+    display: flex;
+    animation: scroll-text 20s linear infinite;
+}
+
+.scrolling-container:hover .scrolling-text {
+    animation-play-state: paused; /* Pause animation on hover */
+}
+
+.scroll-item {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding-right: 2rem; /* Optional: Adjust spacing between items */
+}
+
+/* Scroll animation */
+@keyframes scroll-text {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* custom.css */
+.carousel {
+    position: relative !important; /* Override absolute positioning */
+    overflow: hidden; /* Ensure images do not overflow */
+}
+
+.carousel img {
+    position: relative !important; /* Remove absolute positioning */
+    width: 100%; /* Make images full width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+.prose {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px transparent inset !important; /* Arkaplanı şeffaf yap */
+  -webkit-text-fill-color: #1f2937 !important; /* Metin rengi (gray-900) */
+  background-color: #f3f4f6 !important; /* Light mode arkaplan (gray-100) */
+  transition: background-color 5000s ease-in-out 0s !important; /* Tarayıcı geçiş efektini engelle */
+}
+
+/* Dark mode için */
+@media (prefers-color-scheme: dark) {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    -webkit-text-fill-color: #e5e7eb !important; /* Metin rengi (gray-100) */
+    background-color: #1f2937 !important; /* Dark mode arkaplan (gray-800) */
+  }
+}
