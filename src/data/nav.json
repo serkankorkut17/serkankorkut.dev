@@ -1,0 +1,60 @@
+{
+    "navLinks": [
+        {
+            "name": "HOME",
+            "url": "/"
+        },
+        {
+            "name": "PROJECTS",
+            "url": "/projects"
+        },
+        {
+            "name": "EXTRAS",
+            "url": "/extras",
+            "subLinks": [
+                { "name": "EMAIL", "url": "/email" },
+                { "name": "QR CODE", "url": "/qr" },
+                { "name": "CS2", "url": "/cs2" }
+            ]
+        }
+    ],
+    "contactInfo": {
+        "phone": {
+            "number": "+90 536 492 5885",
+            "link": "https://wa.me/905364925885",
+            "show": false
+        },
+        "email": {
+            "address": "serkankorkut17@gmail.com",
+            "link": "mailto:serkankorkut17@gmail.com",
+            "show": true
+        },
+        "address": {
+            "text": "Maltepe/Istanbul, Turkey",
+            "link": "https://maps.app.goo.gl/KtYSiBhabhDD3BKV8",
+            "show": true
+        }
+    },
+    "socialLinks": {
+        "facebook": {
+            "url": "https://www.facebook.com/serkan.krktt/",
+            "show": true
+        },
+        "twitter": {
+            "url": "https://x.com/serkankorkutt17/",
+            "show": false
+        },
+        "instagram": {
+            "url": "https://www.instagram.com/serkan.krktt/",
+            "show": true
+        },
+        "linkedin": {
+            "url": "https://www.linkedin.com/in/serkankorkut17/",
+            "show": true
+        },
+        "github": {
+            "url": "https://github.com/serkankorkut17/",
+            "show": true
+        }
+    }
+}
