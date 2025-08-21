@@ -14,6 +14,7 @@ const NavItem = ({ link }: NavItemProps) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+
   const handleMouseEnter = () => {
     // Herhangi bir timeout varsa temizle
     if (timeoutRef.current) {

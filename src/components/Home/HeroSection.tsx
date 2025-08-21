@@ -2,7 +2,9 @@ import Image from "next/image";
 // import background from "@/images/background/banner-one-shape-1.webp";
 import PP from "@/images/pp.jpeg";
 import { Orbitron } from "next/font/google";
-import HomeData from "@/data/home.json";
+import HomeData from "@/data/HomePage.json";
+import { useLocale } from "next-intl";
+import { SupportedLocale } from "@/types";
 
 const orbitron = Orbitron({
 	weight: ["400", "500", "600", "700", "800", "900"],
@@ -10,7 +12,11 @@ const orbitron = Orbitron({
 });
 
 export default function HeroSection() {
-	const { title, subtitle } = HomeData.heroSection;
+	const currentLocale: SupportedLocale = useLocale() as SupportedLocale;
+	const locale = currentLocale || "en";
+
+	const { title, subtitle } = HomeData.HeroSection[locale];
+
 	return (
 		<section className="flex bg-black h-[calc(100vh-96px)] flex-col overflow-hidden items-center justify-center py-2 px-8 md:py-8 md:px-24 text-center">
 			<div className="flex justify-center mx-20 sm:mx-28 md:mx-40 xl:mx-60">

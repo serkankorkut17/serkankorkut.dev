@@ -1,8 +1,19 @@
 import type { NextConfig } from "next";
 import withFlowbiteReact from "flowbite-react/plugin/nextjs";
+import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "res.cloudinary.com",
+                port: "",
+                pathname: "/serkankorkut/image/upload/**",
+            },
+        ],
+    },
 };
+const withNextIntl = createNextIntlPlugin();
 
-export default withFlowbiteReact(nextConfig);
+export default withFlowbiteReact(withNextIntl(nextConfig));

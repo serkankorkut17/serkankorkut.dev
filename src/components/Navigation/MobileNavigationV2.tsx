@@ -1,26 +1,22 @@
 import { useState, useEffect } from "react";
-import { Sidebar, Button } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { HiBars3, HiXMark } from "react-icons/hi2";
+import NavData from "@/data/nav.json";
 import Logo from "@/images/logo/logo-grayscale-inverted.svg";
 import Image from "next/image";
 import MobileNavItem from "./MobileNavItem";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-interface MobileNavigationProps {
-	navLinks: {
-		name: string;
-		url: string;
-		subLinks?: { name: string; url: string }[];
-	}[];
-	actionButton: {
-		name: string;
-		url: string;
-	};
-}
-
-export default function MobileNavigation({navLinks, actionButton} : MobileNavigationProps) {
+export default function MobileNavigation() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
+
+	const contactLink = {
+		name: "CONTACT",
+		url: "/contact",
+	};
+
+	const navLinks = NavData.navLinks;
 
 	const handleOpen = () => {
 		setIsOpen(true);
@@ -32,7 +28,7 @@ export default function MobileNavigation({navLinks, actionButton} : MobileNaviga
 		setTimeout(() => setIsOpen(false), 300); // Wait for animation to complete
 	};
 
-	// Body scroll'unu kontrol et
+	// Sidebar açıldığında body scroll'unu devre dışı bırak
 	useEffect(() => {
 		if (isOpen) {
 			document.body.style.overflow = 'hidden';
@@ -85,56 +81,68 @@ export default function MobileNavigation({navLinks, actionButton} : MobileNaviga
 						className={`fixed top-0 left-0 z-[9999] h-screen w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
 							isVisible ? 'translate-x-0' : '-translate-x-full'
 						}`}
+						style={{ 
+							touchAction: 'none',  // Disable touch scrolling on sidebar container
+							overscrollBehavior: 'contain'  // Prevent scroll chaining
+						}}
 					>
-						<Sidebar className="h-full">
-							<div className="flex justify-end p-4">
-								<Button
-									onClick={handleClose}
-									size="sm"
-									className="text-gray-600 hover:text-gray-800 bg-transparent border-0 p-1 hover:bg-gray-100 focus:ring-0 rounded-lg"
-								>
-									<HiXMark className="w-10 h-10" />
-								</Button>
-							</div>
-							
-							{/* Logo and Title */}
-							<div className="flex flex-col justify-center items-center mb-8 px-6">
-								<Image
-									src={Logo}
-									priority
-									className="h-48 w-48 object-cover object-center"
-									alt="Serkan Korkut Logo"
-								/>
-								<p className="block text-gray-800 text-xl font-bold text-center">
-									Serkan Korkut
-								</p>
-							</div>
+					{/* Custom Sidebar Content with Flex Layout */}
+					<div className="h-full flex flex-col">
+						{/* Header with close button */}
+						<div className="flex justify-end p-4">
+							<Button
+								onClick={handleClose}
+								size="sm"
+								className="text-gray-600 hover:text-gray-800 bg-transparent border-0 p-1 hover:bg-gray-100 focus:ring-0 rounded-lg"
+							>
+								<HiXMark className="w-10 h-10" />
+							</Button>
+						</div>
+						
+						{/* Logo and Title */}
+						<div className="flex flex-col justify-center items-center mb-8 px-6">
+							<Image
+								src={Logo}
+								priority
+								className="h-48 w-48 object-cover object-center"
+								alt="Serkan Korkut Logo"
+							/>
+							<p className="block text-gray-800 text-xl font-bold text-center">
+								Serkan Korkut
+							</p>
+						</div>
 
-							{/* Navigation Links */}
-							<div className="flex-1 overflow-y-auto px-6 pb-4">
-								{navLinks.map((link) => (
-									<div key={link.name}>
-										<MobileNavItem
-											link={link}
-											toggleSidebar={handleClose}
-										/>
-										<hr className="border-gray-200 my-2" />
-									</div>
-								))}
-								<div key="Contact">
+						{/* Navigation Links - This will take remaining space */}
+						<div 
+							className="flex-1 overflow-y-auto px-6 pb-4"
+							style={{ 
+								touchAction: 'pan-y',  // Allow only vertical scrolling
+								overscrollBehavior: 'contain'
+							}}
+						>
+							{navLinks.map((link) => (
+								<div key={link.name}>
 									<MobileNavItem
-										link={actionButton}
+										link={link}
 										toggleSidebar={handleClose}
 									/>
+									<hr className="border-gray-200 my-2" />
 								</div>
+							))}
+							<div key="Contact">
+								<MobileNavItem
+									link={contactLink}
+									toggleSidebar={handleClose}
+								/>
 							</div>
+						</div>
 
-							{/* Footer with Language Switcher */}
-							<div className="border-t border-gray-200 bg-gray-50 px-4 py-4 mt-auto">
-								<LanguageSwitcher isMobile={true} showText={true} />
-							</div>
-						</Sidebar>
+						{/* Footer with Language Switcher - This will stick to bottom */}
+						<div className="border-t border-gray-200 bg-gray-50 px-4 py-4">
+							<LanguageSwitcher isMobile={true} showText={true} />
+						</div>
 					</div>
+				</div>
 				</>
 			)}
 		</>

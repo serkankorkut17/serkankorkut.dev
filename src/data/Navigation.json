@@ -1,23 +1,39 @@
 {
     "navLinks": [
         {
-            "name": "HOME",
+            "name": {
+                "en": "HOME",
+                "tr": "ANASAYFA"
+            },
             "url": "/"
         },
         {
-            "name": "PROJECTS",
+            "name": {
+                "en": "PROJECTS",
+                "tr": "PROJELER"
+            },
             "url": "/projects"
         },
         {
-            "name": "EXTRAS",
+            "name": {
+                "en": "EXTRAS",
+                "tr": "EKSTRALAR"
+            },
             "url": "/extras",
             "subLinks": [
-                { "name": "EMAIL", "url": "/email" },
-                { "name": "QR CODE", "url": "/qr" },
-                { "name": "CS2", "url": "/cs2" }
+                { "name": { "en": "EMAIL", "tr": "E-POSTA" }, "url": "/email" },
+                { "name": { "en": "QR CODE", "tr": "QR KODU" }, "url": "/qr" },
+                { "name": { "en": "CS2", "tr": "CS2" }, "url": "/cs2" }
             ]
         }
     ],
+    "actionButton": {
+        "name": {
+            "en": "CONTACT",
+            "tr": "İLETİŞİM"
+        },
+        "url": "/contact"
+    },
     "contactInfo": {
         "phone": {
             "number": "+90 536 492 5885",
@@ -30,7 +46,10 @@
             "show": true
         },
         "address": {
-            "text": "Maltepe/Istanbul, Turkey",
+            "text": {
+                "en": "Maltepe / Istanbul, Turkey",
+                "tr": "Maltepe / İstanbul, Türkiye"
+            },
             "link": "https://maps.app.goo.gl/KtYSiBhabhDD3BKV8",
             "show": true
         }

@@ -1,0 +1,12 @@
+{
+	"PageHeader": {
+		"title": "HOME"
+	},
+	"NotFoundPage": {
+		"title": "Not Found",
+		"description": "The page you are looking for could not be found.",
+		"longDescription": "The page may have been moved, deleted, or the URL may be incorrect. You can return to the home page or contact me through the contact page.",
+		"backToHome": "Back to Home",
+		"contact": "Contact"
+	}
+}

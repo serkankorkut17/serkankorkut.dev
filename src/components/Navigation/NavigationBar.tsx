@@ -7,7 +7,7 @@ import { Navbar } from "flowbite-react";
 import MobileNavigation from "./MobileNavigation";
 import NavItem from "./NavItem";
 import Logo from "@/images/logo/logo-transparent.png";
-import NavData from "@/data/nav.json";
+import NavData from "@/data/Navigation.json";
 import { PiPhoneFill } from "react-icons/pi";
 import { TbMailFilled } from "react-icons/tb";
 import { TiLocation } from "react-icons/ti";
@@ -16,23 +16,30 @@ import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-// phone icon
-
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLocale } from "next-intl";
+import { SupportedLocale } from "@/types";
 
 const NavigationBar = () => {
-	// const { t } = useTranslation();
+	const currentLocale: SupportedLocale = useLocale() as SupportedLocale;
+	const locale = currentLocale || "en";
 
+	const navLinks = NavData.navLinks.map(link => ({
+		...link,
+		name: link.name[locale],
+		subLinks: link.subLinks ? link.subLinks.map(subLink => ({
+			...subLink,
+			name: subLink.name[locale]
+		})) : undefined
+	}));
 	const socialLinks = NavData.socialLinks;
-	const navLinks = NavData.navLinks;
 	const contactInfo = NavData.contactInfo;
+	const actionButton = {
+		...NavData.actionButton,
+		name: NavData.actionButton.name[locale]
+	};
 
-	navLinks.forEach((link) => {
-		// Ensure every link has a 'url' property
-		if (!('url' in link)) {
-			// @ts-expect-error: url may be missing, assign default
-			link.url = ""; // Assign an empty string if 'url' is missing
-		}
-	});
+	// Sticky navigation state
 
 	const [isSticky, setIsSticky] = useState(false);
 
@@ -51,7 +58,7 @@ const NavigationBar = () => {
 
 	return (
 		<>
-			<div className={`${isSticky ? "h-20" : "h-0"}`} />
+			<div className={`${isSticky ? "h-[100px]" : "h-0"}`} />
 
 			<Navbar
 				fluid={true}
@@ -83,7 +90,7 @@ const NavigationBar = () => {
 					{/* Main Content Area */}
 					<div className="h-24 md:basis-3/4 flex flex-col md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 						{/* Mobile Navigation */}
-						<MobileNavigation />
+						<MobileNavigation navLinks={navLinks} actionButton={actionButton} />
 
 						{/* Top Bar with Contact Info and Social Links */}
 						<div className="h-12 hidden md:flex items-center justify-between border-b border-zinc-800">
@@ -118,7 +125,7 @@ const NavigationBar = () => {
 											className="font-medium hover:text-orange-500 transition-colors duration-300"
 											href={contactInfo.address.link}
 										>
-											{contactInfo.address.text}
+											{contactInfo.address.text[locale]}
 										</a>
 									</div>
 								)}
@@ -126,27 +133,27 @@ const NavigationBar = () => {
 							<div className="flex space-x-3">
 								{socialLinks.facebook.show && (
 									<Link href={socialLinks.facebook.url}>
-										<FaFacebookF className="w-6 h-6 text-white hover:text-orange-500 transition-colors duration-300" />
+										<FaFacebookF className="w-5 h-5 text-white hover:scale-125 hover:text-orange-500 transition-all duration-300" />
 									</Link>
 								)}
 								{socialLinks.twitter.show && (
 									<Link href={socialLinks.twitter.url}>
-											<FaTwitter className="w-6 h-6 text-white hover:text-orange-500 transition-colors duration-300" />
+											<FaTwitter className="w-5 h-5 text-white hover:scale-125 hover:text-orange-500 transition-all duration-300" />
 									</Link>
 								)}
 								{socialLinks.instagram.show && (
 									<Link href={socialLinks.instagram.url}>
-										<FaInstagram className="w-6 h-6 text-white hover:text-orange-500 transition-colors duration-300" />
+										<FaInstagram className="w-5 h-5 text-white hover:scale-125 hover:text-orange-500 transition-all duration-300" />
 									</Link>
 								)}
 								{socialLinks.linkedin.show && (
 									<Link href={socialLinks.linkedin.url}>
-										<FaLinkedinIn className="w-6 h-6 text-white hover:text-orange-500 transition-colors duration-300" />
+										<FaLinkedinIn className="w-5 h-5 text-white hover:scale-125 hover:text-orange-500 transition-all duration-300" />
 									</Link>
 								)}
 								{socialLinks.github.show && (
 									<Link href={socialLinks.github.url}>
-										<FaGithub className="w-6 h-6 text-white hover:text-orange-500 transition-colors duration-300" />
+										<FaGithub className="w-5 h-5 text-white hover:scale-125 hover:text-orange-500 transition-all duration-300" />
 									</Link>
 								)}
 							</div>
@@ -160,16 +167,14 @@ const NavigationBar = () => {
 								))}
 							</ul>
 							<div className="hidden md:flex items-center space-x-4 mt-4 md:mt-0">
-								<Link href="/contact">
+								<LanguageSwitcher showText={true} />
+								<Link href={actionButton.url}>
 									<button
 										type="button"
 										className="text-white bg-orange-500 hover:bg-orange-700 transition-colors duration-300 focus:ring-4 focus:outline-hidden focus:ring-orange-800 font-medium rounded-lg text-sm px-4 py-2 text-center"
 									>
-										CONTACT
+										{actionButton.name}
 									</button>
-									{/* <Button className="text-white bg-orange-500 hover:bg-orange-700 transition-colors duration-300 focus:ring-4 focus:outline-hidden focus:ring-orange-800 font-medium rounded-lg text-sm px-4 py-2 text-center">
-										CONTACT
-									</Button> */}
 								</Link>
 							</div>
 						</div>

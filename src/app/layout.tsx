@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../app/globals.css";
 
 import NavigationBar from "@/components/Navigation/NavigationBar";
 import RocketFire from "@/components/Mouse/RocketFire";
 import RocketCursor from "@/components/Mouse/RocketCursor";
 import ScrollToTopButton from "@/components/Mouse/Scroll";
 import Footer from "@/components/Navigation/Footer";
+// import { ThemeProvider } from "@/contexts/Theme";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 
 // Import the Montserrat font
 import { Montserrat } from "next/font/google";
@@ -20,20 +23,33 @@ export const metadata: Metadata = {
 	description: "Welcome to my personal website",
 };
 
-
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const locale = await getLocale();
+	const messages = await getMessages();
+
 	return (
-		<html lang="en">
+		<html lang={locale}>
 			<head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				{/* <title>{metadata.title}</title>
-				<meta name="description" content={metadata.description} /> */}
-				<link rel="icon" href="/favicon.png" />
+				<link
+					rel="icon"
+					type="image/png"
+					href="/favicon-96x96.png"
+					sizes="96x96"
+				/>
+				<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+				<link rel="shortcut icon" href="/favicon.ico" />
+				<link
+					rel="apple-touch-icon"
+					sizes="180x180"
+					href="/apple-touch-icon.png"
+				/>
+				<link rel="manifest" href="/site.webmanifest" />
 			</head>
 			<body
 				className={montserrat.className}
@@ -41,12 +57,14 @@ export default function RootLayout({
 					cursor: "none",
 				}}
 			>
-				<RocketCursor />
-				<RocketFire />
-				<ScrollToTopButton />
-				<NavigationBar />
-				{children}
-				<Footer />
+				<NextIntlClientProvider locale={locale} messages={messages}>
+					<RocketCursor />
+					<RocketFire />
+					<ScrollToTopButton />
+					<NavigationBar />
+					{children}
+					<Footer />
+				</NextIntlClientProvider>
 			</body>
 		</html>
 	);

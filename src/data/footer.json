@@ -1,10 +1,23 @@
 {
     "aboutMe": {
-        "title": "About Me",
-        "description": "Hi, I'm Serkan Korkut, a passionate backend developer with experience in modern web development. I thrive on building efficient applications and love to learn new technologies."
+        "title": {
+            "en": "About Me",
+            "tr": "Hakkımda"
+        },
+        "description": {
+            "en": "Hi, I'm Serkan Korkut, a passionate backend developer with experience in modern web development. I thrive on building efficient applications and love to learn new technologies.",
+            "tr": "Merhaba, ben Serkan Korkut. Modern web geliştirme konusunda deneyime sahip tutkulu bir backend geliştiricisiyim. Verimli uygulamalar geliştirmekten keyif alıyorum ve yeni teknolojiler öğrenmeyi seviyorum."
+        }
+    },
+    "copyright": {
+        "en": "All Rights Reserved.",
+        "tr": "Tüm Hakları Saklıdır."
     },
     "resources": {
-        "title": "Resources",
+        "title": {
+            "en": "Resources",
+            "tr": "Kaynaklar"
+        },
         "items": [
             {
                 "name": "Next.js",
@@ -25,7 +38,10 @@
         ]
     },
     "followMe": {
-        "title": "Follow Me",
+        "title": {
+            "en": "Follow Me",
+            "tr": "Beni Takip Et"
+        },
         "items": [
             {
                 "name": "LinkedIn",
@@ -51,7 +67,7 @@
             "show": true
         },
         "twitter": {
-            "url": "https://x.com/",
+            "url": "https://x.com/serkankorkutt17/",
             "show": false
         },
         "instagram": {

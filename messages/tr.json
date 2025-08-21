@@ -1,0 +1,12 @@
+{
+  "PageHeader": {
+    "title": "ANA SAYFA"
+  },
+  "NotFoundPage": {
+    "title": "Bulunamadı",
+    "description": "Aradığınız sayfa bulunamadı.",
+    "longDescription": "Sayfa taşınmış, silinmiş ya da URL yanlış yazılmış olabilir. Ana sayfaya dönebilir ya da iletişim sayfasından bana ulaşabilirsiniz.",
+    "backToHome": "Ana Sayfa'ya Dön",
+    "contact": "İletişim"
+  }
+}

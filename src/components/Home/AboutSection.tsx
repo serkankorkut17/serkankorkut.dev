@@ -9,7 +9,9 @@ import {
 	// SiCplusplus,
 } from "react-icons/si";
 import { Orbitron } from "next/font/google";
-import HomeData from "@/data/home.json";
+import HomeData from "@/data/HomePage.json";
+import { useLocale } from "next-intl";
+import { SupportedLocale } from "@/types";
 
 const orbitron = Orbitron({
 	weight: ["400", "500", "600", "700", "800", "900"],
@@ -17,7 +19,10 @@ const orbitron = Orbitron({
 });
 
 export default function AboutSection() {
-	const { title, description, skills, cta } = HomeData.aboutSection;
+	const currentLocale: SupportedLocale = useLocale() as SupportedLocale;
+	const locale = currentLocale || "en";
+
+	const { title, description, skills, cta } = HomeData.AboutSection[locale];
 
 	return (
 		<section className="relative bg-white py-16 px-8 md:py-24 md:px-32">

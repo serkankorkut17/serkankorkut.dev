@@ -1,75 +1,151 @@
 {
-	"contactSection": {
-		"title": ".: DO YOU HAVE ANY QUESTIONS?",
-		"subtitle": "Get In Touch!",
-		"location": {
-			"title": "Location",
-			"address": "Maltepe/Istanbul, Turkey",
-			"link": "https://maps.app.goo.gl/KtYSiBhabhDD3BKV8"
+	"title": {
+		"en": "CONTACT ME",
+		"tr": "İLETİŞİME GEÇ"
+	},
+	"ContactSection": {
+		"en": {
+			"title": ".: DO YOU HAVE ANY QUESTIONS?",
+			"subtitle": "Get In Touch!",
+			"location": {
+				"title": "Location",
+				"address": "Maltepe / Istanbul, Turkey",
+				"link": "https://maps.app.goo.gl/KtYSiBhabhDD3BKV8"
+			},
+			"phone": {
+				"title": "Phone No.",
+				"number": "-",
+				"link": "/"
+			},
+			"email": {
+				"title": "Email",
+				"address": "serkankorkut17@gmail.com",
+				"link": "mailto:serkankorkut17@gmail.com"
+			}
 		},
-		"phone": {
-			"title": "Phone No.",
-			"number": "-",
-			"link": "/"
-		},
-		"email": {
-			"title": "Email",
-			"email": "serkankorkut17@gmail.com",
-			"link": "mailto:serkankorkut17@gmail.com"
+		"tr": {
+			"title": ".: HERHANGİ BİR SORUNUZ MU VAR?",
+			"subtitle": "Benimle İletişime Geçin!",
+			"location": {
+				"title": "Konum",
+				"address": "Maltepe / İstanbul, Türkiye",
+				"link": "https://maps.app.goo.gl/KtYSiBhabhDD3BKV8"
+			},
+			"phone": {
+				"title": "Telefon No.",
+				"number": "-",
+				"link": "#"
+			},
+			"email": {
+				"title": "E-posta",
+				"address": "serkankorkut17@gmail.com",
+				"link": "mailto:serkankorkut17@gmail.com"
+			}
 		}
 	},
 	"mapSection": {
-		"title": "Location",
-		"address": "Maltepe/Istanbul, Turkey",
 		"link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12053.369121484178!2d29.124409!3d40.95208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac689ab10c585%3A0x154f7aab1a0f4be0!2sAyd%C4%B1nevler%2C%2034854%20Maltepe%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1725128603156!5m2!1str!2str"
 	},
 	"formSection": {
-		"title": "Do You Want to Contact Me?",
-		"success": "Your message has been sent successfully.",
-		"error": "Something went wrong. Please try again.",
-		"form": {
-			"name": {
-				"label": "Name",
-				"placeholder": "Name",
-				"error": "Name is required"
-			},
-			"email": {
-				"label": "Email",
-				"placeholder": "Email",
-				"error": "Email is required"
-			},
-			"subject": {
-				"label": "Subject",
-				"placeholder": "Subject",
-				"error": "Subject is required"
-			},
-			"phone": {
-				"label": "Phone",
-				"placeholder": "Phone",
-				"error": "Phone is required"
-			},
-			"message": {
-				"label": "Message",
-				"placeholder": "Message",
-				"error": "Message is required"
-			},
-			"button": "Send Message"
+		"en": {
+			"title": "Do You Want to Contact Me?",
+			"success": "Your message has been sent successfully.",
+			"error": "Something went wrong. Please try again.",
+			"form": {
+				"name": {
+					"label": "Name",
+					"placeholder": "Name",
+					"error": "Name is required"
+				},
+				"email": {
+					"label": "Email",
+					"placeholder": "Email",
+					"error": "Email is required"
+				},
+				"subject": {
+					"label": "Subject",
+					"placeholder": "Subject",
+					"error": "Subject is required"
+				},
+				"phone": {
+					"label": "Phone",
+					"placeholder": "Phone",
+					"error": "Phone is required"
+				},
+				"message": {
+					"label": "Message",
+					"placeholder": "Message",
+					"error": "Message is required"
+				},
+				"button": "Send Message"
+			}
+		},
+		"tr": {
+			"title": "Bana Ulaşmak İster Misiniz?",
+			"success": "Mesajınız başarıyla gönderildi.",
+			"error": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+			"form": {
+				"name": {
+					"label": "İsim",
+					"placeholder": "İsim",
+					"error": "İsim gerekli"
+				},
+				"email": {
+					"label": "E-posta",
+					"placeholder": "E-posta",
+					"error": "E-posta gerekli"
+				},
+				"subject": {
+					"label": "Konu",
+					"placeholder": "Konu",
+					"error": "Konu gerekli"
+				},
+				"phone": {
+					"label": "Telefon",
+					"placeholder": "Telefon",
+					"error": "Telefon gerekli"
+				},
+				"message": {
+					"label": "Mesaj",
+					"placeholder": "Mesaj",
+					"error": "Mesaj gerekli"
+				},
+				"button": "Mesaj Gönder"
+			}
 		}
 	},
 	"scrollingContainer": {
-		"scrollingText": [
+		"scrollingText": {
+			"en": [
 			"Junior Backend Developer",
-			"Ready to Start Career",
-			"Seeking Internship Opportunities",
+			"Ready to Start My Career",
+			"Ready to Learn",
+			"Seeking Job Opportunities",
 			"Open to Junior Positions",
-			"Backend Developer in Progress",
-			"Backend First, But Open to Fullstack"
-		]
+			"Backend Developer in Progress"
+		],
+			"tr": [
+				"Junior Backend Geliştirici",
+				"İş Hayatına Başlamaya Hazırım",
+				"Öğrenmeye Hazırım",
+				"İş Fırsatları Arıyorum",
+				"Junior Pozisyonlara Açığım",
+				"Backend Geliştirici Olma Yolunda"
+			]
+		}
 	},
 	"hireMeSection": {
-		"linkedIn": "https://www.linkedin.com/in/serkankorkut17",
-		"title": "Let's work together",
-		"text": "I'm a passionate backend developer seeking internship and entry-level opportunities. While my expertise lies in backend development, I'm adaptable and ready to embrace fullstack challenges when needed. Let's build something amazing together!",
-		"button": "Let's Connect"
+		"en": {
+			"linkedIn": "https://www.linkedin.com/in/serkankorkut17",
+			"title": "Let's work together",
+			"text": "I'm a passionate backend developer seeking internship and entry-level opportunities. While my expertise lies in backend development, I'm adaptable and ready to embrace fullstack challenges when needed. Let's build something amazing together!",
+			"button": "Let's Connect"
+		},
+		"tr": {
+			"linkedIn": "https://www.linkedin.com/in/serkankorkut17",
+			"title": "Haydi birlikte çalışalım",
+			"text": "Ben staj ve giriş seviyesi fırsatları arayan tutkulu bir backend geliştiricisiyim. Uzmanlığım backend geliştirmede olsa da, gerektiğinde fullstack zorlukları üstlenmeye hazırım. Haydi birlikte harika bir şeyler inşa edelim!",
+			"button": "Bağlantı Kuralım"
+		}
 	}
 }
