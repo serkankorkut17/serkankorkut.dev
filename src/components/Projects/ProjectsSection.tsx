@@ -1,74 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import ProjectsData from "@/data/Projects.json";
-
-// Import images for the projects
-// FastAPI GraphQL Project
-import ImgFastapiRest from "@/images/projects/fastapi-graphql/fastapi-docs.webp";
-import ImgFastapiGraphql from "@/images/projects/fastapi-graphql/fastapi-graphql.webp";
-import ImgFastapiMutations from "@/images/projects/fastapi-graphql/graphql-mutations.webp";
-// Node.js Backend Project
-import ImgNodejsHome from "@/images/projects/nodejs-backend/nodejs-home.webp";
-import ImgNodejsHome2 from "@/images/projects/nodejs-backend/nodejs-home-2.webp";
-import ImgNodejsHome3 from "@/images/projects/nodejs-backend/nodejs-home-3.webp";
-import ImgNodejsHome4 from "@/images/projects/nodejs-backend/nodejs-home-4.webp";
-import ImgNodejsHomeLight from "@/images/projects/nodejs-backend/nodejs-light.webp";
-import ImgNodejsPost from "@/images/projects/nodejs-backend/nodejs-post.webp";
-import ImgNodejsProfile from "@/images/projects/nodejs-backend/nodejs-profile.webp";
-import ImgNodejsSaved from "@/images/projects/nodejs-backend/nodejs-saved.webp";
-import ImgNodejsUsers from "@/images/projects/nodejs-backend/nodejs-users.webp";
-import ImgNodejsSignup from "@/images/projects/nodejs-backend/nodejs-signup.webp";
-import ImgNodejsSignup2 from "@/images/projects/nodejs-backend/nodejs-signup-2.webp";
-import ImgNodejsSignup3 from "@/images/projects/nodejs-backend/nodejs-signup-3.webp";
-import ImgNodejsLogin from "@/images/projects/nodejs-backend/nodejs-login.webp";
-import ImgNodejsLogin2 from "@/images/projects/nodejs-backend/nodejs-login-2.webp";
-// Leave Master - Backend Project
-import ImgLeaveMasterB1 from "@/images/projects/leave-master-backend/leave-master-swagger-1.webp";
-import ImgLeaveMasterB2 from "@/images/projects/leave-master-backend/leave-master-swagger-2.webp";
-import ImgLeaveMasterB3 from "@/images/projects/leave-master-backend/leave-master-swagger-3.webp";
-import ImgLeaveMasterB4 from "@/images/projects/leave-master-backend/leave-master-swagger-4.webp";
-import ImgLeaveMasterBCode from "@/images/projects/leave-master-backend/leave-master-code.webp";
-// Leave Master - Frontend Project
-import ImgLeaveMasterCalendarDark from "@/images/projects/leave-master-frontend/leave-master-calendar-dark.webp";
-import ImgLeaveMasterCalendarlight from "@/images/projects/leave-master-frontend/leave-master-calendar-light.webp";
-import ImgLeaveMasterEmployee from "@/images/projects/leave-master-frontend/leave-master-employee.webp";
-import ImgLeaveMasterRequest from "@/images/projects/leave-master-frontend/leave-master-request.webp";
-import ImgLeaveMasterAdmin from "@/images/projects/leave-master-frontend/leave-master-admin.webp";
-import ImgLeaveMasterEmployeeSignup from "@/images/projects/leave-master-frontend/leave-master-employee-signup.webp";
-import ImgLeaveMasterLogin from "@/images/projects/leave-master-frontend/leave-master-login.webp";
-// Invoice Payment Project
-import ImgInvoicePayment from "@/images/projects/invoice-payment/invoice-payment-1.webp";
-import ImgInvoicePayment2 from "@/images/projects/invoice-payment/invoice-payment-2.webp";
-import ImgInvoicePayment3 from "@/images/projects/invoice-payment/invoice-payment-3.webp";
-import ImgInvoicePayment4 from "@/images/projects/invoice-payment/invoice-payment-4.webp";
-// Texture Mapping Project
-import ImgTextureMappingAffine from "@/images/projects/texture-mapping/texture-affine.webp";
-import ImgTextureMappingPerspectiveCorrect from "@/images/projects/texture-mapping/texture-perspective-correct.webp";
-// Socket Programming Project
-import ImgSocketProgrammingUsage from "@/images/projects/socket-programming/socket-usage.webp";
-import ImgSocketProgrammingUsage2 from "@/images/projects/socket-programming/socket-usage-2.webp";
-import ImgSocketProgrammingHumidity from "@/images/projects/socket-programming/socket-humidity.webp";
-import ImgSocketProgrammingTemperature from "@/images/projects/socket-programming/socket-temperature.webp";
-// MSSQL Database Project
-import ImgDatabaseDiagram from "@/images/projects/mssql-database/database-diagram.webp";
-import ImgDatabaseProcedure from "@/images/projects/mssql-database/database-procedure.webp";
-import ImgDatabaseTrigger from "@/images/projects/mssql-database/database-trigger.webp";
-import ImgDatabaseView from "@/images/projects/mssql-database/database-view.webp";
-//Robotics Project
-import ImgRobotics1 from "@/images/projects/robotics/robotics-draw-1.webp";
-import ImgRobotics2 from "@/images/projects/robotics/robotics-draw-2.webp";
-import ImgRobotics3 from "@/images/projects/robotics/robotics-draw-3.webp";
-import ImgRoboticsCode from "@/images/projects/robotics/robotics-code.webp";
-// Student Registration Project
-import ImgStudentRegistrationVJava from "@/images/projects/student-registration/student-ver-java.webp";
-import ImgStudentRegistrationVPython from "@/images/projects/student-registration/student-ver-python.webp";
-import ImgStudentRegistrationJson1 from "@/images/projects/student-registration/student-json.webp";
-import ImgStudentRegistrationJson2 from "@/images/projects/student-registration/student-json-2.webp";
-import ImgStudentRegistrationJson3 from "@/images/projects/student-registration/student-json-3.webp";
 import GalleryModal from "./GalleryModal";
 
 type Project = {
@@ -76,84 +12,22 @@ type Project = {
 	title: string;
 	description: string;
   githubUrl: string;
+  images: string[];
 };
 
 const ProjectsSection = () => {
   const { title, subtitle, projects } = ProjectsData;
 
-  // Create a mapping of project IDs to images with proper typing
-  const projectImages: Record<number, StaticImageData[]> = {
-    1: [ImgFastapiRest, ImgFastapiGraphql, ImgFastapiMutations],
-    2: [
-      ImgNodejsHome,
-      ImgNodejsHome2,
-      ImgNodejsHome3,
-      ImgNodejsHome4,
-      ImgNodejsHomeLight,
-      ImgNodejsPost,
-      ImgNodejsProfile,
-      ImgNodejsSaved,
-      ImgNodejsUsers,
-      ImgNodejsSignup,
-      ImgNodejsSignup2,
-      ImgNodejsSignup3,
-      ImgNodejsLogin,
-      ImgNodejsLogin2,
-    ],
-    3: [
-      ImgLeaveMasterB1,
-      ImgLeaveMasterB2,
-      ImgLeaveMasterB3,
-      ImgLeaveMasterB4,
-      ImgLeaveMasterBCode,
-    ],
-    4: [
-      ImgLeaveMasterCalendarDark,
-      ImgLeaveMasterCalendarlight,
-      ImgLeaveMasterEmployee,
-      ImgLeaveMasterRequest,
-      ImgLeaveMasterAdmin,
-      ImgLeaveMasterEmployeeSignup,
-      ImgLeaveMasterLogin,
-    ],
-    5: [
-      ImgInvoicePayment,
-      ImgInvoicePayment2,
-      ImgInvoicePayment3,
-      ImgInvoicePayment4,
-    ],
-    6: [ImgTextureMappingAffine, ImgTextureMappingPerspectiveCorrect],
-    7: [
-      ImgSocketProgrammingUsage,
-      ImgSocketProgrammingUsage2,
-      ImgSocketProgrammingHumidity,
-      ImgSocketProgrammingTemperature,
-    ],
-    8: [
-      ImgDatabaseDiagram,
-      ImgDatabaseProcedure,
-      ImgDatabaseTrigger,
-      ImgDatabaseView,
-    ],
-    9: [ImgRobotics1, ImgRobotics2, ImgRobotics3, ImgRoboticsCode],
-    10: [
-      ImgStudentRegistrationVJava,
-      ImgStudentRegistrationVPython,
-      ImgStudentRegistrationJson1,
-      ImgStudentRegistrationJson2,
-      ImgStudentRegistrationJson3,
-    ],
-  };
 
   // State for modal and carousel
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedImages, setSelectedImages] = useState<StaticImageData[]>([]);
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentProject, setCurrentProject] = useState<Project | null>(null);
 
   // Open modal with project images
   const openModal = (projectId: number, projectInfo: Project, currentImage: number = 0) => {
-    const images = projectImages[projectId] || [];
+    const images = projectInfo.images || [];
     setSelectedImages(images);
     setCurrentImageIndex(currentImage);
     setCurrentProject(projectInfo);
@@ -178,8 +52,8 @@ const ProjectsSection = () => {
       {/* Projects Grid */}
       <div className="space-y-24">
         {projects.map((project, projectIndex) => {
-          const { id, title, description, githubUrl } = project;
-          const images: StaticImageData[] = projectImages[id] || [];
+          const { id, title, description, githubUrl, images } = project;
+          // const images: StaticImageData[] = projectImages[id] || [];
           const isEven = projectIndex % 2 === 0;
 
           return (
@@ -194,7 +68,7 @@ const ProjectsSection = () => {
                 <div className="grid grid-cols-2 gap-2">
                   {images.slice(0, 5).map((image, imageIndex) => (
                     <div
-                      key={imageIndex}
+                      key={projectIndex + "-"+ imageIndex}
                       className={`relative cursor-pointer group overflow-hidden rounded-lg ${
                         imageIndex === 0 && images.length > 1 
                           ? "col-span-2" 
@@ -206,6 +80,9 @@ const ProjectsSection = () => {
                         src={image}
                         alt={`${title} - Image ${imageIndex + 1}`}
                         className="w-full h-48 object-cover transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
+                        width={500}
+                        height={192}
+                        style={{ objectFit: "cover" }}
                       />
                       
                       {/* Image count overlay for first image if more than 4 images */}

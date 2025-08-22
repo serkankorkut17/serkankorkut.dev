@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Modal, ModalBody } from "flowbite-react";
-import { StaticImageData } from "next/image";
 import {
 	HiChevronLeft,
 	HiChevronRight,
@@ -19,7 +18,7 @@ type Project = {
 interface GalleryModalProps {
 	isModalOpen: boolean;
 	closeModal: () => void;
-	selectedImages: StaticImageData[];
+	selectedImages: string[];
 	currentImageIndex: number;
   setCurrentImageIndex: (index: number) => void;
 	currentProject: Project | null;
@@ -36,7 +35,7 @@ const GalleryModal = ({
 	// Open current image in new tab
 	const openImageInNewTab = () => {
 		if (selectedImages[currentImageIndex]) {
-			window.open(selectedImages[currentImageIndex].src, "_blank");
+			window.open(selectedImages[currentImageIndex], "_blank");
 		}
 	};
 
@@ -44,7 +43,7 @@ const GalleryModal = ({
 	const downloadImage = () => {
 		if (selectedImages[currentImageIndex] && currentProject) {
 			const link = document.createElement("a");
-			link.href = selectedImages[currentImageIndex].src;
+			link.href = selectedImages[currentImageIndex];
 			link.download = `${currentProject.title}-image-${currentImageIndex + 1}`;
 			document.body.appendChild(link);
 			link.click();
@@ -114,6 +113,8 @@ const GalleryModal = ({
 								alt={`${currentProject?.title || "Project"} - Image ${
 									currentImageIndex + 1
 								}`}
+								width={1600}
+								height={900}
 								className="w-full max-h-[90vh] object-contain"
 							/>
 
@@ -154,6 +155,8 @@ const GalleryModal = ({
 												src={image}
 												alt={`Thumbnail ${index + 1}`}
 												className="w-full h-full object-cover"
+												width={320}
+												height={240}
 											/>
 										</button>
 									))}
