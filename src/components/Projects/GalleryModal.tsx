@@ -7,20 +7,14 @@ import {
 	HiArrowDownTray,
 	HiArrowTopRightOnSquare,
 } from "react-icons/hi2";
-
-type Project = {
-	id: number;
-	title: string;
-	description: string;
-	githubUrl: string;
-};
+import { Project } from "@/types";
 
 interface GalleryModalProps {
 	isModalOpen: boolean;
 	closeModal: () => void;
 	selectedImages: string[];
 	currentImageIndex: number;
-  setCurrentImageIndex: (index: number) => void;
+	setCurrentImageIndex: (index: number) => void;
 	currentProject: Project | null;
 }
 
@@ -29,7 +23,7 @@ const GalleryModal = ({
 	closeModal,
 	selectedImages,
 	currentImageIndex,
-  setCurrentImageIndex,
+	setCurrentImageIndex,
 	currentProject,
 }: GalleryModalProps) => {
 	// Open current image in new tab
@@ -54,13 +48,17 @@ const GalleryModal = ({
 	// Navigate through images in modal
 	const nextImage = () => {
 		const nextIndex =
-			currentImageIndex === selectedImages.length - 1 ? 0 : currentImageIndex + 1;
+			currentImageIndex === selectedImages.length - 1
+				? 0
+				: currentImageIndex + 1;
 		setCurrentImageIndex(nextIndex);
 	};
 
 	const prevImage = () => {
 		const prevIndex =
-			currentImageIndex === 0 ? selectedImages.length - 1 : currentImageIndex - 1;
+			currentImageIndex === 0
+				? selectedImages.length - 1
+				: currentImageIndex - 1;
 		setCurrentImageIndex(prevIndex);
 	};
 

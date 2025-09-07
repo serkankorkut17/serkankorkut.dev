@@ -7,15 +7,16 @@ const NadeSchema = new mongoose.Schema(
 			required: true,
 		},
 		map: {
-			type: String,
+			type: String, // reference to Map name
 			required: true,
+			ref: "Map"
 		},
 		type: {
-			type: String,
+			type: String, // "smoke", "flash", "grenade", "molotov"
 			required: true
 		},
 		side: {
-			type: String,
+			type: String,	// "T" or "CT"
 			required: true
 		},
 		position: {

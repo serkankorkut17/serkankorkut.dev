@@ -8,5 +8,64 @@
 		"longDescription": "The page may have been moved, deleted, or the URL may be incorrect. You can return to the home page or contact me through the contact page.",
 		"backToHome": "Back to Home",
 		"contact": "Contact"
+	},
+	"QRPage": {
+		"title": "QR Code Generator",
+		"description": "Create custom QR codes with logos and colors",
+		"content": {
+			"label": "Content",
+			"placeholder": "Enter text or URL",
+			"required": "Required",
+			"examples": {
+				"title": "Example Uses:",
+				"website": "Website: https://serkankorkut.dev",
+				"email": "Email: mailto:info@serkankorkut.dev",
+				"phone": "Phone: tel:+905551234567",
+				"sms": "SMS: sms:+905551234567?body=Hello!",
+				"whatsapp": "WhatsApp: https://wa.me/905551234567?text=Hello!%20I%20would%20like%20to%20get%20in%20touch.",
+				"wifi": "WiFi: WIFI:T:WPA;S:NetworkName;P:password;;",
+				"location": "Location: geo:41.0082,28.9784",
+				"vcard": "Contact Card: BEGIN:VCARD\\nVERSION:3.0\\nFN:Serkan Korkut\\nORG:Developer\\nTEL:+905551234567\\nEMAIL:info@serkankorkut.dev\\nEND:VCARD",
+				"event": "Calendar Event: BEGIN:VEVENT\\nSUMMARY:Meeting\\nDTSTART:20250901T140000Z\\nDTEND:20250901T150000Z\\nEND:VEVENT",
+				"text": "Simple Text: Hello World! 👋",
+				"social": "Social Media: https://linkedin.com/in/serkankorkut17"
+			}
+		},
+		"errorLevel": {
+			"label": "Error Correction Level",
+			"low": "L - Low (~7%)",
+			"medium": "M - Medium (~15%)",
+			"quartile": "Q - Quartile (~25%)",
+			"high": "H - High (~30%)"
+		},
+		"logo": {
+			"label": "Logo Upload",
+			"helper": "PNG, JPG, GIF up to 10MB",
+			"settings": "Logo Settings",
+			"maintainRatio": "Maintain aspect ratio",
+			"size": "Logo Size",
+			"width": "Width (px)",
+			"height": "Height (px)",
+			"currentSize": "Current size:",
+			"aspectMaintained": "(Aspect ratio maintained)",
+			"sizeSmall": "Small (10%)",
+			"sizeLarge": "Large (40%)"
+		},
+		"colors": {
+			"label": "Colors",
+			"background": "Background",
+			"foreground": "Foreground"
+		},
+		"download": {
+			"title": "Download Options",
+			"svg": "Download SVG",
+			"png": "Download PNG (HD)"
+		},
+		"preview": {
+			"live": "Live Preview",
+			"noContent": "No Content Yet",
+			"noContentDesc": "Enter some text or URL to generate your QR code",
+			"content": "Content:"
+		}
 	}
 }

@@ -2,6 +2,9 @@
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../../.flowbite-react/class-list.json";
 
+/* Plyr video player styles */
+@import "plyr/dist/plyr.css";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -198,4 +201,77 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #e5e7eb !important; /* Metin rengi (gray-100) */
     background-color: #1f2937 !important; /* Dark mode arkaplan (gray-800) */
   }
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom Plyr styling for dark theme */
+.plyr {
+  --plyr-color-main: #ef4444;
+  --plyr-color-support: #ffffff;
+  --plyr-control-icon-size: 18px;
+  --plyr-control-spacing: 10px;
+  --plyr-font-family: inherit;
+  --plyr-font-size-base: 15px;
+  --plyr-font-size-small: 13px;
+  --plyr-font-weight-bold: 600;
+  --plyr-font-weight-regular: 400;
+  --plyr-line-height: 1.7;
+  --plyr-border-radius: 3px;
+  --plyr-control-radius: 3px;
+  --plyr-video-control-color: #ffffff;
+  --plyr-video-control-color-hover: #ffffff;
+  --plyr-video-control-background-hover: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 100%;
+}
+
+.plyr__control:hover {
+  background-color: rgba(239, 68, 68, 0.8) !important;
+}
+
+.plyr__control[aria-pressed="true"] {
+  background-color: #ef4444 !important;
+  color: white !important;
+}
+
+.plyr__progress__buffer {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.plyr__volume__display {
+  color: white;
+}
+
+.plyr__time {
+  color: white;
+}
+
+.plyr--video {
+  background: black;
+}
+
+.plyr__video-wrapper {
+  background: black;
+}
+
+.plyr__poster {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

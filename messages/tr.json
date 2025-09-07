@@ -8,5 +8,62 @@
     "longDescription": "Sayfa taşınmış, silinmiş ya da URL yanlış yazılmış olabilir. Ana sayfaya dönebilir ya da iletişim sayfasından bana ulaşabilirsiniz.",
     "backToHome": "Ana Sayfa'ya Dön",
     "contact": "İletişim"
+  },
+  "QRPage": {
+    "title": "QR Kod Oluşturucu",
+    "description": "Logo ve renklerle özel QR kodları oluşturun",
+    "content": {
+      "label": "İçerik",
+      "placeholder": "Metin veya URL giriniz",
+      "required": "Gerekli",
+      "examples": {
+        "title": "Örnek Kullanımlar:",
+        "website": "Website: https://serkankorkut.dev",
+        "email": "E-posta: mailto:info@serkankorkut.dev",
+        "phone": "Telefon: tel:+905551234567",
+        "sms": "SMS: sms:+905551234567?body=Merhaba!",
+        "whatsapp": "WhatsApp: https://wa.me/905551234567?text=Merhaba!%20Size%20ulaşmak%20istiyorum.",
+        "wifi": "WiFi: WIFI:T:WPA;S:AgAdi;P:sifre;;",
+        "location": "Konum: geo:41.0082,28.9784",
+        "text": "Basit Metin: Merhaba Dünya! 👋",
+        "social": "Sosyal Medya: https://linkedin.com/in/serkankorkut17"
+      }
+    },
+    "errorLevel": {
+      "label": "Hata Düzeltme Seviyesi",
+      "low": "D - Düşük (~%7)",
+      "medium": "O - Orta (~%15)",
+      "quartile": "Ç - Çeyrek (~%25)",
+      "high": "Y - Yüksek (~%30)"
+    },
+    "logo": {
+      "label": "Logo Yükleme",
+      "helper": "PNG, JPG, GIF 10MB'a kadar",
+      "settings": "Logo Ayarları",
+      "maintainRatio": "En-boy oranını koru",
+      "size": "Logo Boyutu",
+      "width": "Genişlik (px)",
+      "height": "Yükseklik (px)",
+      "currentSize": "Mevcut boyut:",
+      "aspectMaintained": "(En-boy oranı korundu)",
+      "sizeSmall": "Küçük (%10)",
+      "sizeLarge": "Büyük (%40)"
+    },
+    "colors": {
+      "label": "Renkler",
+      "background": "Arkaplan",
+      "foreground": "Önplan"
+    },
+    "download": {
+      "title": "İndirme Seçenekleri",
+      "svg": "SVG İndir",
+      "png": "PNG İndir (HD)"
+    },
+    "preview": {
+      "live": "Canlı Önizleme",
+      "noContent": "Henüz İçerik Yok",
+      "noContentDesc": "QR kodunuzu oluşturmak için bir metin veya URL girin",
+      "content": "İçerik:"
+    }
   }
 }

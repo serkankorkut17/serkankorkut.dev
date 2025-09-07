@@ -5,7 +5,7 @@
 	},
 	"ContactSection": {
 		"en": {
-			"title": ".: DO YOU HAVE ANY QUESTIONS?",
+			"title": "DO YOU HAVE ANY QUESTIONS?",
 			"subtitle": "Get In Touch!",
 			"location": {
 				"title": "Location",
@@ -24,7 +24,7 @@
 			}
 		},
 		"tr": {
-			"title": ".: HERHANGİ BİR SORUNUZ MU VAR?",
+			"title": "HERHANGİ BİR SORUNUZ MU VAR?",
 			"subtitle": "Benimle İletişime Geçin!",
 			"location": {
 				"title": "Konum",

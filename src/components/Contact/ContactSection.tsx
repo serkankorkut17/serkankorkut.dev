@@ -2,6 +2,7 @@ import { PiMapPinArea } from "react-icons/pi";
 import { PiPhoneCall } from "react-icons/pi";
 import { TfiEmail } from "react-icons/tfi";
 import Card from "@/components/Contact/Card";
+import PageHeading from "../Sections/PageHeading";
 
 
 interface ContactSectionProps {
@@ -28,12 +29,8 @@ export default function ContactSection({title, subtitle, location, phone, email}
 
 	return (
 		<section className={`flex flex-col py-8 px-8 md:px-40 bg-white text-black`}>
-			<div className="text-start pb-12">
-				<p className="text-orange-500 text-lg font-extrabold">
-					{title}
-				</p>
-				<h2 className="text-6xl font-extrabold mt-2">{subtitle}</h2>
-			</div>
+			{/* Section Header */}
+			<PageHeading title={title} subtitle={subtitle} />
 
 			<div className="flex flex-col xl:flex-row justify-between items-center">
 				<Card
