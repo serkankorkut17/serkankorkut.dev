@@ -3,21 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Flame, Cloud, Zap, Bomb, Shield, Sword } from "lucide-react";
-
-interface Nade {
-	_id: string;
-	name: string;
-	type: string;
-	side: string;
-	description: string;
-	images: {
-		land: string;
-		location: string;
-		placement: string;
-		lineup: string[];
-	};
-	map: string;
-}
+import { Nade } from "@/types/cs2";
 
 interface NadeCardProps {
 	nade: Nade;

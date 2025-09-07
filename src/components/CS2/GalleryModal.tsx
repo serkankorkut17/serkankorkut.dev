@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Modal, ModalBody } from "flowbite-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import {
 	HiChevronLeft,
@@ -67,14 +66,31 @@ const CS2GalleryModal = ({
 	};
 
 	// Download current image
-	const downloadImage = () => {
+	const downloadImage = async () => {
 		if (images[currentIndex]) {
-			const link = document.createElement("a");
-			link.href = images[currentIndex];
-			link.download = `${nadeTitle}-image-${currentIndex + 1}`;
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
+			try {
+				// Try to fetch the image first
+				const response = await fetch(images[currentIndex]);
+				const blob = await response.blob();
+				
+				// Create a URL for the blob
+				const url = window.URL.createObjectURL(blob);
+				
+				// Create download link
+				const link = document.createElement("a");
+				link.href = url;
+				link.download = `${nadeTitle}-image-${currentIndex + 1}.jpg`;
+				document.body.appendChild(link);
+				link.click();
+				document.body.removeChild(link);
+				
+				// Clean up the URL
+				window.URL.revokeObjectURL(url);
+			} catch (error) {
+				console.error("Download failed:", error);
+				// Fallback: open in new tab
+				window.open(images[currentIndex], "_blank");
+			}
 		}
 	};
 
@@ -157,20 +173,6 @@ const CS2GalleryModal = ({
 		}
 	};
 
-	// Keyboard navigation
-	const handleKeyDown = (e: React.KeyboardEvent) => {
-		if (e.key === 'ArrowLeft') {
-			e.preventDefault();
-			prevImage();
-		} else if (e.key === 'ArrowRight') {
-			e.preventDefault();
-			nextImage();
-		} else if (e.key === 'Escape') {
-			e.preventDefault();
-			onClose();
-		}
-	};
-
 	// Global keyboard listener
 	useEffect(() => {
 		const handleGlobalKeyDown = (e: KeyboardEvent) => {
@@ -198,21 +200,25 @@ const CS2GalleryModal = ({
 	}, [isOpen, nextImage, prevImage, onClose]);
 
 	return (
-		<Modal
-			dismissible
-			show={isOpen}
-			onClose={onClose}
-			size="7xl"
-			popup
-			className="bg-black/90"
-			onKeyDown={handleKeyDown}
-			tabIndex={-1}
-		>
-			<ModalBody className="p-0 relative">
-				{images.length > 0 && (
-					<div className="relative">
+		<>
+			{isOpen && (
+				<div 
+					className="fixed inset-0 z-50 bg-black/90"
+					onClick={(e) => {
+						// Only close if clicking directly on the backdrop
+						if (e.target === e.currentTarget) {
+							onClose();
+						}
+					}}
+				>
+					<div className="flex items-center justify-center w-full h-full p-2">
+						{images.length > 0 && (
+							<div 
+								className="relative w-full h-full flex items-center justify-center"
+								onClick={(e) => e.stopPropagation()}
+							>
 						{/* Top action buttons */}
-						<div className="absolute top-4 right-4 z-50 flex gap-2">
+						<div className="absolute top-2 right-2 z-50 flex gap-2">
 							{/* Zoom buttons */}
 							<button
 								onClick={(e) => {
@@ -222,7 +228,7 @@ const CS2GalleryModal = ({
 								onMouseDown={(e) => e.stopPropagation()}
 								title="Zoom out"
 								disabled={zoomLevel <= 1}
-								className="bg-black/50 hover:bg-black/70 disabled:opacity-40 disabled:cursor-not-allowed rounded-full p-2 text-white transition-colors"
+								className="bg-black/70 hover:bg-black/90 disabled:opacity-40 disabled:cursor-not-allowed rounded-full p-2 text-white transition-colors"
 							>
 								<HiMagnifyingGlassMinus className="w-5 h-5" />
 							</button>
@@ -234,7 +240,7 @@ const CS2GalleryModal = ({
 								onMouseDown={(e) => e.stopPropagation()}
 								title="Zoom in"
 								disabled={zoomLevel >= 4}
-								className="bg-black/50 hover:bg-black/70 disabled:opacity-40 disabled:cursor-not-allowed rounded-full p-2 text-white transition-colors"
+								className="bg-black/70 hover:bg-black/90 disabled:opacity-40 disabled:cursor-not-allowed rounded-full p-2 text-white transition-colors"
 							>
 								<HiMagnifyingGlassPlus className="w-5 h-5" />
 							</button>
@@ -247,7 +253,7 @@ const CS2GalleryModal = ({
 								}}
 								onMouseDown={(e) => e.stopPropagation()}
 								title="Download image"
-								className="bg-black/50 hover:bg-black/70 rounded-full p-2 text-white transition-colors"
+								className="bg-black/70 hover:bg-black/90 rounded-full p-2 text-white transition-colors"
 							>
 								<HiArrowDownTray className="w-5 h-5" />
 							</button>
@@ -260,7 +266,7 @@ const CS2GalleryModal = ({
 								}}
 								onMouseDown={(e) => e.stopPropagation()}
 								title="Open in new tab"
-								className="bg-black/50 hover:bg-black/70 rounded-full p-2 text-white transition-colors"
+								className="bg-black/70 hover:bg-black/90 rounded-full p-2 text-white transition-colors"
 							>
 								<HiArrowTopRightOnSquare className="w-5 h-5" />
 							</button>
@@ -273,7 +279,7 @@ const CS2GalleryModal = ({
 								}}
 								onMouseDown={(e) => e.stopPropagation()}
 								title="Close"
-								className="bg-black/50 hover:bg-black/70 rounded-full p-2 text-white transition-colors"
+								className="bg-black/70 hover:bg-black/90 rounded-full p-2 text-white transition-colors"
 							>
 								<HiXMark className="w-6 h-6" />
 							</button>
@@ -282,7 +288,7 @@ const CS2GalleryModal = ({
 						{/* Main image */}
 						<div 
 							ref={imageRef}
-							className="relative overflow-hidden"
+							className="relative overflow-hidden w-full h-full flex items-center justify-center"
 							style={{ cursor: zoomLevel > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default' }}
 							onMouseDown={handleMouseDown}
 							onMouseMove={handleMouseMove}
@@ -302,7 +308,7 @@ const CS2GalleryModal = ({
 									alt={`${nadeTitle} - Image ${currentIndex + 1}`}
 									width={1600}
 									height={1200}
-									className="w-full max-h-[90vh] object-contain select-none"
+									className="max-w-[96vw] max-h-[96vh] object-contain select-none"
 									draggable={false}
 								/>
 							</div>
@@ -316,7 +322,7 @@ const CS2GalleryModal = ({
 											prevImage();
 										}}
 										onMouseDown={(e) => e.stopPropagation()}
-										className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 rounded-full p-3 text-white transition-colors"
+										className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/70 hover:bg-black/90 rounded-full p-3 text-white transition-colors"
 									>
 										<HiChevronLeft className="w-6 h-6" />
 									</button>
@@ -326,7 +332,7 @@ const CS2GalleryModal = ({
 											nextImage();
 										}}
 										onMouseDown={(e) => e.stopPropagation()}
-										className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 rounded-full p-3 text-white transition-colors"
+										className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/70 hover:bg-black/90 rounded-full p-3 text-white transition-colors"
 									>
 										<HiChevronRight className="w-6 h-6" />
 									</button>
@@ -336,8 +342,8 @@ const CS2GalleryModal = ({
 
 						{/* Thumbnail navigation */}
 						{images.length > 1 && (
-							<div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-40">
-								<div className="flex space-x-2 bg-black/50 rounded-lg p-2">
+							<div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 z-40">
+								<div className="flex space-x-2 bg-black/70 rounded-lg p-2">
 									{images.map((image, index) => (
 										<button
 											key={index}
@@ -367,20 +373,22 @@ const CS2GalleryModal = ({
 						)}
 
 						{/* Image counter and zoom level */}
-						<div className="absolute top-4 left-4 space-y-2">
-							<div className="bg-black/50 rounded-lg px-3 py-1 text-white text-sm">
+						<div className="absolute top-2 left-2 space-y-2">
+							<div className="bg-black/70 rounded-lg px-3 py-1 text-white text-sm">
 								{currentIndex + 1} / {images.length}
 							</div>
 							{zoomLevel > 1 && (
-								<div className="bg-black/50 rounded-lg px-3 py-1 text-white text-sm">
+								<div className="bg-black/70 rounded-lg px-3 py-1 text-white text-sm">
 									Zoom: {zoomLevel}x
 								</div>
 							)}
 						</div>
+							</div>
+						)}
 					</div>
-				)}
-			</ModalBody>
-		</Modal>
+				</div>
+			)}
+		</>
 	);
 };
 

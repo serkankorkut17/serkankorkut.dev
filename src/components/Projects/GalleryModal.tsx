@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Modal, ModalBody } from "flowbite-react";
+import { useEffect, useCallback } from "react";
 import {
 	HiChevronLeft,
 	HiChevronRight,
@@ -46,39 +46,75 @@ const GalleryModal = ({
 	};
 
 	// Navigate through images in modal
-	const nextImage = () => {
+	const nextImage = useCallback(() => {
 		const nextIndex =
 			currentImageIndex === selectedImages.length - 1
 				? 0
 				: currentImageIndex + 1;
 		setCurrentImageIndex(nextIndex);
-	};
+	}, [currentImageIndex, selectedImages.length, setCurrentImageIndex]);
 
-	const prevImage = () => {
+	const prevImage = useCallback(() => {
 		const prevIndex =
 			currentImageIndex === 0
 				? selectedImages.length - 1
 				: currentImageIndex - 1;
 		setCurrentImageIndex(prevIndex);
-	};
+	}, [currentImageIndex, selectedImages.length, setCurrentImageIndex]);
+
+	// Global keyboard listener
+	useEffect(() => {
+		const handleGlobalKeyDown = (e: KeyboardEvent) => {
+			if (!isModalOpen) return;
+			
+			if (e.key === 'ArrowLeft') {
+				e.preventDefault();
+				prevImage();
+			} else if (e.key === 'ArrowRight') {
+				e.preventDefault();
+				nextImage();
+			} else if (e.key === 'Escape') {
+				e.preventDefault();
+				closeModal();
+			}
+		};
+
+		if (isModalOpen) {
+			document.addEventListener('keydown', handleGlobalKeyDown);
+		}
+
+		return () => {
+			document.removeEventListener('keydown', handleGlobalKeyDown);
+		};
+	}, [isModalOpen, nextImage, prevImage, closeModal]);
 
 	return (
-		<Modal
-			dismissible
-			show={isModalOpen}
-			onClose={closeModal}
-			size="7xl"
-			popup
-			className="bg-black/90"
-		>
-			<ModalBody className="p-0 relative">
-				{selectedImages.length > 0 && (
-					<div className="relative">
+		<>
+			{isModalOpen && (
+				<div 
+					className="fixed inset-0 z-50 bg-black/90"
+					onClick={(e) => {
+						// Only close if clicking directly on the backdrop
+						if (e.target === e.currentTarget) {
+							closeModal();
+						}
+					}}
+				>
+					<div className="flex items-center justify-center w-full h-full p-4">
+						{selectedImages.length > 0 && (
+							<div 
+								className="relative max-w-full max-h-full"
+								onClick={(e) => e.stopPropagation()}
+							>
 						{/* Top action buttons */}
 						<div className="absolute top-4 right-4 z-50 flex gap-2">
 							{/* Download button */}
 							<button
-								onClick={downloadImage}
+								onClick={(e) => {
+									e.stopPropagation();
+									downloadImage();
+								}}
+								onMouseDown={(e) => e.stopPropagation()}
 								title="Download image"
 								className="bg-black/50 hover:bg-black/70 rounded-full p-2 text-white transition-colors"
 							>
@@ -87,7 +123,11 @@ const GalleryModal = ({
 
 							{/* Open in new tab button */}
 							<button
-								onClick={openImageInNewTab}
+								onClick={(e) => {
+									e.stopPropagation();
+									openImageInNewTab();
+								}}
+								onMouseDown={(e) => e.stopPropagation()}
 								title="Open in new tab"
 								className="bg-black/50 hover:bg-black/70 rounded-full p-2 text-white transition-colors"
 							>
@@ -96,7 +136,11 @@ const GalleryModal = ({
 
 							{/* Close button */}
 							<button
-								onClick={closeModal}
+								onClick={(e) => {
+									e.stopPropagation();
+									closeModal();
+								}}
+								onMouseDown={(e) => e.stopPropagation()}
 								title="Close"
 								className="bg-black/50 hover:bg-black/70 rounded-full p-2 text-white transition-colors"
 							>
@@ -113,20 +157,28 @@ const GalleryModal = ({
 								}`}
 								width={1600}
 								height={900}
-								className="w-full max-h-[90vh] object-contain"
+								className="w-full max-h-[85vh] object-contain"
 							/>
 
 							{/* Navigation arrows */}
 							{selectedImages.length > 1 && (
 								<>
 									<button
-										onClick={prevImage}
+										onClick={(e) => {
+											e.stopPropagation();
+											prevImage();
+										}}
+										onMouseDown={(e) => e.stopPropagation()}
 										className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 rounded-full p-3 text-white transition-colors"
 									>
 										<HiChevronLeft className="w-6 h-6" />
 									</button>
 									<button
-										onClick={nextImage}
+										onClick={(e) => {
+											e.stopPropagation();
+											nextImage();
+										}}
+										onMouseDown={(e) => e.stopPropagation()}
 										className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 rounded-full p-3 text-white transition-colors"
 									>
 										<HiChevronRight className="w-6 h-6" />
@@ -142,7 +194,11 @@ const GalleryModal = ({
 									{selectedImages.map((image, index) => (
 										<button
 											key={index}
-											onClick={() => setCurrentImageIndex(index)}
+											onClick={(e) => {
+												e.stopPropagation();
+												setCurrentImageIndex(index);
+											}}
+											onMouseDown={(e) => e.stopPropagation()}
 											className={`relative w-16 h-12 rounded overflow-hidden transition-all ${
 												index === currentImageIndex
 													? "ring-2 ring-orange-500 scale-110"
@@ -166,10 +222,12 @@ const GalleryModal = ({
 						<div className="absolute top-4 left-4 bg-black/50 rounded-lg px-3 py-1 text-white text-sm">
 							{currentImageIndex + 1} / {selectedImages.length}
 						</div>
+							</div>
+						)}
 					</div>
-				)}
-			</ModalBody>
-		</Modal>
+				</div>
+			)}
+		</>
 	);
 };
 

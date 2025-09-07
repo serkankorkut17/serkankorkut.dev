@@ -2,15 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-
-interface Map {
-	_id: string;
-	name: string;
-	title: string;
-	description: string;
-	image: string;
-	active: boolean;
-}
+import { Map } from "@/types/cs2";
 
 interface MapCardProps {
 	map: Map;

@@ -6,23 +6,7 @@ import { TextInput, Select, Button } from "flowbite-react";
 import FooterStats from "@/components/CS2/FooterStats";
 import PageHeading from "@/components/Sections/PageHeading";
 import MapCard from "@/components/CS2/MapCard";
-
-interface Map {
-	_id: string;
-	name: string;
-	title: string;
-	description: string;
-	image: string;
-	active: boolean;
-}
-
-interface ApiResponse {
-	data: Map[];
-	total: number;
-	pageNumber: number;
-	pageSize: number;
-	totalPages: number;
-}
+import { Map, ApiGetMapsResponse } from "@/types/cs2";
 
 export default function MapSelectionPage() {
 	const [maps, setMaps] = useState<Map[]>([]);
@@ -51,7 +35,7 @@ export default function MapSelectionPage() {
 				throw new Error("Failed to fetch maps");
 			}
 
-			const data: ApiResponse = await response.json();
+			const data: ApiGetMapsResponse = await response.json();
 			setMaps(data.data);
 		} catch (err) {
 			setError(err instanceof Error ? err.message : "An error occurred");

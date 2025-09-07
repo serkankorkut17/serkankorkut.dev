@@ -4,29 +4,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { HiSearch, HiFilter, HiX } from "react-icons/hi";
 import { TextInput, Select } from "flowbite-react";
 import NadeCard from "@/components/CS2/NadeCard";
-
-interface Nade {
-	_id: string;
-	name: string;
-	type: string;
-	side: string;
-	description: string;
-	images: {
-		land: string;
-		location: string;
-		placement: string;
-		lineup: string[];
-	};
-	map: string;
-}
-
-interface ApiResponse {
-	data: Nade[];
-	total: number;
-	pageNumber: number;
-	pageSize: number;
-	totalPages: number;
-}
+import { Nade, ApiGetNadesResponse } from "@/types/cs2";
 
 interface NadesListProps {
 	mapName: string;
@@ -82,7 +60,7 @@ const NadesList: React.FC<NadesListProps> = ({ mapName }) => {
 				throw new Error("Failed to fetch nades");
 			}
 
-			const data: ApiResponse = await response.json();
+			const data: ApiGetNadesResponse = await response.json();
 			
 			if (resetList) {
 				setNades(data.data);

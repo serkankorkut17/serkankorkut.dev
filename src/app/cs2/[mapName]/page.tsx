@@ -1,31 +1,49 @@
-import { connectToDatabase } from "@/utils/database";
-import Map from "@/models/Map";
 import { notFound } from "next/navigation";
-import NadesList from "../../../components/CS2/NadesList";
+import NadesList from "@/components/CS2/NadesList";
 import PageHeading from "@/components/Sections/PageHeading";
 
-export default async function NadesPage({ params }: { params: Promise<{ mapName: string }> }) {
-    const { mapName } = await params;
-    await connectToDatabase();
+interface NadesPageProps {
+	params: Promise<{
+		mapName: string;
+	}>;
+}
 
-    const map = JSON.parse(
-        JSON.stringify(await Map.findOne({ name: mapName }))
-    );
+export default async function NadesPage({ params }: NadesPageProps) {
+	const { mapName } = await params;
 
-    if (!map) {
-        notFound();
-    }
+	try {
+		const baseUrl = process.env.NEXT_URL
+			? `${process.env.NEXT_URL}`
+			: "http://localhost:3000";
 
-    return (
-        <section className="flex flex-col py-8 px-8 md:px-16 bg-white text-black min-h-screen">
-            {/* Header */}
-            <PageHeading
-                title={map.title}
-                subtitle="Grenade Lineups & Strategies"
-                description="Master professional grenade lineups for this map"
-            />
-            
-            <NadesList mapName={mapName} />
-        </section>
-    );
+		const response = await fetch(`${baseUrl}/api/maps/${mapName}`, {
+			cache: "force-cache",
+		});
+
+		if (!response.ok) {
+			notFound();
+		}
+
+		const map = await response.json();
+
+		if (!map) {
+			notFound();
+		}
+
+		return (
+			<section className="flex flex-col py-8 px-8 md:px-16 bg-white text-black min-h-screen">
+				{/* Header */}
+				<PageHeading
+					title={map.title}
+					subtitle="Grenade Lineups & Strategies"
+					description="Master professional grenade lineups for this map"
+				/>
+
+				<NadesList mapName={mapName} />
+			</section>
+		);
+	} catch (error) {
+		console.error("Error fetching map:", error);
+		notFound();
+	}
 }
