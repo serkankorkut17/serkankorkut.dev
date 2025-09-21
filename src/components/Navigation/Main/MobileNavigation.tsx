@@ -3,8 +3,8 @@ import { Sidebar, Button } from "flowbite-react";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import Logo from "@/images/logo/logo-grayscale-inverted.svg";
 import Image from "next/image";
-import MobileNavItem from "./MobileNavItem";
-import LanguageSwitcher from "./LanguageSwitcher";
+import MobileNavItem from "@/components/Navigation/Main/MobileNavItem";
+import LanguageSwitcher from "@/components/Navigation/Main/LanguageSwitcher";
 
 interface MobileNavigationProps {
 	navLinks: {

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "../app/globals.css";
 
-import NavigationBar from "@/components/Navigation/NavigationBar";
+import NavigationBar from "@/components/Navigation/Main/NavigationBar";
 import RocketFire from "@/components/Mouse/RocketFire";
 import RocketCursor from "@/components/Mouse/RocketCursor";
 import ScrollToTopButton from "@/components/Mouse/Scroll";
-import Footer from "@/components/Navigation/Footer";
+import Footer from "@/components/Navigation/Main/Footer";
 // import { ThemeProvider } from "@/contexts/Theme";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";

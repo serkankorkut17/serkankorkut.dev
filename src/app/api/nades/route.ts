@@ -19,8 +19,14 @@ export async function GET(request: Request) {
 		const pageNumber = parseInt(params.get("pageNumber") || "1", 10);
 
         if (search) {
+            const escapeForRegex = (input: string) => input.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+            const pattern = escapeForRegex(search).replace(/[\s_-]+/g, "[-_\\s]+");
+            const rx = new RegExp(pattern, "i");
             filters.$or = [
-                { name: new RegExp(search, "i") },
+                { name: rx },
+                { landing: rx },
+                { position: rx },
+
             ];
         }
 

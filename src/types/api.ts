@@ -13,7 +13,7 @@ export interface MapFilters {
 }
 
 export interface NadeFilters {
-	$or?: Array<{ name?: RegExp }>;
+	$or?: Array<{ name?: RegExp, landing?: RegExp, position?: RegExp }>;
 	type?: string;
 	side?: string;
 	map?: string;
