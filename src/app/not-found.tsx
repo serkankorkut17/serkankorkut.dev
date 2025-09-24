@@ -1,4 +1,6 @@
 import Link from "next/link";
+import NavigationBar from "@/components/Navigation/Main/NavigationBar";
+import Footer from "@/components/Navigation/Main/Footer";
 import PageHeader from "@/components/Sections/PageHeader";
 import { useTranslations } from "next-intl";
 
@@ -7,6 +9,7 @@ export default function NotFound() {
 
   return (
     <>
+      <NavigationBar />
       <PageHeader title={t("title")} />
 
       <main className="flex flex-col py-8 px-8 md:px-40 bg-white text-black">
@@ -34,6 +37,7 @@ export default function NotFound() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

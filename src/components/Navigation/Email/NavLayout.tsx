@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import Navigation from "@/components/Navigation/Extras/Navigation";
-import Sidebar from "@/components/Navigation/Extras/Sidebar";
+import Navigation from "@/components/Navigation/Email/Navigation";
+import Sidebar from "@/components/Navigation/Email/Sidebar";
 
 // NavLayout component that includes the Navigation and Sidebar components
 const NavLayout = () => {

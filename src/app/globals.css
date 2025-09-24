@@ -123,8 +123,13 @@
     -webkit-text-stroke: 2px #ffffff; /* Orange outline */
 }
 
-* {
-    cursor: none !important; /* Suppress the cursor globally */
+/* * {
+    cursor: none !important; Suppress the cursor globally
+} */
+
+/* Hide cursor for rocket cursor effect only in site layout */
+.hide-cursor * {
+  cursor: none !important;
 }
 
 /* Scrolling */

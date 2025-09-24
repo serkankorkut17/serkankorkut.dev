@@ -11,8 +11,9 @@ import {
 } from "flowbite-react";
 import LogoLight from "@/images/logo/logo-light.png";
 import LogoDark from "@/images/logo/logo-dark.png";
-// import AuthContext from "@/contexts/AuthContext";
+import AuthContext from "@/contexts/AuthContext";
 import { useTheme } from "@/contexts/Theme";
+import { useContext } from "react";
 
 interface NavigationProps {
     toggleSidebar: () => void;
@@ -20,9 +21,9 @@ interface NavigationProps {
 
 // Navigation component that includes the Navbar and user dropdown
 const Navigation = ({ toggleSidebar }: NavigationProps) => {
-    // const { user, logout } = useContext(AuthContext);
-    const user = { firstName: "John", lastName: "Doe", username: "johndoe", email: "john.doe@example.com" };
-    const logout = () => { console.log("Logged out"); };
+    const auth = useContext(AuthContext);
+    const user = auth?.user;
+    const logout = auth?.logout;
 
     // Theme context
     const { toggleDarkMode } = useTheme();
@@ -55,7 +56,7 @@ const Navigation = ({ toggleSidebar }: NavigationProps) => {
                         />
                     </svg>
                 </button>
-                <Link href="/" className="flex ms-2 md:me-24 items-center">
+                <Link href="/dashboard" className="flex ms-2 md:me-24 items-center">
                     {/* Light mode logo */}
                     <Image
                         src={LogoLight}

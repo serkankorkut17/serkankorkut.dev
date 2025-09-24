@@ -1,10 +1,9 @@
 import { connectToDatabase } from "@/utils/database";
 import Map from "@/models/Map";
+import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-type Params = { params: { name: string } };
-
-export async function GET(request: Request, { params }: Params) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ name: string }> }) {
     await connectToDatabase();
     const { name } = await params;
 
@@ -15,7 +14,7 @@ export async function GET(request: Request, { params }: Params) {
     return NextResponse.json(map);
 }
 
-export async function PUT(request: Request, { params }: Params) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ name: string }> }) {
     await connectToDatabase();
     const data = (await request.json()) as Partial<Record<string, unknown>>;
 

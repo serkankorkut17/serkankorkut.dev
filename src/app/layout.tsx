@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import "../app/globals.css";
+import "./globals.css";
 
-import NavigationBar from "@/components/Navigation/Main/NavigationBar";
-import RocketFire from "@/components/Mouse/RocketFire";
-import RocketCursor from "@/components/Mouse/RocketCursor";
+// import NavigationBar from "@/components/Navigation/Main/NavigationBar";
+// import RocketFire from "@/components/Mouse/RocketFire";
+// import RocketCursor from "@/components/Mouse/RocketCursor";
 import ScrollToTopButton from "@/components/Mouse/Scroll";
-import Footer from "@/components/Navigation/Main/Footer";
+// import Footer from "@/components/Navigation/Main/Footer";
 // import { ThemeProvider } from "@/contexts/Theme";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
@@ -52,18 +52,16 @@ export default async function RootLayout({
 				<link rel="manifest" href="/site.webmanifest" />
 			</head>
 			<body
-				className={montserrat.className}
-				style={{
-					cursor: "none",
-				}}
+				className={`${montserrat.className} bg-white dark:bg-black text-gray-900 dark:text-white`}
+				// style={{
+				// 	cursor: "none",
+				// }}
 			>
 				<NextIntlClientProvider locale={locale} messages={messages}>
-					<RocketCursor />
-					<RocketFire />
-					<ScrollToTopButton />
-					<NavigationBar />
-					{children}
-					<Footer />
+						{/* <RocketCursor />
+						<RocketFire /> */}
+						<ScrollToTopButton />
+						{children}
 				</NextIntlClientProvider>
 			</body>
 		</html>
