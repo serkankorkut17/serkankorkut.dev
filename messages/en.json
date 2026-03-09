@@ -9,6 +9,10 @@
 		"backToHome": "Back to Home",
 		"contact": "Contact"
 	},
+	"ProjectsSection": {
+		"viewGallery": "View Gallery ({count} images)",
+		"more": "+{count} more"
+	},
 	"QRPage": {
 		"title": "QR Code Generator",
 		"description": "Create custom QR codes with logos and colors",

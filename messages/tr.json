@@ -9,6 +9,10 @@
     "backToHome": "Ana Sayfa'ya Dön",
     "contact": "İletişim"
   },
+  "ProjectsSection": {
+    "viewGallery": "Galeriyi Görüntüle ({count} görsel)",
+    "more": "+{count} daha"
+  },
   "QRPage": {
     "title": "QR Kod Oluşturucu",
     "description": "Logo ve renklerle özel QR kodları oluşturun",

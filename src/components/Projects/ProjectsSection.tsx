@@ -6,6 +6,7 @@ import Link from "next/link";
 import GalleryModal from "./GalleryModal";
 import { Project } from "@/types";
 import PageHeading from "../Sections/PageHeading";
+import { useTranslations } from "next-intl";
 
 interface ProjectsSectionProps {
 	title: string;
@@ -20,6 +21,7 @@ const ProjectsSection = ({
   description,
 	projects,
 }: ProjectsSectionProps) => {
+	const t = useTranslations("ProjectsSection");
 	// State for modal and carousel
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [selectedImages, setSelectedImages] = useState<string[]>([]);
@@ -96,7 +98,7 @@ const ProjectsSection = ({
 											{imageIndex === 4 && images.length > 5 && (
 												<div className="absolute inset-0 bg-black/60 flex items-center justify-center">
 													<span className="text-white text-xl font-bold">
-														+{images.length - 4} more
+														{t("more", { count: images.length - 4 })}
 													</span>
 												</div>
 											)}
@@ -145,7 +147,7 @@ const ProjectsSection = ({
 									onClick={() => openModal(id, project)}
 									className="inline-flex items-center text-orange-500 hover:text-orange-600 font-medium transition-colors"
 								>
-									<span>View Gallery ({images.length} images)</span>
+									<span>{t("viewGallery", { count: images.length })}</span>
 									<svg
 										className="w-5 h-5 ml-2"
 										fill="none"

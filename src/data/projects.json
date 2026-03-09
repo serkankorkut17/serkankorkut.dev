@@ -1,12 +1,27 @@
 {
-	"title": "TAKE A LOOK",
-	"subtitle": "My Projects",
-	"description": "Here are some of the projects I've worked on, showcasing my skills and experience in various technologies and domains.",
+	"title": {
+		"en": "TAKE A LOOK",
+		"tr": "PROJELERİME GÖZ ATIN"
+	},
+	"subtitle": {
+		"en": "My Projects",
+		"tr": "Projelerim"
+	},
+	"description": {
+		"en": "Here are some of the projects I've worked on, showcasing my skills and experience in various technologies and domains.",
+		"tr": "İşte üzerinde çalıştığım bazı projeler, çeşitli teknolojiler ve alanlarda becerilerimi ve deneyimlerimi sergiliyor."
+	},
 	"projects": [
 		{
 			"id": 1,
-			"title": "Flexible Backend with FastAPI and GraphQL",
-			"description": "This project provides a modular backend using FastAPI and GraphQL, incorporating essential features like user authentication, role-based access control, and social media-like interactions with posts and comments. It uses SQLAlchemy for database management and JWT for secure authentication, making it a robust solution for handling user data and permissions. Although still in development, the project aims to strike a balance between flexibility and adherence to best practices, highlighting foundational concepts in backend and GraphQL API design.",
+			"title": {
+				"en": "Flexible Backend with FastAPI and GraphQL",
+				"tr": "FastAPI ve GraphQL ile Esnek Backend"
+			},
+			"description": {
+				"en": "This project provides a modular backend using FastAPI and GraphQL, incorporating essential features like user authentication, role-based access control, and social media-like interactions with posts and comments. It uses SQLAlchemy for database management and JWT for secure authentication, making it a robust solution for handling user data and permissions. Although still in development, the project aims to strike a balance between flexibility and adherence to best practices, highlighting foundational concepts in backend and GraphQL API design.",
+				"tr": "Bu proje, FastAPI ve GraphQL kullanarak modüler bir backend sağlar ve kullanıcı kimlik doğrulaması, rol tabanlı erişim kontrolü ve gönderiler ve yorumlarla sosyal medya benzeri etkileşimler gibi temel özellikleri içerir. Veritabanı yönetimi için SQLAlchemy ve güvenli kimlik doğrulama için JWT kullanır, kullanıcı verilerini ve izinlerini yönetmek için sağlam bir çözüm sunar. Henüz geliştirilme aşamasında olmasına rağmen, proje esneklik ve en iyi uygulamalara uyum arasında bir denge sağlamayı amaçlar ve backend ve GraphQL API tasarımında temel kavramları vurgular."
+			},
 			"githubUrl": "https://github.com/serkankorkut17/python-fastpi-graphql",
 			"images": [
 				"/projects/fastapi-graphql/fastapi-docs.webp",
@@ -16,8 +31,14 @@
 		},
 		{
 			"id": 2,
-			"title": "Node.js MVC Backend with MongoDB",
-			"description": "This project implements a full-stack application using Node.js with an MVC architecture. It features Express.js for the backend, MongoDB for data storage, and EJS templates for rendering dynamic views. The application includes user authentication and session management using MongoDB and express-session, and allows for image uploads with Multer. The frontend supports a dark mode toggle using cookies.",
+			"title": {
+				"en": "Node.js MVC Backend with MongoDB",
+				"tr": "MongoDB ile Node.js MVC Backend"
+			},
+			"description": {
+				"en": "This project implements a full-stack application using Node.js with an MVC architecture. It features Express.js for the backend, MongoDB for data storage, and EJS templates for rendering dynamic views. The application includes user authentication and session management using MongoDB and express-session, and allows for image uploads with Multer. The frontend supports a dark mode toggle using cookies.",
+				"tr": "Bu proje, Node.js ve MVC mimarisi kullanarak tam bir stack uygulama implementasyonu sağlar. Backend için Express.js, veri depolama için MongoDB ve dinamik görünümler için EJS şablonları içerir. Uygulama, MongoDB ve express-session kullanarak kullanıcı kimlik doğrulaması ve oturum yönetimi içerir ve Multer ile resim yüklemeye olanak tanır. Frontend, çerezleri kullanarak karanlık mod geçişini destekler."
+			},
 			"githubUrl": "https://github.com/serkankorkut17/Learning-Node.js",
 			"images": [
 				"/projects/nodejs-backend/nodejs-home.webp",
@@ -38,8 +59,14 @@
 		},
 		{
 			"id": 3,
-			"title": "Leave Master - ASP.NET Core Backend",
-			"description": "This project implements a backend for managing employee leave requests using ASP.NET Core and MongoDB. It includes robust user authentication with JWT, leveraging MongoDB for data persistence, and integrates Identity for flexible identity management. Features include role-based access control, a custom email service, and configuration via dependency injection. Swagger is enabled for API documentation, providing a streamlined interface for testing endpoints. This setup provides a solid foundation for an enterprise-grade leave management system that supports secure, scalable, and multi-tenant-ready operations.",
+			"title": {
+				"en": "Leave Master - ASP.NET Core Backend",
+				"tr": "Leave Master - ASP.NET Core Backend"
+			},
+			"description": {
+				"en": "This project implements a backend for managing employee leave requests using ASP.NET Core and MongoDB. It includes robust user authentication with JWT, leveraging MongoDB for data persistence, and integrates Identity for flexible identity management. Features include role-based access control, a custom email service, and configuration via dependency injection. Swagger is enabled for API documentation, providing a streamlined interface for testing endpoints. This setup provides a solid foundation for an enterprise-grade leave management system that supports secure, scalable, and multi-tenant-ready operations.",
+				"tr": "Bu proje, ASP.NET Core ve MongoDB kullanarak çalışan izin isteklerini yönetmek için bir backend uygular. Güçlü kullanıcı kimlik doğrulaması ve JWT ile sağlanır, veri kalıcılığı için MongoDB kullanılır ve esnek kimlik yönetimi için Identity entegre edilir. Özellikler arasında rol tabanlı erişim kontrolü, özel bir e-posta hizmeti ve bağımlılık enjeksiyonu yoluyla yapılandırma yer alır. Swagger, API belgelenmesi için etkinleştirilir ve uç noktaları test etmek için akışkan bir arayüz sağlar. Bu kurulum, güvenli, ölçeklenebilir ve çok kiracıya hazır işlemler destekleyen bir kurumsal seviye izin yönetim sistemi için sağlam bir temel sağlar."
+			},
 			"githubUrl": "https://github.com/serkankorkut17/leave-master-backend",
 			"images": [
 				"/projects/leave-master-backend/leave-master-swagger-1.webp",
@@ -51,8 +78,14 @@
 		},
 		{
 			"id": 4,
-			"title": "Leave Master - Frontend Application",
-			"description": "This React-based frontend application serves as the user interface for the Leave Master system, a tool designed for managing employee leave requests within an organization. Built with React Router for seamless navigation, it provides users with pages for signing up, logging in, submitting leave requests, viewing leave calendars, and managing new employees. Key routes include password reset, leave request forms, and calendar views to facilitate efficient leave tracking.",
+			"title": {
+				"en": "Leave Master - Frontend Application",
+				"tr": "Leave Master - Frontend Uygulaması"
+			},
+			"description": {
+				"en": "This React-based frontend application serves as the user interface for the Leave Master system, a tool designed for managing employee leave requests within an organization. Built with React Router for seamless navigation, it provides users with pages for signing up, logging in, submitting leave requests, viewing leave calendars, and managing new employees. Key routes include password reset, leave request forms, and calendar views to facilitate efficient leave tracking.",
+				"tr": "Bu React tabanlı frontend uygulaması, bir kuruluş içinde çalışan izin isteklerini yönetmek için tasarlanmış olan Leave Master sisteminin kullanıcı arayüzüdür. Sorunsuz gezinme için React Router ile oluşturulmuştur ve kullanıcıların kayıt olma, giriş yapma, izin isteği gönderme, izin takvimi görüntüleme ve yeni çalışanları yönetme sayfalarına erişim sağlar. Ana rotalar arasında şifre sıfırlama, izin isteği formları ve takvim görünümleri yer alır ve verimli izin takibi için kolaylık sağlar."
+			},
 			"githubUrl": "https://github.com/serkankorkut17/leave-master-frontend",
 			"images": [
 				"/projects/leave-master-frontend/leave-master-login.webp",
@@ -66,8 +99,14 @@
 		},
 		{
 			"id": 5,
-			"title": "Invoice Payment Web Application",
-			"description": "This frontend-only application is designed specifically for managing invoice payment functionality within a banking context. It provides users with an intuitive interface for creating, tracking, and processing invoices efficiently. By leveraging Next.js, the application ensures fast performance and seamless navigation, enhancing user experience. Users can view detailed invoice information, manage payment statuses, and access historical data, streamlining the entire invoicing process for banking operations.",
+			"title": {
+				"en": "Invoice Payment Web Application",
+				"tr": "Fatura Ödeme Web Uygulaması"
+			},
+			"description": {
+				"en": "This frontend-only application is designed specifically for managing invoice payment functionality within a banking context. It provides users with an intuitive interface for creating, tracking, and processing invoices efficiently. By leveraging Next.js, the application ensures fast performance and seamless navigation, enhancing user experience. Users can view detailed invoice information, manage payment statuses, and access historical data, streamlining the entire invoicing process for banking operations.",
+				"tr": "Bu sadece frontend uygulaması, bir bankacılık bağlamında fatura ödeme işlevselliğini yönetmek için özellikle tasarlanmıştır. Kullanıcılar, etkili bir şekilde faturalar oluşturmak, takip etmek ve işlemek için sezgisel bir arayüz sağlar. Next.js'i kullanarak, uygulama hızlı performans ve sorunsuz gezinme sağlar, kullanıcı deneyimini geliştirir. Kullanıcılar detaylı fatura bilgilerini görüntüleyebilir, ödeme durumlarını yönetebilir ve geçmiş verilere erişebilir, bankacılık işlemleri için tüm fatura sürecini kolaylaştırır."
+			},
 			"githubUrl": "https://github.com/serkankorkut17/invoice-payment",
 			"images": [
 				"/projects/invoice-payment/invoice-payment-1.webp",
@@ -78,8 +117,14 @@
 		},
 		{
 			"id": 6,
-			"title": "Affine vs Perspective-Correct Texture Mapping with SDL and GLM",
-			"description": "This project demonstrates the differences between affine and perspective-correct texture mapping using SDL and GLM. The implementation uses Barycentric coordinates to map texture coordinates across triangles. With user controls to switch between affine and perspective-correct mappings, it provides a visual comparison by rendering a rotating textured quad on the screen. The project uses SDL for window management and OpenGL’s glm library for matrix transformations, creating an interactive experience that highlights the significance of perspective correction in 3D graphics.",
+			"title": {
+				"en": "Affine vs Perspective-Correct Texture Mapping with SDL and GLM",
+				"tr": "SDL ve GLM ile Affine ve Perspektif-Düzeltmeli Dokuma Eşleme"
+			},
+			"description": {
+				"en": "This project demonstrates the differences between affine and perspective-correct texture mapping using SDL and GLM. The implementation uses Barycentric coordinates to map texture coordinates across triangles. With user controls to switch between affine and perspective-correct mappings, it provides a visual comparison by rendering a rotating textured quad on the screen. The project uses SDL for window management and OpenGL’s glm library for matrix transformations, creating an interactive experience that highlights the significance of perspective correction in 3D graphics.",
+				"tr": "Bu proje, SDL ve GLM kullanarak affine ve perspektif-düzeltmeli dokuma eşleme arasındaki farkları gösterir. Uygulama, üçgenler üzerinden dokuma koordinatlarını eşlemek için Barycentric koordinatları kullanır. Kullanıcı kontrolleriyle affine ve perspektif-düzeltmeli eşlemeler arasında geçiş yapılabilmesini sağlar ve ekran üzerinde dönen dokunmuş kareyi render ederek görsel bir karşılaştırma sunar. Proje, pencere yönetimi için SDL'yi ve matrix dönüşümleri için OpenGL'in glm kütüphanesini kullanır, 3D grafiklerde perspektif düzeltmesinin önemi vurgulayan etkileşimli bir deneyim oluşturur."
+			},
 			"githubUrl": "https://github.com/serkankorkut17/texture-mapping-comparison",
 			"images": [
 				"/projects/texture-mapping/texture-affine.webp",
@@ -88,8 +133,14 @@
 		},
 		{
 			"id": 7,
-			"title": "IoT Gateway for Environmental Monitoring",
-			"description": "This project implements an IoT gateway that monitors environmental conditions using temperature and humidity sensors. Utilizing socket programming, the gateway communicates with sensors via TCP and UDP sockets, sending data to a central server. The server processes this data and offers an HTTP interface for users to view real-time readings. The project showcases real-time data transmission and management in IoT systems, highlighting the use of socket communication in a multi-threaded environment.",
+			"title": {
+				"en": "IoT Gateway for Environmental Monitoring",
+				"tr": "Socket Programlama ile IoT Geçidi"
+			},
+			"description": {
+				"en": "This project implements an IoT gateway that monitors environmental conditions using temperature and humidity sensors. Utilizing socket programming, the gateway communicates with sensors via TCP and UDP sockets, sending data to a central server. The server processes this data and offers an HTTP interface for users to view real-time readings. The project showcases real-time data transmission and management in IoT systems, highlighting the use of socket communication in a multi-threaded environment.",
+				"tr": "Bu proje, sıcaklık ve nemi sensörleri kullanarak çevre koşullarını izleyen bir IoT geçidi uygular. Socket programlama kullanarak, geçit sensörlerle TCP ve UDP soketleri üzerinden iletişim kurar ve verileri merkezi bir sunucuya gönderir. Sunucu bu verileri işler ve kullanıcıların gerçek zamanlı okumaları görüntülemesi için bir HTTP arayüzü sunar. Proje, IoT sistemlerinde gerçek zamanlı veri aktarımı ve yönetimini gösterir ve çoklu-threded bir ortamda socket iletişiminin kullanımını vurgular."
+			},
 			"githubUrl": "https://github.com/serkankorkut17/Marmara-University-CSE/tree/main/CSE4074-Computer-Networks",
 			"images": [
 				"/projects/socket-programming/socket-usage.webp",
@@ -100,8 +151,14 @@
 		},
 		{
 			"id": 8,
-			"title": "Inventory Management System - SQL Database Project",
-			"description": "This SQL-based Inventory Management System is designed for structured data handling of employees, products, factories, suppliers, and customer orders. The database schema features comprehensive tables, such as EMPLOYEE for employee data with derived age calculations, UPS_PRODUCT for uninterruptible power supply (UPS) items, and specific entities for customer and supplier details. Additionally, it supports product stock tracking per factory location, customer orders, and records for supplied inventory items. The system uses views, stored procedures, and triggers to streamline inventory operations, ensuring data consistency and supporting automated stock updates. This SQL solution provides a scalable foundation for efficient inventory management across diverse organizational functions.",
+			"title": {
+				"en": "Inventory Management System - SQL Database Project",
+				"tr": "Envanter Yönetim Sistemi - SQL Veritabanı Projesi"
+			},
+			"description": {
+				"en": "This SQL-based Inventory Management System is designed for structured data handling of employees, products, factories, suppliers, and customer orders. The database schema features comprehensive tables, such as EMPLOYEE for employee data with derived age calculations, UPS_PRODUCT for uninterruptible power supply (UPS) items, and specific entities for customer and supplier details. Additionally, it supports product stock tracking per factory location, customer orders, and records for supplied inventory items. The system uses views, stored procedures, and triggers to streamline inventory operations, ensuring data consistency and supporting automated stock updates. This SQL solution provides a scalable foundation for efficient inventory management across diverse organizational functions.",
+				"tr": "Bu SQL tabanlı Envanter Yönetim Sistemi, çalışanlar, ürünler, fabrikalar, tedarikçiler ve müşteri siparişleri için yapılandırılmış veri işleme amacıyla tasarlanmıştır. Veritabanı şeması, çalışan verileri için türetilmiş yaş hesaplamalarıyla birlikte EMPLOYEE tablosu, kesintisiz güç kaynağı (UPS) ürünleri için UPS_PRODUCT tablosu ve müşteri ve tedarikçi detayları için özel varlıklar içerir. Ek olarak, her fabrika konumunda ürün stok takibi, müşteri siparişleri ve tedarik edilen envanter kalemleri için kayıtlar desteklenir. Sistem, envanter işlemleri için görünümü, saklı yordamları ve tetikleyicileri kullanarak veri tutarlılığını sağlamakta ve otomatik stok güncellemelerini desteklemektedir. Bu SQL çözümü, çeşitli organizasyonel fonksiyonlar arasında verimli envanter yönetimi için ölçeklenebilir bir temel sağlar."
+			},
 			"githubUrl": "https://github.com/serkankorkut17/Marmara-University-CSE/tree/main/CSE3055-Database-Systems",
 			"images": [
 				"/projects/mssql-database/database-diagram.webp",
@@ -112,8 +169,14 @@
 		},
 		{
 			"id": 9,
-			"title": "Robotic Arm Path Tracking and Control",
-			"description": "This project simulates a robotic arm in a 3D environment, with real-time control and trajectory tracking. Using Python and a 3D simulation library, it demonstrates concepts such as forward kinematics, inverse kinematics, Jacobian matrices, and interactive control. The primary goal is to allow the arm to follow a pre-defined path while calculating necessary joint angles and adjusting position and orientation based on user input.",
+			"title": {
+				"en": "Robotic Arm Path Tracking and Control",
+				"tr": "Robotik Kol Yol Takibi ve Kontrol"
+			},
+			"description": {
+				"en": "This project simulates a robotic arm in a 3D environment, with real-time control and trajectory tracking. Using Python and a 3D simulation library, it demonstrates concepts such as forward kinematics, inverse kinematics, Jacobian matrices, and interactive control. The primary goal is to allow the arm to follow a pre-defined path while calculating necessary joint angles and adjusting position and orientation based on user input.",
+				"tr": "Bu proje, 3D bir ortamda bir robotik kolü simüle eder ve gerçek zamanlı kontrol ile yörünge takibi sağlar. Python ve bir 3D simülasyon kütüphanesi kullanılarak, ileri kinematik, geri kinematik, Jacobian matrisleri ve etkileşimli kontrol kavramları gösterilir. Ana hedef, kolun önceden tanımlanmış bir yolu izlemesine izin vermek ve gerekli eklem açılarını hesaplayarak kullanıcı girdisine göre konum ve yönelimi ayarlamaktır."
+			},
 			"githubUrl": "https://github.com/serkankorkut17/Robotics-HW",
 			"images": [
 				"/projects/robotics/robotics-draw-1.webp",
@@ -124,8 +187,14 @@
 		},
 		{
 			"id": 10,
-			"title": "Student Registration System",
-			"description": "The Student Registration System is a robust, object-oriented application built in both Java and Python, primarily focused on managing the registration and academic records for students within an educational institution. This system efficiently handles student, course, and advisor data while managing diverse course types and graduation requirements. It is designed for modularity and scalability, supporting various academic processes through its distinct class structures and data-driven approach.",
+			"title": {
+				"en": "Student Registration System - Java and Python",
+				"tr": "Öğrenci Kayıt Sistemi - Java ve Python"
+			},
+			"description": {
+				"en": "The Student Registration System is a robust, object-oriented application built in both Java and Python, primarily focused on managing the registration and academic records for students within an educational institution. This system efficiently handles student, course, and advisor data while managing diverse course types and graduation requirements. It is designed for modularity and scalability, supporting various academic processes through its distinct class structures and data-driven approach.",
+				"tr": "Öğrenci Kayıt Sistemi, hem Java hem de Python ile geliştirilmiş, özellikle bir eğitim kurumunda öğrencilerin kayıt ve akademik kayıtlarını yönetmeye odaklanan sağlam ve nesne yönelimli bir uygulamadır. Bu sistem, öğrenci, ders ve danışman verilerini etkili bir şekilde işlerken çeşitli ders tipleri ve mezuniyet gereksinimlerini de yönetir. Modülerlik ve ölçeklenebilirlik için tasarlanmıştır ve farklı akademik süreçleri desteklemektedir."
+			},
 			"githubUrl": "https://github.com/serkankorkut17/Marmara-University-CSE/tree/main/CSE3063-Object-Oriented-Software-Design",
 			"images": [
 				"/projects/student-registration/student-ver-java.webp",
