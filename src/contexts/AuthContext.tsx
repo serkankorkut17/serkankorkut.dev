@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export interface AuthUser {
     username: string;
@@ -27,6 +27,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = useState<AuthUser | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const router = useRouter();
+    const pathname = usePathname();
 
     // Fetch user data on mount to check authentication
     useEffect(() => {
@@ -38,7 +39,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                     setUser(data.user);
                 } else if (response.status === 401 || response.status === 403) {
                     setUser(null);
-                    router.push("/login");
+                    // Only redirect to login for protected/email routes
+                    if (pathname && pathname.startsWith("/email")) {
+                        router.push("/login");
+                    }
                 } else {
                     setUser(null);
                 }
@@ -56,7 +60,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // Login: Set user data after successful login
     const login = (userData: AuthUser) => {
         setUser(userData);
-        router.push("/");
+        router.push("/dashboard");
     };
 
     // Logout: Clear cookie and reset user state
