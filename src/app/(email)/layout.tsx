@@ -6,13 +6,6 @@ import NavLayout from "@/components/Navigation/Email/NavLayout";
 // import ScrollToTopButton from "@/components/Mouse/Scroll";
 // import ChatbotWidget from "@/components/Chatbot/ChatbotWidget";
 
-// Import the Montserrat font
-import { Montserrat } from "next/font/google";
-const montserrat = Montserrat({
-	weight: ["400", "500", "600", "700", "800", "900"],
-	subsets: ["latin"],
-});
-
 export const metadata = {
 	title: "Mail Morph - Mail Editor",
 	description:
@@ -25,37 +18,13 @@ interface ExtrasLayoutProps {
 
 export default function ExtrasLayout({ children }: ExtrasLayoutProps) {
 	return (
-		<html lang="en">
-			{/* Icons for different platforms */}
-			<head>
-				<link
-					rel="icon"
-					type="image/png"
-					href="/favicon-96x96.png"
-					sizes="96x96"
-				/>
-				<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-				<link rel="shortcut icon" href="/favicon.ico" />
-				<link
-					rel="apple-touch-icon"
-					sizes="180x180"
-					href="/apple-touch-icon.png"
-				/>
-				<meta name="apple-mobile-web-app-title" content="MailMorph" />
-				<link rel="manifest" href="/site.webmanifest" />
-			</head>
-			<body
-				className={`${montserrat.className} bg-white dark:bg-black text-gray-900 dark:text-white`}
-			>
-				<ThemeProvider>
-					<AuthProvider>
-						{/* <ScrollToTopButton /> */}
-						<NavLayout />
-						{children}
-						{/* <ChatbotWidget /> */}
-					</AuthProvider>
-				</ThemeProvider>
-			</body>
-		</html>
+		<ThemeProvider>
+			<AuthProvider>
+				{/* <ScrollToTopButton /> */}
+				<NavLayout />
+				{children}
+				{/* <ChatbotWidget /> */}
+			</AuthProvider>
+		</ThemeProvider>
 	);
 }

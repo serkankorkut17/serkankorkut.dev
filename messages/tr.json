@@ -69,5 +69,67 @@
       "noContentDesc": "QR kodunuzu oluşturmak için bir metin veya URL girin",
       "content": "İçerik:"
     }
+  },
+  "ImagePage": {
+    "title": "WebP Donusturucu",
+    "description": "HEIC dahil gorselleri toplu ya da tekli olarak WebP'ye donusturun",
+    "upload": {
+      "label": "Resim Yukleme",
+      "badge": "Toplu destek",
+      "helper": "PNG, JPG, JPEG, WEBP, AVIF, HEIC, HEIF ve tarayicinin okuyabildigi diger resimler desteklenir. Varsayilan profil: quality %75, effort 4. Isterseniz maksimum coznurlugu da dusurebilirsiniz."
+    },
+    "settings": {
+      "quality": "Kalite",
+      "qualityHelper": "Yuksek kalite daha buyuk dosya boyutu uretir.",
+      "effort": "Effort",
+      "effortHelper": "Yuksek effort daha uzun isleme suresiyle daha iyi sikistirma dener.",
+      "effortOption": "Seviye {value}",
+      "resolution": "Maksimum coznurluk",
+      "resolutionHelper": "Buyuk gorselleri orani korunarak asagi cekip daha kucuk cikti alabilirsiniz.",
+      "resolutionOptionOriginal": "Orijinal coznurluk",
+      "resolutionOptionMax": "En fazla {value}px",
+      "resolutionOptionMaxShort": "{value}px",
+      "resolutionOriginalShort": "Orijinal"
+    },
+    "summary": {
+      "totalFiles": "Toplam dosya",
+      "converted": "Donusen",
+      "saved": "Toplam kazanc {value}",
+      "totalOutput": "Toplam cikti {value}"
+    },
+    "preview": {
+      "readyBadge": "Hazir: {count}"
+    },
+    "empty": {
+      "title": "Donusturulecek dosya bekleniyor",
+      "description": "Soldaki alandan tekli veya toplu resim secin. Donustur butonu ile tum kuyrugu WebP'ye cevirip tek tek ya da ZIP olarak indirebilirsiniz."
+    },
+    "card": {
+      "outputName": "Cikti: {value}",
+      "originalSize": "Orijinal boyut",
+      "convertedSize": "WebP boyutu",
+      "dimensions": "Boyutlar",
+      "profile": "Profil",
+      "profileValue": "Q{quality} / E{effort} / {resolution}"
+    },
+    "status": {
+      "idle": "Hazir",
+      "converting": "Donusturuluyor",
+      "done": "Tamamlandi",
+      "error": "Hata",
+      "awaiting": "Donusum bekleniyor",
+      "heicPreview": "HEIC onizlemesi donusumden sonra gorunur",
+      "unknownError": "Beklenmeyen bir hata olustu."
+    },
+    "actions": {
+      "convertAll": "Tumunu WebP'ye donustur",
+      "converting": "Donusturuluyor...",
+      "downloadZip": "Donusenleri ZIP indir",
+      "clear": "Listeyi temizle",
+      "convertOne": "Bu dosyayi donustur",
+      "reconvert": "Ayarlari tekrar uygula",
+      "downloadOne": "WebP indir",
+      "remove": "Kaldir"
+    }
   }
 }

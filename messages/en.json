@@ -71,5 +71,67 @@
 			"noContentDesc": "Enter some text or URL to generate your QR code",
 			"content": "Content:"
 		}
+	},
+	"ImagePage": {
+		"title": "WebP Converter",
+		"description": "Convert images, including HEIC, to WebP one by one or in batches",
+		"upload": {
+			"label": "Image Upload",
+			"badge": "Batch enabled",
+			"helper": "PNG, JPG, JPEG, WEBP, AVIF, HEIC, HEIF, and other browser-readable image files are supported. Default profile: quality 75%, effort 4. You can also lower the maximum resolution before conversion."
+		},
+		"settings": {
+			"quality": "Quality",
+			"qualityHelper": "Higher quality usually produces larger file sizes.",
+			"effort": "Effort",
+			"effortHelper": "Higher effort spends more processing time to try to compress better.",
+			"effortOption": "Level {value}",
+			"resolution": "Maximum resolution",
+			"resolutionHelper": "Scale down large images while keeping the aspect ratio for lighter outputs.",
+			"resolutionOptionOriginal": "Original resolution",
+			"resolutionOptionMax": "Up to {value}px",
+			"resolutionOptionMaxShort": "{value}px",
+			"resolutionOriginalShort": "Original"
+		},
+		"summary": {
+			"totalFiles": "Total files",
+			"converted": "Converted",
+			"saved": "Total saving {value}",
+			"totalOutput": "Total output {value}"
+		},
+		"preview": {
+			"readyBadge": "Ready: {count}"
+		},
+		"empty": {
+			"title": "Waiting for files to convert",
+			"description": "Pick single or multiple images from the left panel. Convert the queue to WebP, then download files individually or as one ZIP archive."
+		},
+		"card": {
+			"outputName": "Output: {value}",
+			"originalSize": "Original size",
+			"convertedSize": "WebP size",
+			"dimensions": "Dimensions",
+			"profile": "Profile",
+			"profileValue": "Q{quality} / E{effort} / {resolution}"
+		},
+		"status": {
+			"idle": "Ready",
+			"converting": "Converting",
+			"done": "Completed",
+			"error": "Error",
+			"awaiting": "Waiting for conversion",
+			"heicPreview": "HEIC preview appears after conversion",
+			"unknownError": "An unexpected error occurred."
+		},
+		"actions": {
+			"convertAll": "Convert all to WebP",
+			"converting": "Converting...",
+			"downloadZip": "Download converted ZIP",
+			"clear": "Clear list",
+			"convertOne": "Convert this file",
+			"reconvert": "Reapply settings",
+			"downloadOne": "Download WebP",
+			"remove": "Remove"
+		}
 	}
 }

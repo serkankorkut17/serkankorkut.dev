@@ -22,6 +22,7 @@
             "url": "/extras",
             "subLinks": [
                 { "name": { "en": "EMAIL", "tr": "E-POSTA" }, "url": "/dashboard" },
+                { "name": { "en": "IMAGE TOOL", "tr": "RESIM ARACI" }, "url": "/image" },
                 { "name": { "en": "QR CODE", "tr": "QR KODU" }, "url": "/qr" },
                 { "name": { "en": "CS2", "tr": "CS2" }, "url": "/cs2" }
             ]
