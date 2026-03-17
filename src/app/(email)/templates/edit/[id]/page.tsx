@@ -126,7 +126,7 @@ export default function EditTemplatePage(): React.ReactElement {
         setAILoading(true);
         try {
             const { design: currentDesign } = await exportHtmlAsync();
-            const res = await fetch("/api/gemini-design", {
+            const res = await fetch("/api/gemini/design", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ prompt: aiPrompt, design: currentDesign }),
