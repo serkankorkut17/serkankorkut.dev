@@ -28,6 +28,7 @@ export async function POST(req: NextRequest) {
             username,
             email,
             password: hashedPassword,
+            mailSetting: null,
         });
         await user.save();
 

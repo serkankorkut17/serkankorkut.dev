@@ -44,6 +44,36 @@ export default function SettingsPage(): React.ReactElement {
     const [loading, setLoading] = useState<boolean>(false);
     const [message, setMessage] = useState<string>("");
 
+    const validateForm = (): boolean => {
+        const newErrors: Record<string, string> = {};
+
+        if (!form.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+            newErrors.email = "Valid email required";
+        }
+
+        if (!form.password || !form.password.trim()) {
+            newErrors.password = "Password required";
+        }
+
+        if (form.type === "smtp" || form.type === "custom") {
+            if (!form.host || !form.host.trim()) {
+                newErrors.host = "Host required for SMTP";
+            }
+
+            const parsedPort = parseInt(String(form.port || ""), 10);
+            if (Number.isNaN(parsedPort) || parsedPort < 1 || parsedPort > 65535) {
+                newErrors.port = "Port must be 1-65535";
+            }
+        }
+
+        if (form.name && form.name.length > 100) {
+            newErrors.name = "Name max 100 chars";
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
     // Fetch existing mail settings on component mount
     useEffect(() => {
         let mounted = true;
@@ -86,14 +116,24 @@ export default function SettingsPage(): React.ReactElement {
     // Save mail settings to the server
     const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!validateForm()) return;
+
         setLoading(true);
         setMessage("");
         setErrors({});
         try {
+            const payload = {
+                ...form,
+                port:
+                    form.type === "smtp" || form.type === "custom"
+                        ? parseInt(String(form.port || ""), 10)
+                        : undefined,
+            };
+
             const res = await fetch("/api/settings", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ mailSetting: form }),
+                body: JSON.stringify({ mailSetting: payload }),
             });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) throw new Error(data.error || data.message || "Save failed");
@@ -114,9 +154,7 @@ export default function SettingsPage(): React.ReactElement {
         setErrors({});
         try {
             const res = await fetch("/api/settings", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ mailSetting: null }),
+                method: "DELETE",
             });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) throw new Error(data.error || data.message || "Reset failed");

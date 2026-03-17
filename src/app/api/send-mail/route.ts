@@ -113,9 +113,25 @@ export async function POST(req: NextRequest) {
                     },
                 });
             } else {
+                const parsedPort = parseInt(
+                    String(userMailSetting.port || ""),
+                    10
+                );
+                if (
+                    !userMailSetting.host ||
+                    Number.isNaN(parsedPort) ||
+                    parsedPort < 1 ||
+                    parsedPort > 65535
+                ) {
+                    return NextResponse.json(
+                        { error: "Invalid SMTP host or port" },
+                        { status: 400 }
+                    );
+                }
+
                 transporter = nodemailer.createTransport({
                     host: userMailSetting.host,
-                    port: userMailSetting.port,
+                    port: parsedPort,
                     secure: userMailSetting.secure,
                     auth: {
                         user: userMailSetting.email,

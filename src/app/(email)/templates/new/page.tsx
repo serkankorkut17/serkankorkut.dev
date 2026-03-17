@@ -116,7 +116,7 @@ export default function NewTemplatePage(): React.ReactElement {
         if (!aiPrompt.trim()) return;
         setBeautifying(true);
         try {
-            const res = await fetch("/api/gemini-beautify-prompt", {
+            const res = await fetch("/api/gemini/beautify-prompt", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ prompt: aiPrompt }),
