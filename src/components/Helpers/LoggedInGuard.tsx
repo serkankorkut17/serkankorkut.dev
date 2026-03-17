@@ -15,7 +15,7 @@ export default function LoggedInGuard({ children }: { children: ReactNode }) {
 
     useEffect(() => {
         if (!loading && user) {
-            router.push("/email");
+            router.push("/dashboard");
         }
     }, [user, loading, router]);
 

@@ -1,11 +1,30 @@
 import { connectToDatabase } from "@/utils/database";
 import Map from "@/models/Map";
-import { NextResponse } from "next/server";
+import { User } from "@/models/User";
+import { getUserIdFromRequest } from "@/utils/auth";
+import { revalidatePath } from "next/cache";
+import { NextRequest, NextResponse } from "next/server";
 import type { MapFilters, CreateMapPayload } from "@/types/api";
 import { uploadFormFileToCloudinary } from "@/utils/cloudinary";
 
 function escapeRegExp(string: string): string {
 	return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+async function ensureAdmin(request: NextRequest) {
+	const userId = getUserIdFromRequest(request);
+	if (!userId) {
+		return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
+	}
+
+	const user = (await User.findById(userId)
+		.select("role")
+		.lean()) as { role?: string } | null;
+	if (!user || user.role !== "admin") {
+		return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+	}
+
+	return null;
 }
 
 export async function GET(request: Request) {
@@ -65,10 +84,13 @@ export async function GET(request: Request) {
 	}
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
 	await connectToDatabase();
 
 	try {
+		const authError = await ensureAdmin(request);
+		if (authError) return authError;
+
 		// Accept multipart/form-data
 		const contentType = request.headers.get("content-type") || "";
 		const isMultipart = contentType.includes("multipart/form-data");
@@ -76,12 +98,16 @@ export async function POST(request: Request) {
 
 		if (isMultipart) {
 			const form = await request.formData();
-			const name = String(form.get("name") || "");
-			const title = String(form.get("title") || "");
-			const description = String(form.get("description") || "");
+			const name = String(form.get("name") || "")
+				.trim()
+				.toLowerCase();
+			const title = String(form.get("title") || "").trim();
+			const description = String(form.get("description") || "").trim();
 			const activeRaw = form.get("active");
 			const active =
-				activeRaw != null ? String(activeRaw) === "true" : undefined;
+				activeRaw != null
+					? ["true", "1", "on"].includes(String(activeRaw).toLowerCase())
+					: undefined;
 			const imageFile = form.get("image");
 
 			payload = { name, title, description, active, image: "" };
@@ -93,7 +119,11 @@ export async function POST(request: Request) {
 				);
 			}
 
-			if (imageFile && imageFile instanceof File) {
+			if (typeof imageFile === "string" && imageFile.trim()) {
+				payload.image = imageFile.trim();
+			}
+
+			if (imageFile && imageFile instanceof File && imageFile.size > 0) {
 				const res = await uploadFormFileToCloudinary(imageFile, "maps", name);
 				payload.image = res.secure_url;
 			}
@@ -101,11 +131,11 @@ export async function POST(request: Request) {
 			const json = (await request.json()) as CreateMapPayload;
 
 			payload = {
-				name: json.name,
-				title: json.title,
+				name: json.name?.trim().toLowerCase(),
+				title: json.title?.trim(),
 				active: json.active,
-				image: json.image,
-				description: json.description,
+				image: json.image?.trim(),
+				description: json.description?.trim(),
 			};
 		}
 
@@ -130,6 +160,8 @@ export async function POST(request: Request) {
 		});
 
 		await map.save();
+		revalidatePath("/cs2");
+		revalidatePath(`/cs2/${map.name}`);
 
 		return NextResponse.json(map, { status: 201 });
 	} catch (error: unknown) {
