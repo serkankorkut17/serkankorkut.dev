@@ -12,8 +12,8 @@ export default async function NadesPage({ params }: NadesPageProps) {
 	const { mapName } = await params;
 
 	try {
-		const baseUrl = process.env.NEXT_URL
-			? `${process.env.NEXT_URL}`
+		const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+			? `${process.env.NEXT_PUBLIC_BASE_URL}`
 			: "http://localhost:3000";
 
 		const response = await fetch(`${baseUrl}/api/maps/${mapName}`, {

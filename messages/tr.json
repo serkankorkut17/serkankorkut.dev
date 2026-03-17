@@ -71,41 +71,41 @@
     }
   },
   "ImagePage": {
-    "title": "WebP Donusturucu",
-    "description": "HEIC dahil gorselleri toplu ya da tekli olarak WebP'ye donusturun",
+    "title": "WebP Dönüştürücü",
+    "description": "HEIC dahil görselleri tek tek veya toplu şekilde WebP'ye dönüştürün",
     "upload": {
-      "label": "Resim Yukleme",
+      "label": "Görsel Yükleme",
       "badge": "Toplu destek",
-      "helper": "PNG, JPG, JPEG, WEBP, AVIF, HEIC, HEIF ve tarayicinin okuyabildigi diger resimler desteklenir. Varsayilan profil: quality %75, effort 4. Isterseniz maksimum coznurlugu da dusurebilirsiniz."
+      "helper": "PNG, JPG, JPEG, WEBP, AVIF, HEIC, HEIF ve tarayıcının okuyabildiği diğer görseller desteklenir. Varsayılan profil: kalite %75, effort 4. İsterseniz dönüştürmeden önce maksimum çözünürlüğü de düşürebilirsiniz."
     },
     "settings": {
       "quality": "Kalite",
-      "qualityHelper": "Yuksek kalite daha buyuk dosya boyutu uretir.",
+      "qualityHelper": "Daha yüksek kalite genelde daha büyük dosya boyutu üretir.",
       "effort": "Effort",
-      "effortHelper": "Yuksek effort daha uzun isleme suresiyle daha iyi sikistirma dener.",
+      "effortHelper": "Daha yüksek effort, daha uzun işlem süresi karşılığında daha iyi sıkıştırma dener.",
       "effortOption": "Seviye {value}",
-      "resolution": "Maksimum coznurluk",
-      "resolutionHelper": "Buyuk gorselleri orani korunarak asagi cekip daha kucuk cikti alabilirsiniz.",
-      "resolutionOptionOriginal": "Orijinal coznurluk",
+      "resolution": "Maksimum çözünürlük",
+      "resolutionHelper": "Büyük görselleri en-boy oranını koruyarak küçültüp daha hafif çıktı alabilirsiniz.",
+      "resolutionOptionOriginal": "Orijinal çözünürlük",
       "resolutionOptionMax": "En fazla {value}px",
       "resolutionOptionMaxShort": "{value}px",
       "resolutionOriginalShort": "Orijinal"
     },
     "summary": {
       "totalFiles": "Toplam dosya",
-      "converted": "Donusen",
-      "saved": "Toplam kazanc {value}",
-      "totalOutput": "Toplam cikti {value}"
+      "converted": "Dönüşen",
+      "saved": "Toplam kazanç {value}",
+      "totalOutput": "Toplam çıktı {value}"
     },
     "preview": {
-      "readyBadge": "Hazir: {count}"
+      "readyBadge": "Hazır: {count}"
     },
     "empty": {
-      "title": "Donusturulecek dosya bekleniyor",
-      "description": "Soldaki alandan tekli veya toplu resim secin. Donustur butonu ile tum kuyrugu WebP'ye cevirip tek tek ya da ZIP olarak indirebilirsiniz."
+      "title": "Dönüştürülecek dosya bekleniyor",
+      "description": "Soldaki alandan tekli veya toplu görsel seçin. Dönüştür butonuyla tüm kuyruğu WebP'ye çevirip tek tek ya da ZIP olarak indirebilirsiniz."
     },
     "card": {
-      "outputName": "Cikti: {value}",
+      "outputName": "Çıktı: {value}",
       "originalSize": "Orijinal boyut",
       "convertedSize": "WebP boyutu",
       "dimensions": "Boyutlar",
@@ -113,23 +113,25 @@
       "profileValue": "Q{quality} / E{effort} / {resolution}"
     },
     "status": {
-      "idle": "Hazir",
-      "converting": "Donusturuluyor",
-      "done": "Tamamlandi",
+      "idle": "Hazır",
+      "converting": "Dönüştürülüyor",
+      "done": "Tamamlandı",
       "error": "Hata",
-      "awaiting": "Donusum bekleniyor",
-      "heicPreview": "HEIC onizlemesi donusumden sonra gorunur",
-      "unknownError": "Beklenmeyen bir hata olustu."
+      "awaiting": "Dönüşüm bekleniyor",
+      "heicPreview": "HEIC önizlemesi dönüşümden sonra görünür",
+      "unknownError": "Beklenmeyen bir hata oluştu.",
+      "limitExceeded": "Hesap seviyeniz için dosya boyutu limiti aşıldı.",
+      "tooManyRequests": "Çok fazla istek gönderildi. Lütfen bekleyip tekrar deneyin."
     },
     "actions": {
-      "convertAll": "Tumunu WebP'ye donustur",
-      "converting": "Donusturuluyor...",
-      "downloadZip": "Donusenleri ZIP indir",
+      "convertAll": "Tümünü WebP'ye dönüştür",
+      "converting": "Dönüştürülüyor...",
+      "downloadZip": "Dönüşenleri ZIP indir",
       "clear": "Listeyi temizle",
-      "convertOne": "Bu dosyayi donustur",
-      "reconvert": "Ayarlari tekrar uygula",
+      "convertOne": "Bu dosyayı dönüştür",
+      "reconvert": "Ayarları tekrar uygula",
       "downloadOne": "WebP indir",
-      "remove": "Kaldir"
+      "remove": "Kaldır"
     }
   }
 }

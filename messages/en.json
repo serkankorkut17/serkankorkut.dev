@@ -121,7 +121,9 @@
 			"error": "Error",
 			"awaiting": "Waiting for conversion",
 			"heicPreview": "HEIC preview appears after conversion",
-			"unknownError": "An unexpected error occurred."
+			"unknownError": "An unexpected error occurred.",
+			"limitExceeded": "File size limit exceeded for your account tier.",
+			"tooManyRequests": "Too many requests. Please wait and try again."
 		},
 		"actions": {
 			"convertAll": "Convert all to WebP",

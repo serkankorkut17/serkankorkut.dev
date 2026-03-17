@@ -21,6 +21,7 @@ export default function AdminTopbar() {
 					</Link>
 					<nav className="hidden sm:flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300">
 						<Link href="/admin/maps" className="hover:text-orange-500 transition-colors">Maps</Link>
+						<Link href="/admin/nades" className="hover:text-orange-500 transition-colors">Nades</Link>
 					</nav>
 				</div>
 

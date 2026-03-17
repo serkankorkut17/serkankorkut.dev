@@ -188,7 +188,22 @@ const ImageConverterPage: React.FC = () => {
 			});
 
 			if (!response.ok) {
-				const error = await response.json();
+				const error = (await response.json().catch(() => ({}))) as { error?: string };
+
+				if (response.status === 413) {
+					throw new Error(
+						error.error ||
+							t("status.limitExceeded")
+					);
+				}
+
+				if (response.status === 429) {
+					throw new Error(
+						error.error ||
+							t("status.tooManyRequests")
+					);
+				}
+
 				throw new Error(error.error || "Conversion failed");
 			}
 

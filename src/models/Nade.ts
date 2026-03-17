@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+const ALLOWED_NADE_TYPES = ["flash", "grenade", "molotov", "smoke"] as const;
+
 const NadeSchema = new mongoose.Schema(
 	{
 		name: {
@@ -12,7 +14,8 @@ const NadeSchema = new mongoose.Schema(
 			ref: "Map"
 		},
 		type: {
-			type: String, // "smoke", "flash", "grenade", "molotov"
+			type: String,
+			enum: ALLOWED_NADE_TYPES,
 			required: true
 		},
 		side: {

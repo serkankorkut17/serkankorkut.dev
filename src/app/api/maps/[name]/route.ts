@@ -1,7 +1,10 @@
 import { connectToDatabase } from "@/utils/database";
 import Map from "@/models/Map";
 import { User } from "@/models/User";
-import { uploadFormFileToCloudinary } from "@/utils/cloudinary";
+import {
+    deleteCloudinaryAssetByUrl,
+    uploadFormFileToCloudinary,
+} from "@/utils/cloudinary";
 import { getUserIdFromRequest } from "@/utils/auth";
 import { revalidatePath } from "next/cache";
 import { NextRequest } from "next/server";
@@ -41,6 +44,11 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
     if (authError) return authError;
 
     const { name } = await params;
+    const existingMap = await Map.findOne({ name });
+    if (!existingMap) {
+        return NextResponse.json({ error: "Map not found" }, { status: 404 });
+    }
+
     const contentType = request.headers.get("content-type") || "";
     const isMultipart = contentType.includes("multipart/form-data");
     const updateData: UpdateMapPayload = {};
@@ -108,6 +116,8 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
         );
     }
 
+    const previousImage = existingMap.image;
+
     const map = await Map.findOneAndUpdate({ name }, { $set: updateData }, {
         new: true,
         runValidators: true,
@@ -115,6 +125,20 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
     if (!map) {
         return NextResponse.json({ error: "Map not found" }, { status: 404 });
     }
+
+    if (
+        typeof updateData.image === "string" &&
+        updateData.image &&
+        previousImage &&
+        updateData.image !== previousImage
+    ) {
+        try {
+            await deleteCloudinaryAssetByUrl(previousImage, "image");
+        } catch (error) {
+            console.error("Failed to delete old map image from Cloudinary:", error);
+        }
+    }
+
     revalidatePath("/cs2");
     revalidatePath(`/cs2/${name}`);
     return NextResponse.json(map);
@@ -130,6 +154,14 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
 
     if (!deleted) {
         return NextResponse.json({ error: "Map not found" }, { status: 404 });
+    }
+
+    if (deleted.image) {
+        try {
+            await deleteCloudinaryAssetByUrl(deleted.image, "image");
+        } catch (error) {
+            console.error("Failed to delete map image from Cloudinary:", error);
+        }
     }
 
     revalidatePath("/cs2");

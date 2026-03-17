@@ -261,6 +261,7 @@ export default function AdminMapsPage(): React.ReactElement {
 						</Button>
 						<Button
 							color="failure"
+							className="bg-red-500 hover:bg-red-600 text-white"
 							onClick={handleDelete}
 							disabled={deleting}
 						>

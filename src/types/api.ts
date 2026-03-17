@@ -28,3 +28,23 @@ export interface CreateMapPayload {
 }
 
 export type UpdateMapPayload = Partial<CreateMapPayload>;
+
+export interface CreateNadePayload {
+	name: string;
+	map: string;
+	type: string;
+	side: string;
+	position: string;
+	landing: string;
+	throw: string[];
+	description: string;
+	images: {
+		location: string;
+		placement: string;
+		lineup: string[];
+		land: string;
+	};
+	video: string;
+}
+
+export type UpdateNadePayload = Partial<CreateNadePayload>;
