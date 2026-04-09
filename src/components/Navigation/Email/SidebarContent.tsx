@@ -128,30 +128,7 @@ const SidebarContent = ({ toggleSidebar }: SidebarContentProps) => {
 								</span>
 							</Link>
 						</li>
-						<li>
-							<Link
-								href="/inbox"
-								onClick={toggleSidebar}
-								className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-								aria-label="Go to Home"
-							>
-								<svg
-									className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white transform scale-150"
-									aria-hidden="true"
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									fill="currentColor"
-									viewBox="0 0 24 24"
-								>
-									<path d="M17 6h-2V5h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2h-.541A5.965 5.965 0 0 1 14 10v4a1 1 0 1 1-2 0v-4c0-2.206-1.794-4-4-4-.075 0-.148.012-.22.028C7.686 6.022 7.596 6 7.5 6A4.505 4.505 0 0 0 3 10.5V16a1 1 0 0 0 1 1h7v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3h5a1 1 0 0 0 1-1v-6c0-2.206-1.794-4-4-4Zm-9 8.5H7a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2Z" />
-								</svg>
 
-								<span className="ms-3 inline-flex sm:hidden md:inline-flex">
-									Inbox
-								</span>
-							</Link>
-						</li>
 						<li>
 							<Link
 								href="/mail-lists"
