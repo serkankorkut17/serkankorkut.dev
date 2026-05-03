@@ -126,8 +126,10 @@ export default function Projects({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
                       <div className="text-term-accent text-[13px] font-[700] w-16 md:w-auto">{p.n}</div>
                       <div className="text-term-fg-muted text-[13px] w-20 md:w-auto">{p.year}</div>
                       <div className="flex-1 md:contents">
-                        <div className="text-[16px] font-[600] text-term-fg">{p.name}</div>
-                        <div className="text-[12px] text-term-fg-faint mt-0.5 md:hidden">{p.kind}</div>
+                        <div className="md:w-full">
+                          <div className="text-[16px] font-[600] text-term-fg">{p.name}</div>
+                          <div className="text-[12px] text-term-fg-faint mt-0.5">{p.kind}</div>
+                        </div>
                       </div>
                       <div className="text-right text-term-fg-muted text-[16px] ml-auto md:hidden">
                         {open ? '–' : '+'}
@@ -135,9 +137,6 @@ export default function Projects({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
                     </div>
                     
                     {/* Desktop columns continued */}
-                    <div className="hidden md:block">
-                      <div className="text-[12px] text-term-fg-faint mt-0.5">{p.kind}</div>
-                    </div>
                     <div className="hidden md:flex flex-wrap gap-1.5">
                       {p.stack.map((s) => (
                         <span key={s} className="text-[11px] px-2 py-0.5 border border-term-border rounded-[3px] text-term-fg-muted">
