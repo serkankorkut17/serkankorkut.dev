@@ -9,12 +9,12 @@ export default function Contact() {
   const [openFaq, setOpenFaq] = useState(0);
 
   const cards = [
-    { k: 'email', label: 'email', val: 'serkan@serkankorkut.dev' },
-    { k: 'location', label: 'location', val: 'İstanbul, Türkiye' },
-    { k: 'github', label: 'github', val: '@serkankorkut' },
-    { k: 'linkedin', label: 'linkedin', val: 'in/serkankorkut' },
-    { k: 'instagram', label: 'instagram', val: '@serkankorkut' },
-    { k: 'facebook', label: 'facebook', val: '/serkankorkut' }
+    { k: 'email', label: 'email', val: process.env.NEXT_PUBLIC_EMAIL_HANDLE || 'serkan@serkankorkut.dev', href: process.env.NEXT_PUBLIC_EMAIL_URL || '#' },
+    { k: 'location', label: 'location', val: process.env.NEXT_PUBLIC_LOCATION_HANDLE || 'İstanbul, Türkiye', href: process.env.NEXT_PUBLIC_LOCATION_URL || '#' },
+    { k: 'github', label: 'github', val: process.env.NEXT_PUBLIC_GITHUB_HANDLE || '@serkankorkut', href: process.env.NEXT_PUBLIC_GITHUB_URL || '#' },
+    { k: 'linkedin', label: 'linkedin', val: process.env.NEXT_PUBLIC_LINKEDIN_HANDLE || 'in/serkankorkut', href: process.env.NEXT_PUBLIC_LINKEDIN_URL || '#' },
+    { k: 'instagram', label: 'instagram', val: process.env.NEXT_PUBLIC_INSTAGRAM_HANDLE || '@serkankorkut', href: process.env.NEXT_PUBLIC_INSTAGRAM_URL || '#' },
+    { k: 'facebook', label: 'facebook', val: process.env.NEXT_PUBLIC_FACEBOOK_HANDLE || '/serkankorkut', href: process.env.NEXT_PUBLIC_FACEBOOK_URL || '#' }
   ];
 
   const yesItems: any = t.raw('yesItems');
@@ -34,8 +34,8 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-term-bg-elevated border border-term-border rounded-md overflow-hidden">
-            <div className="h-8 bg-term-bg-inset border-b border-term-border flex items-center px-3 gap-2">
+          <div className="bg-term-bg-elevated border border-term-border rounded-md overflow-hidden flex flex-col h-full">
+            <div className="h-8 bg-term-bg-inset border-b border-term-border flex items-center px-3 gap-2 shrink-0">
               <div className="flex gap-[6px]">
                 <div className="w-[11px] h-[11px] rounded-full bg-[#ff5f57]" />
                 <div className="w-[11px] h-[11px] rounded-full bg-[#febc2e]" />
@@ -43,31 +43,31 @@ export default function Contact() {
               </div>
               <div className="ml-auto text-[11px] text-term-fg-faint">{t('message')}</div>
             </div>
-            <div className="p-6 flex flex-col gap-4">
-              <label className="flex flex-col gap-1.5">
+            <div className="p-6 flex flex-col gap-4 flex-1">
+              <label className="flex flex-col gap-1.5 shrink-0">
                 <span className="text-[11px] text-term-fg-faint tracking-[0.1em]"><span className="text-term-accent">$</span> {t('nameLabel')}</span>
                 <input className="w-full bg-term-bg-inset border border-term-border rounded-[4px] p-3 font-mono text-sm text-term-fg outline-none focus:border-term-accent transition-colors" placeholder={t('namePlaceholder')} />
               </label>
-              <label className="flex flex-col gap-1.5">
+              <label className="flex flex-col gap-1.5 shrink-0">
                 <span className="text-[11px] text-term-fg-faint tracking-[0.1em]"><span className="text-term-accent">$</span> {t('emailLabel')}</span>
                 <input className="w-full bg-term-bg-inset border border-term-border rounded-[4px] p-3 font-mono text-sm text-term-fg outline-none focus:border-term-accent transition-colors" placeholder={t('emailPlaceholder')} />
               </label>
-              <label className="flex flex-col gap-1.5">
-                <span className="text-[11px] text-term-fg-faint tracking-[0.1em]"><span className="text-term-accent">$</span> {t('messageLabel')}</span>
-                <textarea rows={5} className="w-full bg-term-bg-inset border border-term-border rounded-[4px] p-3 font-mono text-sm text-term-fg outline-none focus:border-term-accent transition-colors resize-y min-h-[100px]" placeholder={t('messagePlaceholder')} />
+              <label className="flex flex-col gap-1.5 flex-1">
+                <span className="text-[11px] text-term-fg-faint tracking-[0.1em] shrink-0"><span className="text-term-accent">$</span> {t('messageLabel')}</span>
+                <textarea className="w-full bg-term-bg-inset border border-term-border rounded-[4px] p-3 font-mono text-sm text-term-fg outline-none focus:border-term-accent transition-colors resize-none flex-1 min-h-[100px]" placeholder={t('messagePlaceholder')} />
               </label>
-              <button className="mt-2 bg-term-accent text-black border-none py-[14px] px-5 font-mono text-[13px] font-[700] cursor-pointer rounded-[3px] flex items-center justify-between hover:opacity-90 transition-opacity">
+              <button className="mt-2 shrink-0 bg-term-accent text-black border-none py-[14px] px-5 font-mono text-[13px] font-[700] cursor-pointer rounded-[3px] flex items-center justify-between hover:opacity-90 transition-opacity">
                 <span>{t('sendBtn')}</span><span>↵</span>
               </button>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 content-start">
             {cards.map((c) => (
-              <div key={c.k} className="bg-term-bg-elevated border border-term-border rounded-md p-6 cursor-pointer flex flex-col gap-2.5 min-h-[140px] hover:border-term-accent transition-colors group">
+              <a key={c.k} href={c.href} target="_blank" rel="noopener noreferrer" className="bg-term-bg-elevated border border-term-border rounded-md p-6 cursor-pointer flex flex-col gap-2.5 min-h-[140px] hover:border-term-accent transition-colors group no-underline">
                 <div className="text-[11px] text-term-fg-faint tracking-[0.15em]">./{c.label}</div>
                 <div className="text-base text-term-fg font-[600] mt-auto">{c.val}</div>
                 <div className="text-xs text-term-accent group-hover:translate-x-1 transition-transform w-fit">{t('openBtn')}</div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

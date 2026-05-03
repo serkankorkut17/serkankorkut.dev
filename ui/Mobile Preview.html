@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mobile Preview · serkankorkut.dev</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; min-height: 100vh;
+    background: radial-gradient(circle at 30% 20%, #1a1d23 0%, #0a0b0e 60%);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    color: #d8d6cf;
+  }
+  .wrap {
+    min-height: 100vh; padding: 32px 24px;
+    display: flex; flex-direction: column; align-items: center; gap: 24px;
+  }
+  .header {
+    width: 100%; max-width: 880px;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+    color: #71706a; font-size: 12px; flex-wrap: wrap;
+  }
+  .header h1 { margin: 0; font-size: 14px; color: #d8d6cf; font-weight: 500; letter-spacing: 0.05em; }
+  .header h1 .accent { color: #ff7849; }
+  .controls {
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+  }
+  .controls button {
+    background: transparent; border: 1px solid #2a2c30; color: #a8a69e;
+    padding: 6px 12px; font-family: inherit; font-size: 11px; cursor: pointer;
+    border-radius: 4px; letter-spacing: 0.05em;
+  }
+  .controls button.active { background: #ff7849; color: #000; border-color: #ff7849; }
+  .controls button:hover:not(.active) { color: #ff7849; border-color: #ff7849; }
+
+  .stage {
+    flex: 1; width: 100%; max-width: 880px;
+    display: flex; align-items: flex-start; justify-content: center; gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .device {
+    position: relative; flex-shrink: 0;
+    background: #1a1d23;
+    border: 10px solid #1a1d23;
+    border-radius: 44px;
+    box-shadow:
+      0 0 0 1px #2a2c30,
+      0 24px 48px rgba(0,0,0,0.5),
+      0 8px 16px rgba(0,0,0,0.4);
+    overflow: hidden;
+    transition: width .25s, height .25s, border-radius .25s;
+  }
+  .device::before {
+    content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+    width: 90px; height: 22px; background: #0a0b0e; border-radius: 12px;
+    z-index: 10;
+  }
+  .device.ipad::before { display: none; }
+  .device iframe {
+    border: none; width: 100%; height: 100%; display: block;
+    background: #0a0b0e;
+  }
+
+  /* Sizes set inline via JS to avoid specificity issues */
+
+  .label {
+    text-align: center; font-size: 11px; color: #71706a; letter-spacing: 0.1em;
+    margin-top: 12px; text-transform: uppercase;
+  }
+
+  /* Hint when only 1 device shown */
+  .hint {
+    margin-top: 24px; max-width: 520px; text-align: center;
+    color: #71706a; font-size: 12px; line-height: 1.6;
+  }
+  .hint code {
+    color: #ff7849; background: #1a1d23; padding: 2px 6px; border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <h1><span class="accent">$</span> mobile_preview <span style="color:#71706a">// serkankorkut.dev</span></h1>
+    <div class="controls">
+      <button data-size="iphone" class="active">iPhone · 390</button>
+      <button data-size="android">Android · 360</button>
+      <button data-size="ipad">iPad · 600</button>
+    </div>
+  </div>
+
+  <div class="stage" id="stage">
+    <div>
+      <div class="device iphone" id="device">
+        <iframe src="SerkanKorkut Redesign.html"></iframe>
+      </div>
+      <div class="label" id="label">iPhone · 390 × 720</div>
+    </div>
+  </div>
+
+  <div class="hint">
+    Bu <code>SerkanKorkut Redesign.html</code>'in mobil önizlemesi.
+    <br />Üstteki butonlarla farklı cihaz boyutları arasında geçiş yapabilirsin.
+    Iframe içindeki sayfa, dar viewport'ta media query'leri tetikleyecektir.
+  </div>
+</div>
+
+<script>
+  const device = document.getElementById('device');
+  const label = document.getElementById('label');
+  const buttons = document.querySelectorAll('.controls button');
+  const sizes = {
+    iphone:  { class: 'iphone',  label: 'iPhone · 390 × 720',  w: 390, h: 720, radius: 44, border: 10, notch: true  },
+    android: { class: 'android', label: 'Android · 360 × 720', w: 360, h: 720, radius: 32, border: 10, notch: true  },
+    ipad:    { class: 'ipad',    label: 'iPad · 600 × 800',    w: 600, h: 800, radius: 24, border: 14, notch: false },
+  };
+  function applySize(key) {
+    const s = sizes[key];
+    device.className = 'device ' + s.class;
+    device.style.width = s.w + 'px';
+    device.style.height = s.h + 'px';
+    device.style.borderRadius = s.radius + 'px';
+    device.style.borderWidth = s.border + 'px';
+    label.textContent = s.label;
+  }
+  applySize('iphone');
+  buttons.forEach(b => b.addEventListener('click', () => {
+    buttons.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    applySize(b.dataset.size);
+  }));
+</script>
+</body>
+</html>

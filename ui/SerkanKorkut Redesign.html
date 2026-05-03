@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>serkankorkut.dev — redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  button { font-family: inherit; }
+  input, textarea { font-family: inherit; }
+  /* Smooth theme transition */
+  body, header, section, footer, button, input, textarea, div {
+    transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+  }
+
+  /* ==========================================================
+     RESPONSIVE — mobile / tablet overrides
+     Targets [data-sk="..."] markers added in component files.
+     ========================================================== */
+
+  /* Tablet: ≤960px */
+  @media (max-width: 960px) {
+    [data-sk="section"] { padding: 64px 24px !important; }
+    [data-sk="hero-section"] { padding: 100px 24px 64px !important; }
+
+    /* Tablet: hide desktop nav links, show hamburger; keep status/lang/theme in topbar */
+    [data-sk="nav-links"] { display: none !important; }
+    [data-sk="nav-mobile-menu-btn"] { display: inline-flex !important; }
+
+    [data-sk="hero-grid"] { grid-template-columns: 1fr !important; gap: 48px !important; }
+    [data-sk="hero-left"] { padding: 60px 0 0 0 !important; border-right: none !important; }
+    [data-sk="hero-right"] { padding: 0 0 60px 0 !important; }
+    [data-sk="hero-title"] { font-size: clamp(56px, 12vw, 88px) !important; }
+    [data-sk="hero-actions"] { flex-wrap: wrap !important; }
+    [data-sk="hero-meta"] { grid-template-columns: 1fr 1fr !important; }
+
+    [data-sk="about-grid"] { grid-template-columns: 1fr !important; gap: 32px !important; }
+    [data-sk="about-head"] { grid-template-columns: 1fr !important; gap: 24px !important; }
+    [data-sk="about-cats"] { grid-template-columns: 1fr !important; }
+
+    [data-sk="featured-grid"] { grid-template-columns: repeat(2, 1fr) !important; }
+
+    [data-sk="now-grid"] { grid-template-columns: repeat(2, 1fr) !important; }
+    [data-sk="now-grid"] > div:nth-child(2) { border-right: none !important; }
+    [data-sk="now-grid"] > div:nth-child(1),
+    [data-sk="now-grid"] > div:nth-child(2) { border-bottom: 1px solid var(--sk-border, rgba(255,255,255,.08)) !important; }
+
+    [data-sk="contact-grid"] { grid-template-columns: 1fr !important; gap: 32px !important; }
+    [data-sk="contact-cards"] { grid-template-columns: repeat(2, 1fr) !important; }
+    [data-sk="contact-looking"] { grid-template-columns: 1fr !important; }
+    [data-sk="contact-faq-grid"] { grid-template-columns: 1fr !important; }
+    [data-sk="footer-grid"] { grid-template-columns: 1fr !important; gap: 32px !important; }
+
+    [data-sk="projects-head"] { grid-template-columns: 1fr !important; gap: 24px !important; }
+    [data-sk="projects-row"] { grid-template-columns: 50px 1fr 60px !important; }
+    [data-sk="projects-row-kind"],
+    [data-sk="projects-row-stack"] { display: none !important; }
+    [data-sk="projects-detail"] { grid-template-columns: 1fr !important; padding-left: 24px !important; padding-right: 24px !important; }
+  }
+
+  /* Phone: ≤640px */
+  @media (max-width: 640px) {
+    [data-sk="section"] { padding: 56px 18px !important; }
+    [data-sk="hero-section"] { padding: 88px 18px 56px !important; }
+
+    [data-sk="nav"] { padding: 0 18px !important; gap: 10px !important; }
+    /* Phone: collapse status pill + lang + theme into sidebar */
+    [data-sk="nav-status"],
+    [data-sk="nav-lang"],
+    [data-sk="nav-theme"] { display: none !important; }
+
+    [data-sk="hero-title"] { font-size: clamp(44px, 14vw, 64px) !important; line-height: 0.95 !important; }
+    [data-sk="hero-sub"] { font-size: 14px !important; }
+    [data-sk="hero-meta"] { grid-template-columns: 1fr !important; }
+    [data-sk="hero-actions"] button { width: 100% !important; }
+    [data-sk="hero-codeblock"] { font-size: 11px !important; }
+
+    [data-sk="section-title"] { font-size: 36px !important; }
+    [data-sk="section-tag"] { font-size: 10px !important; }
+
+    [data-sk="featured-grid"] { grid-template-columns: 1fr !important; }
+    [data-sk="now-grid"] { grid-template-columns: 1fr !important; }
+    [data-sk="now-grid"] > div { border-right: none !important; border-bottom: 1px solid var(--sk-border, rgba(255,255,255,.08)) !important; }
+    [data-sk="now-grid"] > div:last-child { border-bottom: none !important; }
+
+    [data-sk="contact-cards"] { grid-template-columns: 1fr !important; }
+    [data-sk="contact-form-row"] { grid-template-columns: 1fr !important; }
+    [data-sk="footer-wordmark"] { font-size: clamp(56px, 16vw, 96px) !important; }
+    [data-sk="footer-bottom"] { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+
+    [data-sk="projects-head-actions"] { flex-direction: column !important; align-items: flex-start !important; gap: 16px !important; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="src/tokens.jsx"></script>
+<script type="text/babel" src="src/navigation.jsx"></script>
+<script type="text/babel" src="src/hero.jsx"></script>
+<script type="text/babel" src="src/about.jsx"></script>
+<script type="text/babel" src="src/projects.jsx"></script>
+<script type="text/babel" src="src/contact.jsx"></script>
+<script type="text/babel" src="src/home-extras.jsx"></script>
+
+<script type="text/babel">
+function App() {
+  const [theme, setTheme] = React.useState('dark');
+  const [lang, setLang] = React.useState('en');
+  const [page, setPage] = React.useState('home');
+  const t = TOKENS[theme];
+
+  React.useEffect(() => {
+    document.body.style.background = t.bg;
+    document.body.style.color = t.fg;
+  }, [t]);
+
+  // Smooth scroll-to-top on page change
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [page]);
+
+  return (
+    <div style={{ background: t.bg, color: t.fg, minHeight: '100vh' }}>
+      <Navigation
+        current={page}
+        onNavigate={setPage}
+        theme={theme}
+        onToggleTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        lang={lang}
+        onToggleLang={() => setLang(lang === 'en' ? 'tr' : 'en')}
+      />
+
+      {page === 'home' && (
+        <>
+          <Hero theme={theme} lang={lang} />
+          <About theme={theme} lang={lang} />
+          <FeaturedWork theme={theme} lang={lang} onSeeAll={() => setPage('projects')} />
+          <CurrentlyStrip theme={theme} lang={lang} />
+        </>
+      )}
+      {page === 'projects' && <Projects theme={theme} lang={lang} />}
+      {page === 'contact' && <Contact theme={theme} lang={lang} />}
+
+      <Footer theme={theme} lang={lang} />
+      <ScrollTopButton theme={theme} />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

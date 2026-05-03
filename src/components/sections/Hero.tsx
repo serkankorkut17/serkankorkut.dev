@@ -3,31 +3,21 @@ import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import ppImage from '@/images/pp.jpeg';
 
-export default function Hero({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
+export default function Hero() {
+  const t = useTranslations('Hero');
+  const locale = useLocale();
+
   const content = {
-    en: {
-      tag: 'AVAILABLE FOR WORK',
-      title1: 'Backend',
-      title2: 'engineer',
-      title3: "since '24.",
-      sub: 'Backend Engineer at MapaGlobal. We maintain and evolve our payment-integration services on FAST, BKM, EFT and SWIFT — and provide technical support to the banks and e-money / payment institutions that use them.',
-      cta1: './view_work.sh',
-      cta2: './contact.sh',
-      panel: 'CURRENT FOCUS',
-      panelText: 'Backend engineer @ MapaGlobal — maintaining our FAST, BKM, EFT and SWIFT integration services and supporting the banks & e-money / payment institutions that use them.',
-    },
-    tr: {
-      tag: 'İŞ İÇİN MÜSAİT',
-      title1: 'Backend',
-      title2: 'mühendisi',
-      title3: "'24'ten beri.",
-      sub: 'MapaGlobal\'da Backend Engineer. FAST, BKM, EFT ve SWIFT üzerine kurulu ödeme entegrasyonu servislerimizi geliştirip bakımını yapıyor, hizmet sunduğumuz banka ve elektronik para / ödeme kuruluşlarına teknik destek sağlıyoruz.',
-      cta1: './projeleri_gor.sh',
-      cta2: './iletisim.sh',
-      panel: 'ŞU ANDA ODAKTAYIM',
-      panelText: 'MapaGlobal\'da backend engineer — FAST, BKM, EFT ve SWIFT entegrasyon servislerimizin bakımını yapıyor ve hizmet sunduğumuz banka & EPÖ kuruluşlarına teknik destek sağlıyorum.',
-    },
-  }[lang];
+    tag: t('tag'),
+    title1: t('title1'),
+    title2: t('title2'),
+    title3: t('title3'),
+    sub: t('sub'),
+    cta1: t('cta1'),
+    cta2: t('cta2'),
+    panel: t('panel'),
+    panelText: t('panelText'),
+  };
 
   const codeSnippet = [
     ['c', '// snippet from about.ts'],
@@ -53,7 +43,7 @@ export default function Hero({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
           {/* Tag */}
           <div className="inline-flex items-center gap-2 text-[11px] text-term-accent tracking-[0.18em] mb-8 uppercase">
             <span className="w-[7px] h-[7px] rounded-full bg-term-accent shadow-[0_0_12px_var(--term-accent)]" />
-            {lang === 'en' ? 'BACKEND ENGINEER @ MAPAGLOBAL' : 'BACKEND ENGINEER @ MAPAGLOBAL'} · 2026
+            {locale === 'en' ? 'BACKEND ENGINEER @ MAPAGLOBAL' : 'BACKEND ENGINEER @ MAPAGLOBAL'} · 2026
           </div>
 
           {/* Big title */}
@@ -88,7 +78,7 @@ export default function Hero({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
               <span className="text-term-fg-muted">spring boot</span> ·{' '}
               <span className="text-term-fg-muted">mssql</span> ·{' '}
               <span className="text-term-fg-muted">oracle</span> ·{' '}
-              <span className="text-term-fg-muted">node</span> ·{' '}
+              <span className="text-term-fg-muted">nodejs</span> ·{' '}
               <span className="text-term-fg-muted">.net</span>
             </div>
           </div>
@@ -137,7 +127,7 @@ export default function Hero({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
                       if (seg[0] === 'kw') colorClass = "text-term-syntax-kw";
                       else if (seg[0] === 'prop') colorClass = "text-term-syntax-prop";
                       else if (seg[0] === 's') colorClass = "text-term-syntax-str";
-                      
+
                       return (
                         <span key={j} className={colorClass}>{seg[1]}</span>
                       );

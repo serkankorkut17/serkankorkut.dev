@@ -320,6 +320,17 @@
     "desc": "MapaGlobal'da backend engineer. FAST, BKM, EFT ve SWIFT üzerine kurulu ödeme entegrasyonu servislerimizin bakımını yapıyor, hizmet sunduğumuz banka ve EPÖ kuruluşlarına teknik destek sağlıyor.",
     "pill": "MapaGlobal'da backend engineer",
     "copy": "tüm hakları saklıdır",
-    "source": "kaynak: "
+    "source": "kaynak: ",
+    "projects": "projeler",
+    "contact": "iletişim",
+    "github": "github",
+    "linkedin": "linkedin",
+    "email": "e-posta",
+    "working": "çalışıyor",
+    "building": "geliştiriyor",
+    "location": "konum",
+    "homeCmd": "anasayfa.sh",
+    "projectsCmd": "projeler.sh",
+    "contactCmd": "iletisim.sh"
   }
 }

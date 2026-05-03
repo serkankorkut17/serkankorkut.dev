@@ -322,6 +322,17 @@
     "desc": "Backend engineer @ MapaGlobal. Maintaining payment-integration services on FAST, BKM, EFT and SWIFT, and supporting the banks and e-money / payment institutions that use them.",
     "pill": "backend engineer @ MapaGlobal",
     "copy": "all rights reserved",
-    "source": "view source: "
+    "source": "view source: ",
+    "projects": "projects",
+    "contact": "contact",
+    "github": "github",
+    "linkedin": "linkedin",
+    "email": "email",
+    "working": "working",
+    "building": "building",
+    "location": "location",
+    "homeCmd": "home.sh",
+    "projectsCmd": "projects.sh",
+    "contactCmd": "contact.sh"
   }
 }
