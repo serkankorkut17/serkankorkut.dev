@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-// import NavigationBar from "@/components/Navigation/Main/NavigationBar";
-// import RocketFire from "@/components/Mouse/RocketFire";
-// import RocketCursor from "@/components/Mouse/RocketCursor";
 import ScrollToTopButton from "@/components/Mouse/Scroll";
-// import Footer from "@/components/Navigation/Main/Footer";
-// import { ThemeProvider } from "@/contexts/Theme";
-import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
 
 // Import fonts
 import { Montserrat, Orbitron, JetBrains_Mono } from "next/font/google";
@@ -36,16 +29,13 @@ export const metadata: Metadata = {
 	description: "Welcome to my personal website",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const locale = await getLocale();
-	const messages = await getMessages();
-
 	return (
-		<html lang={locale} className={cn(orbitron.variable, jetbrains.variable)}>
+		<html lang="en" className={cn(orbitron.variable, jetbrains.variable)}>
 			<head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -67,13 +57,9 @@ export default async function RootLayout({
 			<body
 				className={`${montserrat.className} bg-term-bg text-term-fg`}
 			>
-				<NextIntlClientProvider locale={locale} messages={messages}>
-						<Navigation />
-						{/* <RocketCursor />
-						<RocketFire /> */}
-						<ScrollToTopButton />
-						{children}
-				</NextIntlClientProvider>
+				<Navigation />
+				<ScrollToTopButton />
+				{children}
 			</body>
 		</html>
 	);
