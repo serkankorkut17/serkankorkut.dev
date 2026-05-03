@@ -125,11 +125,13 @@ export default function Hero({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
             </div>
 
             <pre className="m-0 p-6 pt-0 text-[13px] leading-[1.75] font-mono text-term-fg overflow-x-auto">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               {codeSnippet.map((row: any, i) => {
                 if (row[0] === 'c') return <div key={i} className="text-term-syntax-comment italic">{row[1]}</div>;
                 if (row[0] === 'blank') return <div key={i}>&nbsp;</div>;
                 return (
                   <div key={i}>
+                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                     {row[1].map((seg: any, j: number) => {
                       let colorClass = "";
                       if (seg[0] === 'kw') colorClass = "text-term-syntax-kw";

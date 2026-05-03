@@ -1,8 +1,31 @@
 "use client";
+/* eslint-disable react-hooks/set-state-in-effect */
 
 import React, { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetClose } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+
+const Brand = ({ size = "sm", onClick }: { size?: "sm" | "lg"; onClick: () => void }) => (
+  <button
+    onClick={onClick}
+    className="flex items-center gap-[10px] bg-transparent border-none cursor-pointer text-term-fg p-0 font-inherit"
+  >
+    <div
+      className={cn(
+        "bg-term-accent text-black flex items-center justify-center font-[800] font-display rounded-[3px]",
+        size === "lg" ? "w-7 h-7 text-base" : "w-[22px] h-[22px] text-[13px]"
+      )}
+    >
+      S
+    </div>
+    <span className={cn("font-[600] text-term-fg", size === "lg" ? "text-[15px]" : "text-[13px]")}>
+      serkankorkut
+    </span>
+    <span className={cn("text-term-fg-faint", size === "lg" ? "text-[15px]" : "text-[13px]")}>
+      .dev
+    </span>
+  </button>
+);
 
 export default function Navigation() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -29,7 +52,6 @@ export default function Navigation() {
 
   const onToggleLang = () => {
     setLang(lang === "en" ? "tr" : "en");
-    // Connect to next-intl in the future if needed
   };
 
   const items = [
@@ -40,39 +62,15 @@ export default function Navigation() {
 
   const handleNav = (id: string) => {
     setCurrent(id);
-    // Navigation logic here
   };
 
   if (!isMounted) return null;
 
-  const Brand = ({ size = "sm" }: { size?: "sm" | "lg" }) => (
-    <button
-      onClick={() => handleNav("home")}
-      className="flex items-center gap-[10px] bg-transparent border-none cursor-pointer text-term-fg p-0 font-inherit"
-    >
-      <div
-        className={cn(
-          "bg-term-accent text-black flex items-center justify-center font-[800] font-display rounded-[3px]",
-          size === "lg" ? "w-7 h-7 text-base" : "w-[22px] h-[22px] text-[13px]"
-        )}
-      >
-        S
-      </div>
-      <span className={cn("font-[600] text-term-fg", size === "lg" ? "text-[15px]" : "text-[13px]")}>
-        serkankorkut
-      </span>
-      <span className={cn("text-term-fg-faint", size === "lg" ? "text-[15px]" : "text-[13px]")}>
-        .dev
-      </span>
-    </button>
-  );
-
   return (
     <header className="sticky top-0 z-[100] bg-term-bg border-b border-term-border font-mono text-[13px]">
       <div className="max-w-[1280px] mx-auto px-8 h-14 flex items-center gap-6">
-        <Brand />
+        <Brand onClick={() => handleNav("home")} />
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex gap-1 ml-6">
           {items.map((it) => {
             const active = current === it.id;
@@ -92,15 +90,12 @@ export default function Navigation() {
           })}
         </nav>
 
-        {/* Right cluster */}
         <div className="ml-auto flex items-center gap-2.5">
-          {/* Status pill */}
           <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-term-bg-inset text-[11px] text-term-fg-muted">
             <span className="w-1.5 h-1.5 rounded-full bg-term-accent shadow-[0_0_8px_var(--term-accent)]" />
             @ MapaGlobal
           </div>
 
-          {/* Lang toggle */}
           <button
             onClick={onToggleLang}
             className="bg-transparent border border-term-border text-term-fg-muted px-2.5 py-1 rounded font-inherit text-[11px] cursor-pointer flex gap-1.5"
@@ -114,7 +109,6 @@ export default function Navigation() {
             </span>
           </button>
 
-          {/* Theme toggle */}
           <button
             onClick={onToggleTheme}
             title="Toggle theme"
@@ -123,7 +117,6 @@ export default function Navigation() {
             {theme === "dark" ? "☀" : "☾"}
           </button>
 
-          {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild>
               <button
@@ -137,9 +130,8 @@ export default function Navigation() {
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <SheetDescription className="sr-only">Access site pages and preferences</SheetDescription>
               
-              {/* Sidebar header */}
               <div className="h-[56px] px-[18px] flex items-center justify-between border-b border-term-border bg-term-bg-inset shrink-0">
-                <Brand size="lg" />
+                <Brand size="lg" onClick={() => handleNav("home")} />
                 <SheetClose asChild>
                   <button className="w-[30px] h-[30px] bg-transparent border border-term-border text-term-fg-muted rounded cursor-pointer flex items-center justify-center text-sm font-inherit">
                     ✕
@@ -147,12 +139,10 @@ export default function Navigation() {
                 </SheetClose>
               </div>
 
-              {/* Section label */}
               <div className="px-[18px] pt-5 pb-2 text-[10px] text-term-fg-faint tracking-[0.18em] shrink-0">
-                // navigation
+                {"// navigation"}
               </div>
 
-              {/* Nav items */}
               <nav className="px-3 flex flex-col gap-0.5 shrink-0">
                 {items.map((it) => {
                   const active = current === it.id;
@@ -176,16 +166,14 @@ export default function Navigation() {
 
               <div className="flex-1" />
 
-              {/* Mobile Footer Status */}
               <div className="px-[18px] py-[14px] border-t border-term-border text-[11px] text-term-fg-muted flex items-center gap-2 shrink-0">
                 <span className="w-1.5 h-1.5 rounded-full bg-term-accent shadow-[0_0_8px_var(--term-accent)]" />
                 @ MapaGlobal
               </div>
 
-              {/* Mobile Lang + Theme */}
               <div className="px-[18px] py-[14px] border-t border-term-border bg-term-bg-inset flex items-center gap-2.5 shrink-0">
                 <div className="text-[10px] text-term-fg-faint tracking-[0.15em] shrink-0">
-                  // prefs
+                  {"// prefs"}
                 </div>
 
                 <div className="flex-1" />
