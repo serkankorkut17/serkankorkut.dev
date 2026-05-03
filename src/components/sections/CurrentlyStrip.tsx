@@ -14,7 +14,7 @@ export default function CurrentlyStrip({ lang = 'en' }: { lang?: 'en' | 'tr' }) 
       <div className="max-w-[1280px] mx-auto">
         <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-8 gap-6">
           <div>
-            <div className="text-[11px] text-term-accent tracking-[0.18em] mb-3">// now.log</div>
+            <div className="text-[11px] text-term-accent tracking-[0.18em] mb-3">{"//"} now.log</div>
             <h2 className="font-display text-[40px] md:text-[48px] font-[800] tracking-[-0.03em] m-0 leading-none text-term-fg">
               {isEn ? 'Currently' : 'Şu an'}
             </h2>

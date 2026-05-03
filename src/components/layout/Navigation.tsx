@@ -2,6 +2,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 
 import React, { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetClose } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
@@ -28,9 +29,10 @@ const Brand = ({ size = "sm", onClick }: { size?: "sm" | "lg"; onClick: () => vo
 );
 
 export default function Navigation() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [lang, setLang] = useState<"en" | "tr">("en");
-  const [current, setCurrent] = useState("home");
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -55,13 +57,13 @@ export default function Navigation() {
   };
 
   const items = [
-    { id: "home", label: "home", cmd: "~" },
-    { id: "projects", label: "projects", cmd: "projects/" },
-    { id: "contact", label: "contact", cmd: "contact.sh" },
+    { id: "home", label: "home", cmd: "~", path: "/" },
+    { id: "projects", label: "projects", cmd: "projects/", path: "/projects" },
+    { id: "contact", label: "contact", cmd: "contact.sh", path: "/contact" },
   ];
 
-  const handleNav = (id: string) => {
-    setCurrent(id);
+  const handleNav = (path: string) => {
+    router.push(path);
   };
 
   if (!isMounted) return null;
@@ -69,15 +71,15 @@ export default function Navigation() {
   return (
     <header className="sticky top-0 z-[100] bg-term-bg border-b border-term-border font-mono text-[13px]">
       <div className="max-w-[1280px] mx-auto px-8 h-14 flex items-center gap-6">
-        <Brand onClick={() => handleNav("home")} />
+        <Brand onClick={() => handleNav("/")} />
 
         <nav className="hidden md:flex gap-1 ml-6">
           {items.map((it) => {
-            const active = current === it.id;
+            const active = pathname === it.path;
             return (
               <button
                 key={it.id}
-                onClick={() => handleNav(it.id)}
+                onClick={() => handleNav(it.path)}
                 className={cn(
                   "border-none px-3 py-1.5 rounded bg-transparent text-[13px] cursor-pointer flex items-center gap-1.5 transition-colors font-inherit",
                   active ? "bg-term-bg-inset text-term-fg" : "text-term-fg-muted hover:text-term-fg"
@@ -118,24 +120,17 @@ export default function Navigation() {
           </button>
 
           <Sheet>
-            <SheetTrigger asChild>
-              <button
-                className="md:hidden w-8 h-8 bg-transparent border border-term-border text-term-fg-muted rounded cursor-pointer flex items-center justify-center text-lg leading-none font-inherit"
-                aria-label="Open menu"
-              >
-                ≡
-              </button>
+            <SheetTrigger className="md:hidden w-8 h-8 bg-transparent border border-term-border text-term-fg-muted rounded cursor-pointer flex items-center justify-center text-lg leading-none font-inherit" aria-label="Open menu">
+              ≡
             </SheetTrigger>
             <SheetContent side="left" className="w-[min(86vw,320px)] p-0 bg-term-bg border-r border-term-border font-mono border-none shadow-[8px_0_32px_rgba(0,0,0,0.4)] flex flex-col [&>button]:hidden">
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <SheetDescription className="sr-only">Access site pages and preferences</SheetDescription>
               
               <div className="h-[56px] px-[18px] flex items-center justify-between border-b border-term-border bg-term-bg-inset shrink-0">
-                <Brand size="lg" onClick={() => handleNav("home")} />
-                <SheetClose asChild>
-                  <button className="w-[30px] h-[30px] bg-transparent border border-term-border text-term-fg-muted rounded cursor-pointer flex items-center justify-center text-sm font-inherit">
-                    ✕
-                  </button>
+                <Brand size="lg" onClick={() => handleNav("/")} />
+                <SheetClose className="w-[30px] h-[30px] bg-transparent border border-term-border text-term-fg-muted rounded cursor-pointer flex items-center justify-center text-sm font-inherit">
+                  ✕
                 </SheetClose>
               </div>
 
@@ -145,20 +140,15 @@ export default function Navigation() {
 
               <nav className="px-3 flex flex-col gap-0.5 shrink-0">
                 {items.map((it) => {
-                  const active = current === it.id;
+                  const active = pathname === it.path;
                   return (
-                    <SheetClose asChild key={it.id}>
-                      <button
-                        onClick={() => handleNav(it.id)}
-                        className={cn(
-                          "bg-transparent border-none py-[14px] px-[14px] rounded text-[15px] cursor-pointer flex items-center gap-3 text-left transition-colors font-inherit",
-                          active ? "bg-term-bg-inset text-term-fg border-l-2 border-l-term-accent" : "text-term-fg-muted border-l-2 border-l-transparent hover:bg-term-bg-inset"
-                        )}
-                      >
+                    <SheetClose key={it.id} onClick={() => handleNav(it.path)} className={cn(
+                      "bg-transparent border-none py-[14px] px-[14px] rounded text-[15px] cursor-pointer flex items-center gap-3 text-left transition-colors font-inherit",
+                      active ? "bg-term-bg-inset text-term-fg border-l-2 border-l-term-accent" : "text-term-fg-muted border-l-2 border-l-transparent hover:bg-term-bg-inset"
+                    )}>
                         <span className={cn("text-[13px]", active ? "text-term-accent" : "text-term-fg-faint")}>./</span>
                         <span className="flex-1">{it.label}</span>
                         <span className="text-term-fg-faint text-[11px]">{it.cmd}</span>
-                      </button>
                     </SheetClose>
                   );
                 })}

@@ -44,7 +44,7 @@ export default function Footer({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
 
           {cols.map((c) => (
             <div key={c.head}>
-              <div className="text-[11px] text-term-accent tracking-[0.18em] mb-[18px] uppercase">// {c.head}</div>
+              <div className="text-[11px] text-term-accent tracking-[0.18em] mb-[18px] uppercase">{"//"} {c.head}</div>
               <ul className="list-none m-0 p-0 flex flex-col gap-3">
                 {c.items.map((it, i) => (
                   <li key={i} className="flex flex-col gap-0.5">
@@ -68,7 +68,7 @@ export default function Footer({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
         <div className="pt-5 border-t border-term-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] text-term-fg-faint">
           <div className="flex items-center gap-3">
             <span className="text-term-accent">$</span>
-            <span>echo "© 2026 Serkan Korkut · {isEn ? 'all rights reserved' : 'tüm hakları saklıdır'}"</span>
+            <span>echo &quot;© 2026 Serkan Korkut · {isEn ? 'all rights reserved' : 'tüm hakları saklıdır'}&quot;</span>
           </div>
           <div className="flex items-center gap-4">
             <span>{isEn ? 'view source: ' : 'kaynak: '}
