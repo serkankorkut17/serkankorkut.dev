@@ -10,11 +10,23 @@ import ScrollToTopButton from "@/components/Mouse/Scroll";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
-// Import the Montserrat font
-import { Montserrat } from "next/font/google";
+// Import fonts
+import { Montserrat, Orbitron, JetBrains_Mono } from "next/font/google";
+import { cn } from "@/lib/utils";
+
 const montserrat = Montserrat({
 	weight: ["400", "500", "600", "700", "800", "900"],
 	subsets: ["latin"],
+});
+
+const orbitron = Orbitron({
+	subsets: ["latin"],
+	variable: "--font-display",
+});
+
+const jetbrains = JetBrains_Mono({
+	subsets: ["latin"],
+	variable: "--font-mono",
 });
 
 // Export the metadata
@@ -32,7 +44,7 @@ export default async function RootLayout({
 	const messages = await getMessages();
 
 	return (
-		<html lang={locale}>
+		<html lang={locale} className={cn(orbitron.variable, jetbrains.variable)}>
 			<head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
