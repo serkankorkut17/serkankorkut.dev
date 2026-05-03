@@ -2,12 +2,6 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 
 import React, { useState, useEffect } from 'react';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 
 export default function Projects({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
@@ -74,6 +68,7 @@ export default function Projects({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
   ];
 
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [openId, setOpenId] = useState<string | null>('leave-master');
 
   useEffect(() => {
     if (document.documentElement.classList.contains("dark")) {
@@ -115,67 +110,67 @@ export default function Projects({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
             <div className="text-right">VIEW</div>
           </div>
 
-          <Accordion type="single" collapsible className="w-full" defaultValue="leave-master">
-            {projects.map((p, i) => (
-              <AccordionItem
-                key={p.id}
-                value={p.id}
-                className={cn(
-                  "border-none",
-                  i < projects.length - 1 ? "border-b border-term-border" : ""
-                )}
-              >
-                <AccordionTrigger
-                  className="group flex w-full flex-col md:grid md:grid-cols-[60px_1fr_1.4fr_1.6fr_80px] px-6 py-5 items-start md:items-center gap-4 bg-transparent border-none cursor-pointer text-left font-mono text-term-fg transition-colors hover:no-underline hover:bg-term-bg-inset data-[state=open]:bg-term-bg-inset [&>svg]:hidden"
-                >
-                  <div className="flex w-full md:contents">
-                    <div className="text-term-accent text-[13px] font-[700] w-16 md:w-auto">{p.n}</div>
-                    <div className="text-term-fg-muted text-[13px] w-20 md:w-auto">{p.year}</div>
-                    <div className="flex-1 md:contents">
-                      <div className="text-base font-[600] text-term-fg">{p.name}</div>
-                      <div className="text-xs text-term-fg-faint mt-0.5 md:hidden">{p.kind}</div>
+          <div className="w-full">
+            {projects.map((p, i) => {
+              const open = openId === p.id;
+              return (
+                <div key={p.id} className={cn(i < projects.length - 1 ? "border-b border-term-border" : "")}>
+                  <button
+                    onClick={() => setOpenId(open ? null : p.id)}
+                    className={cn(
+                      "w-full flex flex-col md:grid md:grid-cols-[60px_1fr_1.4fr_1.6fr_80px] px-6 py-5 items-start md:items-center gap-4 bg-transparent border-none cursor-pointer text-left font-mono text-term-fg transition-colors",
+                      open ? "bg-term-bg-inset" : "hover:bg-term-bg-inset"
+                    )}
+                  >
+                    <div className="flex w-full md:contents">
+                      <div className="text-term-accent text-[13px] font-[700] w-16 md:w-auto">{p.n}</div>
+                      <div className="text-term-fg-muted text-[13px] w-20 md:w-auto">{p.year}</div>
+                      <div className="flex-1 md:contents">
+                        <div className="text-[16px] font-[600] text-term-fg">{p.name}</div>
+                        <div className="text-[12px] text-term-fg-faint mt-0.5 md:hidden">{p.kind}</div>
+                      </div>
+                      <div className="text-right text-term-fg-muted text-[16px] ml-auto md:hidden">
+                        {open ? '–' : '+'}
+                      </div>
                     </div>
-                    {/* Hide the trailing indicator on mobile header */}
-                    <div className="text-term-fg-muted text-base ml-auto md:hidden group-data-[state=open]:hidden">+</div>
-                    <div className="text-term-fg-muted text-base ml-auto md:hidden hidden group-data-[state=open]:block">–</div>
-                  </div>
-                  
-                  {/* Desktop columns continued */}
-                  <div className="hidden md:block">
-                    <div className="text-xs text-term-fg-faint mt-0.5">{p.kind}</div>
-                  </div>
-                  <div className="hidden md:flex flex-wrap gap-1.5">
-                    {p.stack.map((s) => (
-                      <span key={s} className="text-[11px] px-2 py-0.5 border border-term-border rounded-[3px] text-term-fg-muted">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="hidden md:block text-right text-term-fg-muted text-base group-data-[state=open]:hidden">+</div>
-                  <div className="hidden md:block text-right text-term-fg-muted text-base hidden group-data-[state=open]:block">–</div>
-                </AccordionTrigger>
+                    
+                    {/* Desktop columns continued */}
+                    <div className="hidden md:block">
+                      <div className="text-[12px] text-term-fg-faint mt-0.5">{p.kind}</div>
+                    </div>
+                    <div className="hidden md:flex flex-wrap gap-1.5">
+                      {p.stack.map((s) => (
+                        <span key={s} className="text-[11px] px-2 py-0.5 border border-term-border rounded-[3px] text-term-fg-muted">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="hidden md:block text-right text-term-fg-muted text-[16px]">
+                      {open ? '–' : '+'}
+                    </div>
+                  </button>
 
-                <AccordionContent className="p-0">
-                  {/* Content grid */}
-                  <div className="px-6 pb-7 pt-2 md:pl-[84px] grid grid-cols-1 md:grid-cols-2 gap-6 items-start bg-term-bg-inset">
-                    <p className="m-0 text-sm leading-[1.65] text-term-fg-muted max-w-[540px]">
-                      {p.desc}
-                    </p>
-                    <div
-                      className="w-full aspect-video rounded flex items-center justify-center text-term-fg-faint text-[11px] tracking-[0.1em] border border-term-border"
-                      style={{
-                        background: theme === 'dark'
-                          ? 'repeating-linear-gradient(45deg, #15171a, #15171a 8px, #1a1c20 8px, #1a1c20 16px)'
-                          : 'repeating-linear-gradient(45deg, #eeece6, #eeece6 8px, #f6f5f1 8px, #f6f5f1 16px)'
-                      }}
-                    >
-                      [ PROJECT MEDIA ]
+                  {open && (
+                    <div className="px-6 pb-7 md:pl-[84px] grid grid-cols-1 md:grid-cols-2 gap-6 items-start bg-term-bg-inset">
+                      <p className="m-0 text-[14px] leading-[1.65] text-term-fg-muted max-w-[540px]">
+                        {p.desc}
+                      </p>
+                      <div
+                        className="w-full aspect-video rounded flex items-center justify-center text-term-fg-faint text-[11px] tracking-[0.1em] border border-term-border"
+                        style={{
+                          background: theme === 'dark'
+                            ? 'repeating-linear-gradient(45deg, #15171a, #15171a 8px, #1a1c20 8px, #1a1c20 16px)'
+                            : 'repeating-linear-gradient(45deg, #eeece6, #eeece6 8px, #f6f5f1 8px, #f6f5f1 16px)'
+                        }}
+                      >
+                        [ PROJECT MEDIA ]
+                      </div>
                     </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
