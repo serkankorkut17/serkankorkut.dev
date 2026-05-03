@@ -1,0 +1,33 @@
+{
+  "cats": [
+    {
+      "id": "backend",
+      "label": { "en": "Backend & APIs", "tr": "Backend & API" },
+      "items": [
+        { "name": "Java & Spring Boot", "note": { "en": "Enterprise services, REST APIs, JPA", "tr": "Kurumsal servisler, REST API, JPA" } },
+        { "name": "C# & .NET Core", "note": { "en": "ASP.NET Core, business logic layers", "tr": "ASP.NET Core, iş mantığı katmanları" } },
+        { "name": "Node.js & Express", "note": { "en": "RESTful APIs, services, server-side TS", "tr": "RESTful API'ler, servisler, sunucu tarafı TS" } },
+        { "name": "Python & FastAPI", "note": { "en": "Async APIs, scripting, data tooling", "tr": "Async API'ler, scripting, veri araçları" } }
+      ]
+    },
+    {
+      "id": "data",
+      "label": { "en": "Databases", "tr": "Veritabanları" },
+      "items": [
+        { "name": "Microsoft SQL Server", "note": { "en": "Day-to-day database", "tr": "Günlük çalıştığım veritabanı" } },
+        { "name": "Oracle Database", "note": { "en": "Day-to-day database", "tr": "Günlük çalıştığım veritabanı" } },
+        { "name": "PostgreSQL & MySQL", "note": { "en": "Relational modeling, migrations", "tr": "İlişkisel modelleme, migration" } },
+        { "name": "MongoDB", "note": { "en": "Document schemas, aggregation", "tr": "Doküman şemaları, aggregation" } }
+      ]
+    },
+    {
+      "id": "frontend",
+      "label": { "en": "Frontend & Tooling", "tr": "Frontend & Araçlar" },
+      "items": [
+        { "name": "React & Next.js", "note": { "en": "Interactive, server-rendered apps", "tr": "Etkileşimli, sunucu render uygulamalar" } },
+        { "name": "TypeScript", "note": { "en": "Type-safe interfaces, end to end", "tr": "Uçtan uca tip güvenli arayüzler" } },
+        { "name": "GraphQL & REST", "note": { "en": "API contracts, schema design", "tr": "API kontratları, şema tasarımı" } }
+      ]
+    }
+  ]
+}

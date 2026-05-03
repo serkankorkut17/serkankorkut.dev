@@ -1,0 +1,6 @@
+[
+  { "id": "working", "label": { "en": "working on", "tr": "üzerinde çalışıyor" }, "val": "FAST · BKM · EFT · SWIFT", "sub": { "en": "maintaining + supporting integrations @ MapaGlobal", "tr": "entegrasyon bakımı + teknik destek @ MapaGlobal" } },
+  { "id": "learning", "label": { "en": "learning", "tr": "öğreniyor" }, "val": "Spring Boot internals", "sub": { "en": "JPA, transactions, query plans", "tr": "JPA, transactionlar, query planları" } },
+  { "id": "exploring", "label": { "en": "exploring", "tr": "keşfediyor" }, "val": { "en": "FAST & SWIFT internals", "tr": "FAST & SWIFT iç yapısı" }, "sub": { "en": "message specs, ISO 20022, edge cases", "tr": "mesaj şartnameleri, ISO 20022, uç durumlar" } },
+  { "id": "side", "label": { "en": "side projects", "tr": "yan projeler" }, "val": "Next.js · React · React Native", "sub": { "en": "weekends, just for fun", "tr": "hafta sonları, eğlence için" } }
+]

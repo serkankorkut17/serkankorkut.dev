@@ -1,0 +1,5 @@
+[
+  { "n": "01", "name": "Invoice & Payment", "kind": { "en": "Fintech", "tr": "Fintech" }, "year": "2023", "stack": "Node · MongoDB · Stripe" },
+  { "n": "02", "name": "Leave Master", "kind": { "en": "HR · Full-stack", "tr": "İK · Full-stack" }, "year": "2024", "stack": "Next.js · .NET · Postgres" },
+  { "n": "03", "name": "CS2 Nade Library", "kind": { "en": "Side project", "tr": "Yan proje" }, "year": "2024", "stack": "Next.js · MongoDB" }
+]

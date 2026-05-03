@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { cn } from "@/lib/utils";
+import { useTranslations, useLocale } from 'next-intl';
 import ppImage from '@/images/pp.jpeg';
 
 export default function Hero({ lang = 'en' }: { lang?: 'en' | 'tr' }) {

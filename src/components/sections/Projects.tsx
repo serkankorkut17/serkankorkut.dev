@@ -3,69 +3,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
+import { useTranslations, useLocale } from 'next-intl';
+import projectsData from '@/data/ProjectsData.json';
 
-export default function Projects({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
-  const content = {
-    en: { tag: '// projects.list', title: 'Selected work', sub: 'A focused index. Click any row to expand.' },
-    tr: { tag: '// projects.list', title: 'Seçilmiş işler', sub: 'Odaklı bir index. Detay için bir satıra tıklayın.' },
-  }[lang];
-
-  const projects = [
-    {
-      id: 'leave-master', n: '01', year: '2024',
-      name: 'Leave Master',
-      kind: 'Full-stack · HR',
-      stack: ['Next.js', 'TypeScript', '.NET Core', 'PostgreSQL'],
-      desc: lang === 'en'
-        ? 'Employee leave-management system with role-based dashboards, approvals, and audit trails. Designed the API contract and the frontend together for type-safe ergonomics.'
-        : 'Rol tabanlı paneller, onay akışı ve denetim kaydı içeren çalışan izin yönetim sistemi. API kontratını ve frontend\'i birlikte tasarladım, tip güvenli ergonomi için.',
-    },
-    {
-      id: 'fastapi-graphql', n: '02', year: '2024',
-      name: 'FastAPI + GraphQL Service',
-      kind: 'Backend · API',
-      stack: ['Python', 'FastAPI', 'GraphQL', 'PostgreSQL'],
-      desc: lang === 'en'
-        ? 'A schema-first GraphQL service over FastAPI with cursor pagination, dataloaders, and JWT auth. Built as a reusable starter for future async Python projects.'
-        : "FastAPI üzerinde schema-first GraphQL servisi: cursor pagination, dataloader ve JWT auth. Gelecekteki async Python projeleri için yeniden kullanılabilir bir başlangıç.",
-    },
-    {
-      id: 'invoice', n: '03', year: '2023',
-      name: 'Invoice & Payment',
-      kind: 'Full-stack · Fintech',
-      stack: ['Node.js', 'Express', 'MongoDB', 'Stripe'],
-      desc: lang === 'en'
-        ? 'Recurring billing with Stripe, PDF invoice generation, and a customer-facing portal. Idempotent webhooks and retry logic kept payment state consistent.'
-        : 'Stripe ile recurring billing, PDF fatura ve müşteri portalı. Idempotent webhook ve retry mantığıyla ödeme durumu tutarlı tutuluyor.',
-    },
-    {
-      id: 'cs2', n: '04', year: '2024',
-      name: 'CS2 Nade Library',
-      kind: 'Web app · Gaming',
-      stack: ['Next.js', 'MongoDB', 'Cloudinary'],
-      desc: lang === 'en'
-        ? 'A community library of CS2 grenade lineups with map filters, video previews, and admin moderation. Cloudinary handles the media pipeline.'
-        : 'CS2 nade lineup\'ları için topluluk kütüphanesi: harita filtreleri, video önizleme ve admin moderasyonu. Medya pipeline\'ı Cloudinary üzerinde.',
-    },
-    {
-      id: 'texture', n: '05', year: '2023',
-      name: 'Texture Mapping',
-      kind: 'Graphics · Academic',
-      stack: ['C++', 'OpenGL', 'GLSL'],
-      desc: lang === 'en'
-        ? 'A from-scratch texture mapping pipeline for an undergrad graphics course. UV unwrapping, mipmaps, anisotropic filtering — implemented to actually understand them.'
-        : 'Lisans grafik dersi için sıfırdan texture mapping pipeline. UV unwrapping, mipmap, anisotropic filtering — gerçekten anlamak için implemente edildi.',
-    },
-    {
-      id: 'robotics', n: '06', year: '2022',
-      name: 'Autonomous Robotics',
-      kind: 'Embedded · Academic',
-      stack: ['C++', 'ROS', 'Arduino'],
-      desc: lang === 'en'
-        ? 'Line-following and obstacle-avoidance robot built for a competition. PID tuning, sensor fusion, and a lot of late nights.'
-        : 'Yarışma için yapılmış çizgi takip ve engel kaçınma robotu. PID ayarı, sensör füzyonu ve çok sayıda geç gece.',
-    },
-  ];
+export default function Projects() {
+  const t = useTranslations('Projects');
+  const locale = useLocale() as 'en' | 'tr';
 
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [openId, setOpenId] = useState<string | null>('leave-master');
@@ -88,14 +31,14 @@ export default function Projects({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-16 mb-12 items-end">
           <div>
             <div className="text-[11px] text-term-accent tracking-[0.18em] mb-4">
-              {content.tag}
+              {t('tag')}
             </div>
             <h2 className="font-display text-[40px] md:text-[56px] leading-none font-[800] tracking-[-0.03em] m-0 text-term-fg">
-              {content.title}
+              {t('title')}
             </h2>
           </div>
           <p className="text-base text-term-fg-muted m-0 max-w-[480px] md:justify-self-end">
-            {content.sub}
+            {t('sub')}
           </p>
         </div>
 
@@ -103,18 +46,18 @@ export default function Projects({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
         <div className="border border-term-border rounded-md overflow-hidden bg-term-bg-elevated">
           {/* Header row */}
           <div className="hidden md:grid grid-cols-[60px_1fr_1.4fr_1.6fr_80px] px-6 py-3 border-b border-term-border bg-term-bg-inset text-[11px] text-term-fg-faint tracking-[0.1em]">
-            <div>NO.</div>
-            <div>YEAR</div>
-            <div>PROJECT</div>
-            <div>STACK</div>
-            <div className="text-right">VIEW</div>
+            <div>{t('col1')}</div>
+            <div>{t('col2')}</div>
+            <div>{t('col3')}</div>
+            <div>{t('col4')}</div>
+            <div className="text-right">{t('col5')}</div>
           </div>
 
           <div className="w-full">
-            {projects.map((p, i) => {
+            {projectsData.items.map((p, i) => {
               const open = openId === p.id;
               return (
-                <div key={p.id} className={cn(i < projects.length - 1 ? "border-b border-term-border" : "")}>
+                <div key={p.id} className={cn(i < projectsData.items.length - 1 ? "border-b border-term-border" : "")}>
                   <button
                     onClick={() => setOpenId(open ? null : p.id)}
                     className={cn(
@@ -152,7 +95,7 @@ export default function Projects({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
                   {open && (
                     <div className="px-6 pb-7 md:pl-[84px] grid grid-cols-1 md:grid-cols-2 gap-6 items-start bg-term-bg-inset">
                       <p className="m-0 text-[14px] leading-[1.65] text-term-fg-muted max-w-[540px]">
-                        {p.desc}
+                        {p.desc[locale]}
                       </p>
                       <div
                         className="w-full aspect-video rounded flex items-center justify-center text-term-fg-faint text-[11px] tracking-[0.1em] border border-term-border"
@@ -162,7 +105,7 @@ export default function Projects({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
                             : 'repeating-linear-gradient(45deg, #eeece6, #eeece6 8px, #f6f5f1 8px, #f6f5f1 16px)'
                         }}
                       >
-                        [ PROJECT MEDIA ]
+                        {t('media')}
                       </div>
                     </div>
                   )}

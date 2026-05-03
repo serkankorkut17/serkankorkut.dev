@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetClose } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
@@ -31,8 +32,10 @@ const Brand = ({ size = "sm", onClick }: { size?: "sm" | "lg"; onClick: () => vo
 export default function Navigation() {
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
+  const t = useTranslations('Navigation');
+  
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [lang, setLang] = useState<"en" | "tr">("en");
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -53,13 +56,15 @@ export default function Navigation() {
   };
 
   const onToggleLang = () => {
-    setLang(lang === "en" ? "tr" : "en");
+    const newLang = locale === "en" ? "tr" : "en";
+    document.cookie = `NEXT_LOCALE=${newLang}; path=/; max-age=31536000`;
+    router.refresh();
   };
 
   const items = [
-    { id: "home", label: "home", cmd: "~", path: "/" },
-    { id: "projects", label: "projects", cmd: "projects/", path: "/projects" },
-    { id: "contact", label: "contact", cmd: "contact.sh", path: "/contact" },
+    { id: "home", label: t("home"), cmd: "~", path: "/" },
+    { id: "projects", label: t("projects"), cmd: "projects/", path: "/projects" },
+    { id: "contact", label: t("contact"), cmd: "contact.sh", path: "/contact" },
   ];
 
   const handleNav = (path: string) => {
@@ -102,11 +107,11 @@ export default function Navigation() {
             onClick={onToggleLang}
             className="bg-transparent border border-term-border text-term-fg-muted px-2.5 py-1 rounded font-inherit text-[11px] cursor-pointer flex gap-1.5"
           >
-            <span className={cn(lang === "en" ? "text-term-fg font-semibold" : "text-term-fg-faint font-normal")}>
+            <span className={cn(locale === "en" ? "text-term-fg font-semibold" : "text-term-fg-faint font-normal")}>
               EN
             </span>
             <span className="text-term-fg-faint">/</span>
-            <span className={cn(lang === "tr" ? "text-term-fg font-semibold" : "text-term-fg-faint font-normal")}>
+            <span className={cn(locale === "tr" ? "text-term-fg font-semibold" : "text-term-fg-faint font-normal")}>
               TR
             </span>
           </button>
@@ -135,7 +140,7 @@ export default function Navigation() {
               </div>
 
               <div className="px-[18px] pt-5 pb-2 text-[10px] text-term-fg-faint tracking-[0.18em] shrink-0">
-                {"// navigation"}
+                {t("navigation")}
               </div>
 
               <nav className="px-3 flex flex-col gap-0.5 shrink-0">
@@ -163,7 +168,7 @@ export default function Navigation() {
 
               <div className="px-[18px] py-[14px] border-t border-term-border bg-term-bg-inset flex items-center gap-2.5 shrink-0">
                 <div className="text-[10px] text-term-fg-faint tracking-[0.15em] shrink-0">
-                  {"// prefs"}
+                  {t("prefs")}
                 </div>
 
                 <div className="flex-1" />
@@ -172,11 +177,11 @@ export default function Navigation() {
                   onClick={onToggleLang}
                   className="bg-transparent border border-term-border text-term-fg-muted px-3 py-1.5 rounded font-inherit text-[11px] cursor-pointer flex gap-1.5"
                 >
-                  <span className={cn(lang === "en" ? "text-term-fg font-semibold" : "text-term-fg-faint font-normal")}>
+                  <span className={cn(locale === "en" ? "text-term-fg font-semibold" : "text-term-fg-faint font-normal")}>
                     EN
                   </span>
                   <span className="text-term-fg-faint">/</span>
-                  <span className={cn(lang === "tr" ? "text-term-fg font-semibold" : "text-term-fg-faint font-normal")}>
+                  <span className={cn(locale === "tr" ? "text-term-fg font-semibold" : "text-term-fg-faint font-normal")}>
                     TR
                   </span>
                 </button>

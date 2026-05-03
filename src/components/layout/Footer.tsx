@@ -1,23 +1,24 @@
 import React from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
-export default function Footer({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
-  const isEn = lang === 'en';
+export default function Footer() {
+  const t = useTranslations('Footer');
   const cols = [
-    { head: isEn ? 'navigate' : 'gezin', items: [
-        { l: isEn ? 'home' : 'anasayfa', cmd: '~', href: '/' },
+    { head: t('navigate'), items: [
+        { l: t('home'), cmd: '~', href: '/' },
         { l: 'projects', cmd: 'projects/', href: '/projects' },
         { l: 'contact', cmd: 'contact.sh', href: '/contact' },
       ] },
-    { head: isEn ? 'connect' : 'bağlan', items: [
+    { head: t('connect'), items: [
         { l: 'github', cmd: '@serkankorkut', href: 'https://github.com/serkankorkut17' },
         { l: 'linkedin', cmd: 'in/serkankorkut', href: '#' },
         { l: 'email', cmd: 'serkan@…', href: 'mailto:serkan@serkankorkut.dev' },
       ] },
-    { head: isEn ? 'now' : 'şimdi', items: [
-        { l: isEn ? 'working' : 'çalışıyor', cmd: '@ MapaGlobal', href: '#' },
-        { l: isEn ? 'building' : 'inşa ediyor', cmd: 'FAST · BKM · EFT · SWIFT', href: '#' },
-        { l: isEn ? 'location' : 'konum', cmd: 'İstanbul, TR', href: '#' },
+    { head: t('now'), items: [
+        { l: 'working', cmd: '@ MapaGlobal', href: '#' },
+        { l: 'building', cmd: 'FAST · BKM · EFT · SWIFT', href: '#' },
+        { l: 'location', cmd: 'İstanbul, TR', href: '#' },
       ] },
   ];
 
@@ -34,11 +35,11 @@ export default function Footer({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
               <span className="text-term-fg-faint text-[15px]">.dev</span>
             </div>
             <p className="m-0 text-[13px] leading-[1.7] text-term-fg-muted max-w-[320px]">
-              {isEn ? 'Backend engineer @ MapaGlobal. Maintaining payment-integration services on FAST, BKM, EFT and SWIFT, and supporting the banks and e-money / payment institutions that use them.' : "MapaGlobal'da backend engineer. FAST, BKM, EFT ve SWIFT üzerine kurulu ödeme entegrasyonu servislerimizin bakımını yapıyor, hizmet sunduğumuz banka ve EPÖ kuruluşlarına teknik destek sağlıyor."}
+              {t('desc')}
             </p>
             <div className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-term-bg-inset border border-term-border text-[11px] text-term-fg-muted">
               <span className="w-1.5 h-1.5 rounded-full bg-term-accent shadow-[0_0_8px_var(--term-accent)]" />
-              {isEn ? 'backend engineer @ MapaGlobal' : 'MapaGlobal\'da backend engineer'}
+              {t('pill')}
             </div>
           </div>
 
@@ -68,10 +69,10 @@ export default function Footer({ lang = 'en' }: { lang?: 'en' | 'tr' }) {
         <div className="pt-5 border-t border-term-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] text-term-fg-faint">
           <div className="flex items-center gap-3">
             <span className="text-term-accent">$</span>
-            <span>echo &quot;© 2026 Serkan Korkut · {isEn ? 'all rights reserved' : 'tüm hakları saklıdır'}&quot;</span>
+            <span>echo &quot;© 2026 Serkan Korkut · {t('copy')}&quot;</span>
           </div>
           <div className="flex items-center gap-4">
-            <span>{isEn ? 'view source: ' : 'kaynak: '}
+            <span>{t('source')}
               <a href="https://github.com/serkankorkut17" target="_blank" rel="noopener noreferrer" className="text-term-fg-muted no-underline border-b border-dashed border-term-fg-faint hover:text-term-accent hover:border-term-accent transition-colors">
                 github.com/serkankorkut17
               </a>

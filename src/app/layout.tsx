@@ -8,6 +8,8 @@ import { Montserrat, Orbitron, JetBrains_Mono } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 
 const montserrat = Montserrat({
 	weight: ["400", "500", "600", "700", "800", "900"],
@@ -30,13 +32,16 @@ export const metadata: Metadata = {
 	description: "Welcome to my personal website",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const locale = await getLocale();
+	const messages = await getMessages();
+
 	return (
-		<html lang="en" className={cn(orbitron.variable, jetbrains.variable)}>
+		<html lang={locale} className={cn(orbitron.variable, jetbrains.variable)}>
 			<head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -58,10 +63,12 @@ export default function RootLayout({
 			<body
 				className={`${montserrat.className} bg-term-bg text-term-fg`}
 			>
-				<Navigation />
-				<ScrollToTopButton />
-				{children}
-				<Footer />
+				<NextIntlClientProvider locale={locale} messages={messages}>
+					<Navigation />
+					<ScrollToTopButton />
+					{children}
+					<Footer />
+				</NextIntlClientProvider>
 			</body>
 		</html>
 	);

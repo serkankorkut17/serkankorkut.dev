@@ -133,5 +133,193 @@
       "downloadOne": "WebP indir",
       "remove": "Kaldır"
     }
+  },
+  "Navigation": {
+    "home": "anasayfa",
+    "projects": "projeler",
+    "contact": "iletisim",
+    "prefs": "// tercihler",
+    "navigation": "// navigasyon"
+  },
+  "Hero": {
+    "tag": "İŞ İÇİN MÜSAİT",
+    "title1": "Backend",
+    "title2": "mühendisi",
+    "title3": "'24'ten beri.",
+    "sub": "MapaGlobal'da Backend Engineer. FAST, BKM, EFT ve SWIFT üzerine kurulu ödeme entegrasyonu servislerimizi geliştirip bakımını yapıyor, hizmet sunduğumuz banka ve elektronik para / ödeme kuruluşlarına teknik destek sağlıyoruz.",
+    "cta1": "./projeleri_gor.sh",
+    "cta2": "./iletisim.sh",
+    "panel": "ŞU ANDA ODAKTAYIM",
+    "panelText": "MapaGlobal'da backend engineer — FAST, BKM, EFT ve SWIFT entegrasyon servislerimizin bakımını yapıyor ve hizmet sunduğumuz banka & EPÖ kuruluşlarına teknik destek sağlıyorum."
+  },
+  "About": {
+    "tag": "// stack.config",
+    "title": "Çalıştığım teknolojiler",
+    "sub": "İş yerinde Java / Spring Boot, MSSQL ve Oracle — ödeme entegrasyonu servislerimizin bakımını yapıp hizmet sunduğumuz kuruluşlara destek veriyoruz. Stack içindeki yerlerine göre kategorize edildi.",
+    "collab": "birlikte çalışmak ister misin?",
+    "contact": "./iletisim.sh",
+    "cats": {
+      "backend": {
+        "label": "Backend & API",
+        "items": [
+          {
+            "name": "Java & Spring Boot",
+            "note": "Kurumsal servisler, REST API, JPA"
+          },
+          {
+            "name": "C# & .NET Core",
+            "note": "ASP.NET Core, iş mantığı katmanları"
+          },
+          {
+            "name": "Node.js & Express",
+            "note": "RESTful API'ler, servisler, sunucu tarafı TS"
+          },
+          {
+            "name": "Python & FastAPI",
+            "note": "Async API'ler, scripting, veri araçları"
+          }
+        ]
+      },
+      "data": {
+        "label": "Veritabanları",
+        "items": [
+          {
+            "name": "Microsoft SQL Server",
+            "note": "Günlük çalıştığım veritabanı"
+          },
+          {
+            "name": "Oracle Database",
+            "note": "Günlük çalıştığım veritabanı"
+          },
+          {
+            "name": "PostgreSQL & MySQL",
+            "note": "İlişkisel modelleme, migration"
+          },
+          {
+            "name": "MongoDB",
+            "note": "Doküman şemaları, aggregation"
+          }
+        ]
+      },
+      "frontend": {
+        "label": "Frontend & Araçlar",
+        "items": [
+          {
+            "name": "React & Next.js",
+            "note": "Etkileşimli, sunucu render uygulamalar"
+          },
+          {
+            "name": "TypeScript",
+            "note": "Uçtan uca tip güvenli arayüzler"
+          },
+          {
+            "name": "GraphQL & REST",
+            "note": "API kontratları, şema tasarımı"
+          }
+        ]
+      }
+    }
+  },
+  "FeaturedWork": {
+    "tag": "// featured_work",
+    "title": "Yaptığım birkaç şey",
+    "viewAll": "tümünü gör"
+  },
+  "CurrentlyStrip": {
+    "tag": "// now.log",
+    "title": "Şu an",
+    "updated": "mayıs 2026 güncel",
+    "items": {
+      "working": {
+        "label": "üzerinde çalışıyor",
+        "val": "FAST · BKM · EFT · SWIFT",
+        "sub": "entegrasyon bakımı + teknik destek @ MapaGlobal"
+      },
+      "learning": {
+        "label": "öğreniyor",
+        "val": "Spring Boot internals",
+        "sub": "JPA, transactionlar, query planları"
+      },
+      "exploring": {
+        "label": "keşfediyor",
+        "val": "FAST & SWIFT iç yapısı",
+        "sub": "mesaj şartnameleri, ISO 20022, uç durumlar"
+      },
+      "side": {
+        "label": "yan projeler",
+        "val": "Next.js · React · React Native",
+        "sub": "hafta sonları, eğlence için"
+      }
+    }
+  },
+  "Projects": {
+    "tag": "// projects.list",
+    "title": "Seçilmiş işler",
+    "sub": "Odaklı bir index. Detay için bir satıra tıklayın.",
+    "col1": "NO.",
+    "col2": "YIL",
+    "col3": "PROJE",
+    "col4": "TEKNOLOJİ",
+    "col5": "GÖRÜNTÜLE",
+    "media": "[ PROJE MEDYASI ]"
+  },
+  "Contact": {
+    "tag": "// iletisim.sh",
+    "title": "İletişime geç",
+    "sub": "MapaGlobal'da backend engineer. İşbirliği soruları, entegrasyon desteği veya sadece selam için yaz.",
+    "message": "~/mesaj.txt",
+    "nameLabel": "isim",
+    "namePlaceholder": "Ada Lovelace",
+    "emailLabel": "email",
+    "emailPlaceholder": "ada@example.com",
+    "messageLabel": "mesaj",
+    "messagePlaceholder": "Projenden bahset…",
+    "sendBtn": "./mesaj_gonder.sh",
+    "openBtn": "aç →",
+    "lookingHead": "// aradığım",
+    "lookingTitle": "Ne arıyorum",
+    "yes": "Evet, lütfen",
+    "yesItems": [
+      "Servislerimizi değerlendiren banka / EPÖ kuruluşları",
+      "FAST, BKM, EFT veya SWIFT entegrasyon soruları",
+      "Açık kaynak işbirlikleri & code review",
+      "Backend / ödeme sistemleri üzerine sohbet"
+    ],
+    "no": "Şu an değil",
+    "noItems": [
+      "Crypto / web3 token launchleri",
+      "Bağlamsız soğuk recruiter mesajları",
+      "Satıcı teklifleri — lütfen MapaGlobal'dan geçirin"
+    ],
+    "faqHead": "// sss.md",
+    "faqTitle": "Sıkça sorulanlar",
+    "faq": {
+      "q1": {
+        "q": "Nerede çalışıyorsun?",
+        "a": "MapaGlobal'da Backend Engineer. Ekibimiz Turkiye'nin ödeme altyapılarına (FAST, BKM, EFT) ve sınır ötesi için SWIFT'e bağlanan ödeme entegrasyonu servislerinin bakımını yapıyor; hizmet sunduğumuz banka ve lisanslı elektronik para / ödeme kuruluşlarına teknik destek sağlıyoruz."
+      },
+      "q2": {
+        "q": "Günün nasıl geçiyor?",
+        "a": "Genelde yeni gereksinimler geldiğinde mevcut servisleri geliştirmek/yamamak, entegrasyon sorunlarını debug etmek ve hizmet sunduğumuz kuruluşlara destek vermek — mesaj seviyesinde incelemeler, şema düzenlemeleri, performans çözümleri."
+      },
+      "q3": {
+        "q": "Hangi stack'te en iyisin?",
+        "a": "İş yerinde Java / Spring Boot, MSSQL ve Oracle. Yan tarafta Node.js, .NET ve Python. SQL, entegrasyonlar ve mesaj kontratları en çok vakit geçirdiğim alanlar."
+      },
+      "q4": {
+        "q": "Ne kadar hızlı dönüyorsun?",
+        "a": "Hafta içi 24 saat içinde, genelde daha hızlı. Aciliyet varsa konuda belirt, öne alırım."
+      }
+    }
+  },
+  "Footer": {
+    "navigate": "gezin",
+    "connect": "bağlan",
+    "now": "şimdi",
+    "home": "anasayfa",
+    "desc": "MapaGlobal'da backend engineer. FAST, BKM, EFT ve SWIFT üzerine kurulu ödeme entegrasyonu servislerimizin bakımını yapıyor, hizmet sunduğumuz banka ve EPÖ kuruluşlarına teknik destek sağlıyor.",
+    "pill": "MapaGlobal'da backend engineer",
+    "copy": "tüm hakları saklıdır",
+    "source": "kaynak: "
   }
 }

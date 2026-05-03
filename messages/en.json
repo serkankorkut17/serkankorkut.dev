@@ -1,139 +1,327 @@
 {
-	"PageHeader": {
-		"title": "HOME"
-	},
-	"NotFoundPage": {
-		"title": "Not Found",
-		"description": "The page you are looking for could not be found.",
-		"longDescription": "The page may have been moved, deleted, or the URL may be incorrect. You can return to the home page or contact me through the contact page.",
-		"backToHome": "Back to Home",
-		"contact": "Contact"
-	},
-	"ProjectsSection": {
-		"viewGallery": "View Gallery ({count} images)",
-		"more": "+{count} more"
-	},
-	"QRPage": {
-		"title": "QR Code Generator",
-		"description": "Create custom QR codes with logos and colors",
-		"content": {
-			"label": "Content",
-			"placeholder": "Enter text or URL",
-			"required": "Required",
-			"examples": {
-				"title": "Example Uses:",
-				"website": "Website: https://serkankorkut.dev",
-				"email": "Email: mailto:info@serkankorkut.dev",
-				"phone": "Phone: tel:+905551234567",
-				"sms": "SMS: sms:+905551234567?body=Hello!",
-				"whatsapp": "WhatsApp: https://wa.me/905551234567?text=Hello!%20I%20would%20like%20to%20get%20in%20touch.",
-				"wifi": "WiFi: WIFI:T:WPA;S:NetworkName;P:password;;",
-				"location": "Location: geo:41.0082,28.9784",
-				"vcard": "Contact Card: BEGIN:VCARD\\nVERSION:3.0\\nFN:Serkan Korkut\\nORG:Developer\\nTEL:+905551234567\\nEMAIL:info@serkankorkut.dev\\nEND:VCARD",
-				"event": "Calendar Event: BEGIN:VEVENT\\nSUMMARY:Meeting\\nDTSTART:20250901T140000Z\\nDTEND:20250901T150000Z\\nEND:VEVENT",
-				"text": "Simple Text: Hello World! 👋",
-				"social": "Social Media: https://linkedin.com/in/serkankorkut17"
-			}
-		},
-		"errorLevel": {
-			"label": "Error Correction Level",
-			"low": "L - Low (~7%)",
-			"medium": "M - Medium (~15%)",
-			"quartile": "Q - Quartile (~25%)",
-			"high": "H - High (~30%)"
-		},
-		"logo": {
-			"label": "Logo Upload",
-			"helper": "PNG, JPG, GIF up to 10MB",
-			"settings": "Logo Settings",
-			"maintainRatio": "Maintain aspect ratio",
-			"size": "Logo Size",
-			"width": "Width (px)",
-			"height": "Height (px)",
-			"currentSize": "Current size:",
-			"aspectMaintained": "(Aspect ratio maintained)",
-			"sizeSmall": "Small (10%)",
-			"sizeLarge": "Large (40%)"
-		},
-		"colors": {
-			"label": "Colors",
-			"background": "Background",
-			"foreground": "Foreground"
-		},
-		"download": {
-			"title": "Download Options",
-			"svg": "Download SVG",
-			"png": "Download PNG (HD)"
-		},
-		"preview": {
-			"live": "Live Preview",
-			"noContent": "No Content Yet",
-			"noContentDesc": "Enter some text or URL to generate your QR code",
-			"content": "Content:"
-		}
-	},
-	"ImagePage": {
-		"title": "WebP Converter",
-		"description": "Convert images, including HEIC, to WebP one by one or in batches",
-		"upload": {
-			"label": "Image Upload",
-			"badge": "Batch enabled",
-			"helper": "PNG, JPG, JPEG, WEBP, AVIF, HEIC, HEIF, and other browser-readable image files are supported. Default profile: quality 75%, effort 4. You can also lower the maximum resolution before conversion."
-		},
-		"settings": {
-			"quality": "Quality",
-			"qualityHelper": "Higher quality usually produces larger file sizes.",
-			"effort": "Effort",
-			"effortHelper": "Higher effort spends more processing time to try to compress better.",
-			"effortOption": "Level {value}",
-			"resolution": "Maximum resolution",
-			"resolutionHelper": "Scale down large images while keeping the aspect ratio for lighter outputs.",
-			"resolutionOptionOriginal": "Original resolution",
-			"resolutionOptionMax": "Up to {value}px",
-			"resolutionOptionMaxShort": "{value}px",
-			"resolutionOriginalShort": "Original"
-		},
-		"summary": {
-			"totalFiles": "Total files",
-			"converted": "Converted",
-			"saved": "Total saving {value}",
-			"totalOutput": "Total output {value}"
-		},
-		"preview": {
-			"readyBadge": "Ready: {count}"
-		},
-		"empty": {
-			"title": "Waiting for files to convert",
-			"description": "Pick single or multiple images from the left panel. Convert the queue to WebP, then download files individually or as one ZIP archive."
-		},
-		"card": {
-			"outputName": "Output: {value}",
-			"originalSize": "Original size",
-			"convertedSize": "WebP size",
-			"dimensions": "Dimensions",
-			"profile": "Profile",
-			"profileValue": "Q{quality} / E{effort} / {resolution}"
-		},
-		"status": {
-			"idle": "Ready",
-			"converting": "Converting",
-			"done": "Completed",
-			"error": "Error",
-			"awaiting": "Waiting for conversion",
-			"heicPreview": "HEIC preview appears after conversion",
-			"unknownError": "An unexpected error occurred.",
-			"limitExceeded": "File size limit exceeded for your account tier.",
-			"tooManyRequests": "Too many requests. Please wait and try again."
-		},
-		"actions": {
-			"convertAll": "Convert all to WebP",
-			"converting": "Converting...",
-			"downloadZip": "Download converted ZIP",
-			"clear": "Clear list",
-			"convertOne": "Convert this file",
-			"reconvert": "Reapply settings",
-			"downloadOne": "Download WebP",
-			"remove": "Remove"
-		}
-	}
+  "PageHeader": {
+    "title": "HOME"
+  },
+  "NotFoundPage": {
+    "title": "Not Found",
+    "description": "The page you are looking for could not be found.",
+    "longDescription": "The page may have been moved, deleted, or the URL may be incorrect. You can return to the home page or contact me through the contact page.",
+    "backToHome": "Back to Home",
+    "contact": "Contact"
+  },
+  "ProjectsSection": {
+    "viewGallery": "View Gallery ({count} images)",
+    "more": "+{count} more"
+  },
+  "QRPage": {
+    "title": "QR Code Generator",
+    "description": "Create custom QR codes with logos and colors",
+    "content": {
+      "label": "Content",
+      "placeholder": "Enter text or URL",
+      "required": "Required",
+      "examples": {
+        "title": "Example Uses:",
+        "website": "Website: https://serkankorkut.dev",
+        "email": "Email: mailto:info@serkankorkut.dev",
+        "phone": "Phone: tel:+905551234567",
+        "sms": "SMS: sms:+905551234567?body=Hello!",
+        "whatsapp": "WhatsApp: https://wa.me/905551234567?text=Hello!%20I%20would%20like%20to%20get%20in%20touch.",
+        "wifi": "WiFi: WIFI:T:WPA;S:NetworkName;P:password;;",
+        "location": "Location: geo:41.0082,28.9784",
+        "vcard": "Contact Card: BEGIN:VCARD\\nVERSION:3.0\\nFN:Serkan Korkut\\nORG:Developer\\nTEL:+905551234567\\nEMAIL:info@serkankorkut.dev\\nEND:VCARD",
+        "event": "Calendar Event: BEGIN:VEVENT\\nSUMMARY:Meeting\\nDTSTART:20250901T140000Z\\nDTEND:20250901T150000Z\\nEND:VEVENT",
+        "text": "Simple Text: Hello World! 👋",
+        "social": "Social Media: https://linkedin.com/in/serkankorkut17"
+      }
+    },
+    "errorLevel": {
+      "label": "Error Correction Level",
+      "low": "L - Low (~7%)",
+      "medium": "M - Medium (~15%)",
+      "quartile": "Q - Quartile (~25%)",
+      "high": "H - High (~30%)"
+    },
+    "logo": {
+      "label": "Logo Upload",
+      "helper": "PNG, JPG, GIF up to 10MB",
+      "settings": "Logo Settings",
+      "maintainRatio": "Maintain aspect ratio",
+      "size": "Logo Size",
+      "width": "Width (px)",
+      "height": "Height (px)",
+      "currentSize": "Current size:",
+      "aspectMaintained": "(Aspect ratio maintained)",
+      "sizeSmall": "Small (10%)",
+      "sizeLarge": "Large (40%)"
+    },
+    "colors": {
+      "label": "Colors",
+      "background": "Background",
+      "foreground": "Foreground"
+    },
+    "download": {
+      "title": "Download Options",
+      "svg": "Download SVG",
+      "png": "Download PNG (HD)"
+    },
+    "preview": {
+      "live": "Live Preview",
+      "noContent": "No Content Yet",
+      "noContentDesc": "Enter some text or URL to generate your QR code",
+      "content": "Content:"
+    }
+  },
+  "ImagePage": {
+    "title": "WebP Converter",
+    "description": "Convert images, including HEIC, to WebP one by one or in batches",
+    "upload": {
+      "label": "Image Upload",
+      "badge": "Batch enabled",
+      "helper": "PNG, JPG, JPEG, WEBP, AVIF, HEIC, HEIF, and other browser-readable image files are supported. Default profile: quality 75%, effort 4. You can also lower the maximum resolution before conversion."
+    },
+    "settings": {
+      "quality": "Quality",
+      "qualityHelper": "Higher quality usually produces larger file sizes.",
+      "effort": "Effort",
+      "effortHelper": "Higher effort spends more processing time to try to compress better.",
+      "effortOption": "Level {value}",
+      "resolution": "Maximum resolution",
+      "resolutionHelper": "Scale down large images while keeping the aspect ratio for lighter outputs.",
+      "resolutionOptionOriginal": "Original resolution",
+      "resolutionOptionMax": "Up to {value}px",
+      "resolutionOptionMaxShort": "{value}px",
+      "resolutionOriginalShort": "Original"
+    },
+    "summary": {
+      "totalFiles": "Total files",
+      "converted": "Converted",
+      "saved": "Total saving {value}",
+      "totalOutput": "Total output {value}"
+    },
+    "preview": {
+      "readyBadge": "Ready: {count}"
+    },
+    "empty": {
+      "title": "Waiting for files to convert",
+      "description": "Pick single or multiple images from the left panel. Convert the queue to WebP, then download files individually or as one ZIP archive."
+    },
+    "card": {
+      "outputName": "Output: {value}",
+      "originalSize": "Original size",
+      "convertedSize": "WebP size",
+      "dimensions": "Dimensions",
+      "profile": "Profile",
+      "profileValue": "Q{quality} / E{effort} / {resolution}"
+    },
+    "status": {
+      "idle": "Ready",
+      "converting": "Converting",
+      "done": "Completed",
+      "error": "Error",
+      "awaiting": "Waiting for conversion",
+      "heicPreview": "HEIC preview appears after conversion",
+      "unknownError": "An unexpected error occurred.",
+      "limitExceeded": "File size limit exceeded for your account tier.",
+      "tooManyRequests": "Too many requests. Please wait and try again."
+    },
+    "actions": {
+      "convertAll": "Convert all to WebP",
+      "converting": "Converting...",
+      "downloadZip": "Download converted ZIP",
+      "clear": "Clear list",
+      "convertOne": "Convert this file",
+      "reconvert": "Reapply settings",
+      "downloadOne": "Download WebP",
+      "remove": "Remove"
+    }
+  },
+  "Navigation": {
+    "home": "home",
+    "projects": "projects",
+    "contact": "contact",
+    "prefs": "// prefs",
+    "navigation": "// navigation"
+  },
+  "Hero": {
+    "tag": "AVAILABLE FOR WORK",
+    "title1": "Backend",
+    "title2": "engineer",
+    "title3": "since '24.",
+    "sub": "Backend Engineer at MapaGlobal. We maintain and evolve our payment-integration services on FAST, BKM, EFT and SWIFT — and provide technical support to the banks and e-money / payment institutions that use them.",
+    "cta1": "./view_work.sh",
+    "cta2": "./contact.sh",
+    "panel": "CURRENT FOCUS",
+    "panelText": "Backend engineer @ MapaGlobal — maintaining our FAST, BKM, EFT and SWIFT integration services and supporting the banks & e-money / payment institutions that use them."
+  },
+  "About": {
+    "tag": "// stack.config",
+    "title": "What I work with",
+    "sub": "Java / Spring Boot, MSSQL and Oracle on the day job — maintaining payment-integration services and supporting the institutions that use them. Categorized by where they sit in the stack.",
+    "collab": "interested in collaborating?",
+    "contact": "./contact.sh",
+    "cats": {
+      "backend": {
+        "label": "Backend & APIs",
+        "items": [
+          {
+            "name": "Java & Spring Boot",
+            "note": "Enterprise services, REST APIs, JPA"
+          },
+          {
+            "name": "C# & .NET Core",
+            "note": "ASP.NET Core, business logic layers"
+          },
+          {
+            "name": "Node.js & Express",
+            "note": "RESTful APIs, services, server-side TS"
+          },
+          {
+            "name": "Python & FastAPI",
+            "note": "Async APIs, scripting, data tooling"
+          }
+        ]
+      },
+      "data": {
+        "label": "Databases",
+        "items": [
+          {
+            "name": "Microsoft SQL Server",
+            "note": "Day-to-day database"
+          },
+          {
+            "name": "Oracle Database",
+            "note": "Day-to-day database"
+          },
+          {
+            "name": "PostgreSQL & MySQL",
+            "note": "Relational modeling, migrations"
+          },
+          {
+            "name": "MongoDB",
+            "note": "Document schemas, aggregation"
+          }
+        ]
+      },
+      "frontend": {
+        "label": "Frontend & Tooling",
+        "items": [
+          {
+            "name": "React & Next.js",
+            "note": "Interactive, server-rendered apps"
+          },
+          {
+            "name": "TypeScript",
+            "note": "Type-safe interfaces, end to end"
+          },
+          {
+            "name": "GraphQL & REST",
+            "note": "API contracts, schema design"
+          }
+        ]
+      }
+    }
+  },
+  "FeaturedWork": {
+    "tag": "// featured_work",
+    "title": "A few things I built",
+    "viewAll": "view all"
+  },
+  "CurrentlyStrip": {
+    "tag": "// now.log",
+    "title": "Currently",
+    "updated": "updated may 2026",
+    "items": {
+      "working": {
+        "label": "working on",
+        "val": "FAST · BKM · EFT · SWIFT",
+        "sub": "maintaining + supporting integrations @ MapaGlobal"
+      },
+      "learning": {
+        "label": "learning",
+        "val": "Spring Boot internals",
+        "sub": "JPA, transactions, query plans"
+      },
+      "exploring": {
+        "label": "exploring",
+        "val": "FAST & SWIFT internals",
+        "sub": "message specs, ISO 20022, edge cases"
+      },
+      "side": {
+        "label": "side projects",
+        "val": "Next.js · React · React Native",
+        "sub": "weekends, just for fun"
+      }
+    }
+  },
+  "Projects": {
+    "tag": "// projects.list",
+    "title": "Selected work",
+    "sub": "A focused index. Click any row to expand.",
+    "col1": "NO.",
+    "col2": "YEAR",
+    "col3": "PROJECT",
+    "col4": "STACK",
+    "col5": "VIEW",
+    "media": "[ PROJECT MEDIA ]"
+  },
+  "Contact": {
+    "tag": "// contact.sh",
+    "title": "Get in touch",
+    "sub": "Backend engineer @ MapaGlobal. Reach out for partnership questions, integration support, or just to say hi.",
+    "message": "~/message.txt",
+    "nameLabel": "name",
+    "namePlaceholder": "Ada Lovelace",
+    "emailLabel": "email",
+    "emailPlaceholder": "ada@example.com",
+    "messageLabel": "message",
+    "messagePlaceholder": "Tell me about your project…",
+    "sendBtn": "./send_message.sh",
+    "openBtn": "open →",
+    "lookingHead": "// looking_for",
+    "lookingTitle": "What I'm up for",
+    "yes": "Yes please",
+    "yesItems": [
+      "Banks or e-money / payment institutions exploring our services",
+      "Integration questions on FAST, BKM, EFT or SWIFT",
+      "Open-source collabs & code reviews",
+      "Coffee chats with other backend / payments folks"
+    ],
+    "no": "Not right now",
+    "noItems": [
+      "Crypto / web3 token launches",
+      "Cold recruiter spam without context",
+      "Vendor pitches — please go through MapaGlobal"
+    ],
+    "faqHead": "// faq.md",
+    "faqTitle": "Often asked",
+    "faq": {
+      "q1": {
+        "q": "Where do you work?",
+        "a": "Backend Engineer at MapaGlobal. Our team maintains and evolves the payment-integration services that connect to Turkey's rails (FAST, BKM, EFT) and SWIFT, and we provide technical support to the banks and licensed e-money / payment institutions that consume them."
+      },
+      "q2": {
+        "q": "What does your day look like?",
+        "a": "Mostly extending and patching existing services as new requirements come in, debugging integration issues, and supporting the institutions that use us — message-level investigations, schema tweaks, performance fixes."
+      },
+      "q3": {
+        "q": "What's your stack sweet spot?",
+        "a": "Java / Spring Boot, MSSQL and Oracle on the day job. Node.js, .NET and Python on the side. SQL, integrations and message contracts are where I spend most of my time."
+      },
+      "q4": {
+        "q": "How fast do you reply?",
+        "a": "Within 24 hours on weekdays, usually faster. If it's urgent, mention it in the subject and I'll prioritize."
+      }
+    }
+  },
+  "Footer": {
+    "navigate": "navigate",
+    "connect": "connect",
+    "now": "now",
+    "home": "home",
+    "desc": "Backend engineer @ MapaGlobal. Maintaining payment-integration services on FAST, BKM, EFT and SWIFT, and supporting the banks and e-money / payment institutions that use them.",
+    "pill": "backend engineer @ MapaGlobal",
+    "copy": "all rights reserved",
+    "source": "view source: "
+  }
 }

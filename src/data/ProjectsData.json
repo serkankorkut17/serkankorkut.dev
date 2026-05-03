@@ -1,0 +1,67 @@
+{
+  "title": { "en": "Selected work", "tr": "Seçilmiş işler" },
+  "subtitle": { "en": "A focused index. Click any row to expand.", "tr": "Odaklı bir index. Detay için bir satıra tıklayın." },
+  "tag": { "en": "// projects.list", "tr": "// projects.list" },
+  "items": [
+    {
+      "id": "leave-master", "n": "01", "year": "2024",
+      "name": "Leave Master",
+      "kind": "Full-stack · HR",
+      "stack": ["Next.js", "TypeScript", ".NET Core", "PostgreSQL"],
+      "desc": {
+        "en": "Employee leave-management system with role-based dashboards, approvals, and audit trails. Designed the API contract and the frontend together for type-safe ergonomics.",
+        "tr": "Rol tabanlı paneller, onay akışı ve denetim kaydı içeren çalışan izin yönetim sistemi. API kontratını ve frontend'i birlikte tasarladım, tip güvenli ergonomi için."
+      }
+    },
+    {
+      "id": "fastapi-graphql", "n": "02", "year": "2024",
+      "name": "FastAPI + GraphQL Service",
+      "kind": "Backend · API",
+      "stack": ["Python", "FastAPI", "GraphQL", "PostgreSQL"],
+      "desc": {
+        "en": "A schema-first GraphQL service over FastAPI with cursor pagination, dataloaders, and JWT auth. Built as a reusable starter for future async Python projects.",
+        "tr": "FastAPI üzerinde schema-first GraphQL servisi: cursor pagination, dataloader ve JWT auth. Gelecekteki async Python projeleri için yeniden kullanılabilir bir başlangıç."
+      }
+    },
+    {
+      "id": "invoice", "n": "03", "year": "2023",
+      "name": "Invoice & Payment",
+      "kind": "Full-stack · Fintech",
+      "stack": ["Node.js", "Express", "MongoDB", "Stripe"],
+      "desc": {
+        "en": "Recurring billing with Stripe, PDF invoice generation, and a customer-facing portal. Idempotent webhooks and retry logic kept payment state consistent.",
+        "tr": "Stripe ile recurring billing, PDF fatura ve müşteri portalı. Idempotent webhook ve retry mantığıyla ödeme durumu tutarlı tutuluyor."
+      }
+    },
+    {
+      "id": "cs2", "n": "04", "year": "2024",
+      "name": "CS2 Nade Library",
+      "kind": "Web app · Gaming",
+      "stack": ["Next.js", "MongoDB", "Cloudinary"],
+      "desc": {
+        "en": "A community library of CS2 grenade lineups with map filters, video previews, and admin moderation. Cloudinary handles the media pipeline.",
+        "tr": "CS2 nade lineup'ları için topluluk kütüphanesi: harita filtreleri, video önizleme ve admin moderasyonu. Medya pipeline'ı Cloudinary üzerinde."
+      }
+    },
+    {
+      "id": "texture", "n": "05", "year": "2023",
+      "name": "Texture Mapping",
+      "kind": "Graphics · Academic",
+      "stack": ["C++", "OpenGL", "GLSL"],
+      "desc": {
+        "en": "A from-scratch texture mapping pipeline for an undergrad graphics course. UV unwrapping, mipmaps, anisotropic filtering — implemented to actually understand them.",
+        "tr": "Lisans grafik dersi için sıfırdan texture mapping pipeline. UV unwrapping, mipmap, anisotropic filtering — gerçekten anlamak için implemente edildi."
+      }
+    },
+    {
+      "id": "robotics", "n": "06", "year": "2022",
+      "name": "Autonomous Robotics",
+      "kind": "Embedded · Academic",
+      "stack": ["C++", "ROS", "Arduino"],
+      "desc": {
+        "en": "Line-following and obstacle-avoidance robot built for a competition. PID tuning, sensor fusion, and a lot of late nights.",
+        "tr": "Yarışma için yapılmış çizgi takip ve engel kaçınma robotu. PID ayarı, sensör füzyonu ve çok sayıda geç gece."
+      }
+    }
+  ]
+}
