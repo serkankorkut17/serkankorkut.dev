@@ -13,6 +13,7 @@ import { getLocale, getMessages } from "next-intl/server";
 // Import fonts
 import { Montserrat, Orbitron, JetBrains_Mono } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Navigation from "@/components/layout/Navigation";
 
 const montserrat = Montserrat({
 	weight: ["400", "500", "600", "700", "800", "900"],
@@ -64,12 +65,10 @@ export default async function RootLayout({
 				<link rel="manifest" href="/site.webmanifest" />
 			</head>
 			<body
-				className={`${montserrat.className} bg-white dark:bg-black text-gray-900 dark:text-white`}
-				// style={{
-				// 	cursor: "none",
-				// }}
+				className={`${montserrat.className} bg-term-bg text-term-fg`}
 			>
 				<NextIntlClientProvider locale={locale} messages={messages}>
+						<Navigation />
 						{/* <RocketCursor />
 						<RocketFire /> */}
 						<ScrollToTopButton />
