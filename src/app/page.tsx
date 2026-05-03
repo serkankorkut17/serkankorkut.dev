@@ -1,6 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import FeaturedWork from "@/components/sections/FeaturedWork";
+import CurrentlyStrip from "@/components/sections/CurrentlyStrip";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <About />
       <FeaturedWork />
+      <CurrentlyStrip />
     </main>
   );
 }
