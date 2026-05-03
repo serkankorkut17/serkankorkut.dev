@@ -7,6 +7,7 @@ import ScrollToTopButton from "@/components/Mouse/Scroll";
 import { Montserrat, Orbitron, JetBrains_Mono } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Navigation from "@/components/layout/Navigation";
+import Footer from "@/components/layout/Footer";
 
 const montserrat = Montserrat({
 	weight: ["400", "500", "600", "700", "800", "900"],
@@ -60,6 +61,7 @@ export default function RootLayout({
 				<Navigation />
 				<ScrollToTopButton />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
