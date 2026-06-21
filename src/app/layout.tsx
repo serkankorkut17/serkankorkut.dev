@@ -28,6 +28,7 @@ const jetbrains = JetBrains_Mono({
 
 // Export the metadata
 export const metadata: Metadata = {
+	metadataBase: new URL("https://serkankorkut.dev"),
 	title: "Serkan Korkut",
 	description: "Welcome to my personal website",
 };
