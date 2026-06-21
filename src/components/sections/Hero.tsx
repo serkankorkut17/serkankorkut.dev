@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import ppImage from '@/images/pp.jpeg';
 
@@ -62,14 +63,14 @@ export default function Hero() {
 
           {/* Actions */}
           <div className="mt-10 flex flex-wrap gap-3">
-            <button className="bg-term-accent text-black border-none px-[22px] py-[14px] font-mono text-[13px] font-[700] cursor-pointer flex items-center gap-2.5 rounded-[3px] hover:opacity-90 transition-opacity">
+            <Link href="/projects" className="bg-term-accent text-black border-none px-[22px] py-[14px] font-mono text-[13px] font-[700] cursor-pointer flex items-center gap-2.5 rounded-[3px] hover:opacity-90 transition-opacity no-underline">
               {content.cta1}
               <span className="opacity-70">↵</span>
-            </button>
-            <button className="bg-transparent text-term-fg border border-term-border px-[22px] py-[14px] font-mono text-[13px] cursor-pointer flex items-center gap-2.5 rounded-[3px] hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+            </Link>
+            <Link href="/contact" className="bg-transparent text-term-fg border border-term-border px-[22px] py-[14px] font-mono text-[13px] cursor-pointer flex items-center gap-2.5 rounded-[3px] hover:bg-black/5 dark:hover:bg-white/5 transition-colors no-underline">
               {content.cta2}
               <span className="text-term-fg-faint">↵</span>
-            </button>
+            </Link>
           </div>
 
           {/* Bottom strip */}
