@@ -260,8 +260,16 @@
     "col2": "YIL",
     "col3": "PROJE",
     "col4": "TEKNOLOJİ",
-    "col5": "GÖRÜNTÜLE",
-    "media": "[ PROJE MEDYASI ]"
+    "col5": "GÖRÜNTÜLE"
+  },
+  "ProjectDetail": {
+    "backToProjects": "Tüm projeler",
+    "screenshots": "Ekran görüntüleri",
+    "viewSource": "Kaynak kod",
+    "liveDemo": "Canlı demo",
+    "noLive": "Canlı demo yok",
+    "previous": "Önceki",
+    "next": "Sonraki"
   },
   "Contact": {
     "tag": "// iletisim.sh",

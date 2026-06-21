@@ -262,8 +262,16 @@
     "col2": "YEAR",
     "col3": "PROJECT",
     "col4": "STACK",
-    "col5": "VIEW",
-    "media": "[ PROJECT MEDIA ]"
+    "col5": "VIEW"
+  },
+  "ProjectDetail": {
+    "backToProjects": "All projects",
+    "screenshots": "Screenshots",
+    "viewSource": "View source",
+    "liveDemo": "Live demo",
+    "noLive": "No live demo",
+    "previous": "Prev",
+    "next": "Next"
   },
   "Contact": {
     "tag": "// contact.sh",
