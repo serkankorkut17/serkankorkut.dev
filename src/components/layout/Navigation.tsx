@@ -1,11 +1,10 @@
 "use client";
-/* eslint-disable react-hooks/set-state-in-effect */
 
-import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription, SheetClose } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/hooks/useTheme";
 
 const Brand = ({ size = "sm", onClick }: { size?: "sm" | "lg"; onClick: () => void }) => (
   <button
@@ -35,25 +34,7 @@ export default function Navigation() {
   const locale = useLocale();
   const t = useTranslations('Navigation');
   
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-    if (document.documentElement.classList.contains("dark")) {
-      setTheme("dark");
-    }
-  }, []);
-
-  const onToggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
+  const { theme, toggle: onToggleTheme, mounted } = useTheme();
 
   const onToggleLang = () => {
     const newLang = locale === "en" ? "tr" : "en";
@@ -71,7 +52,7 @@ export default function Navigation() {
     router.push(path);
   };
 
-  if (!isMounted) return null;
+  if (!mounted) return null;
 
   return (
     <header className="sticky top-0 z-[100] bg-term-bg border-b border-term-border font-mono text-[13px]">
