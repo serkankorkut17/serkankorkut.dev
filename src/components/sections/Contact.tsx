@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import ContactForm from './ContactForm';
 
 export default function Contact() {
   const t = useTranslations('Contact');
@@ -34,33 +35,7 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-term-bg-elevated border border-term-border rounded-md overflow-hidden flex flex-col h-full">
-            <div className="h-8 bg-term-bg-inset border-b border-term-border flex items-center px-3 gap-2 shrink-0">
-              <div className="flex gap-[6px]">
-                <div className="w-[11px] h-[11px] rounded-full bg-[#ff5f57]" />
-                <div className="w-[11px] h-[11px] rounded-full bg-[#febc2e]" />
-                <div className="w-[11px] h-[11px] rounded-full bg-[#28c840]" />
-              </div>
-              <div className="ml-auto text-[11px] text-term-fg-faint">{t('message')}</div>
-            </div>
-            <div className="p-6 flex flex-col gap-4 flex-1">
-              <label className="flex flex-col gap-1.5 shrink-0">
-                <span className="text-[11px] text-term-fg-faint tracking-[0.1em]"><span className="text-term-accent">$</span> {t('nameLabel')}</span>
-                <input className="w-full bg-term-bg-inset border border-term-border rounded-[4px] p-3 font-mono text-sm text-term-fg outline-none focus:border-term-accent transition-colors" placeholder={t('namePlaceholder')} />
-              </label>
-              <label className="flex flex-col gap-1.5 shrink-0">
-                <span className="text-[11px] text-term-fg-faint tracking-[0.1em]"><span className="text-term-accent">$</span> {t('emailLabel')}</span>
-                <input className="w-full bg-term-bg-inset border border-term-border rounded-[4px] p-3 font-mono text-sm text-term-fg outline-none focus:border-term-accent transition-colors" placeholder={t('emailPlaceholder')} />
-              </label>
-              <label className="flex flex-col gap-1.5 flex-1">
-                <span className="text-[11px] text-term-fg-faint tracking-[0.1em] shrink-0"><span className="text-term-accent">$</span> {t('messageLabel')}</span>
-                <textarea className="w-full bg-term-bg-inset border border-term-border rounded-[4px] p-3 font-mono text-sm text-term-fg outline-none focus:border-term-accent transition-colors resize-none flex-1 min-h-[100px]" placeholder={t('messagePlaceholder')} />
-              </label>
-              <button className="mt-2 shrink-0 bg-term-accent text-black border-none py-[14px] px-5 font-mono text-[13px] font-[700] cursor-pointer rounded-[3px] flex items-center justify-between hover:opacity-90 transition-opacity">
-                <span>{t('sendBtn')}</span><span>↵</span>
-              </button>
-            </div>
-          </div>
+          <ContactForm />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 content-start">
             {cards.map((c) => (
               <a key={c.k} href={c.href} target="_blank" rel="noopener noreferrer" className="bg-term-bg-elevated border border-term-border rounded-md p-6 cursor-pointer flex flex-col gap-2.5 min-h-[140px] hover:border-term-accent transition-colors group no-underline">
