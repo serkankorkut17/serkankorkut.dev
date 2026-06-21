@@ -33,7 +33,6 @@ export async function generateMetadata({
     openGraph: {
       title: project.title[locale],
       description: project.description[locale],
-      images: project.images.length ? [project.images[0]] : [],
     },
   };
 }

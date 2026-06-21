@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useCallback, useRef } from "react";
-import Image from "next/image";
+import { useEffect, useCallback, useRef, type TouchEvent } from "react";
+import FadeImage from "./FadeImage";
 
 interface LightboxProps {
   images: string[];
@@ -19,6 +19,7 @@ export default function Lightbox({
   onIndexChange,
 }: LightboxProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const prev = useCallback(() => {
     onIndexChange((index - 1 + images.length) % images.length);
@@ -45,6 +46,20 @@ export default function Lightbox({
       document.body.style.overflow = "";
     };
   }, [onClose, prev, next]);
+
+  const onTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 50) {
+      if (dx < 0) next();
+      else prev();
+    }
+    touchStartX.current = null;
+  };
 
   return (
     <div
@@ -87,14 +102,15 @@ export default function Lightbox({
       {/* Image */}
       <div
         onClick={(e) => e.stopPropagation()}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
         className="relative w-[90vw] h-[82vh]"
       >
-        <Image
+        <FadeImage
+          key={images[index]}
           src={images[index]}
           alt={`${alt} — ${index + 1}`}
-          fill
           sizes="90vw"
-          className="object-contain"
           priority
         />
       </div>

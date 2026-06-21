@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import Lightbox from "./Lightbox";
+import FadeImage from "./FadeImage";
 
 interface ProjectGalleryProps {
   images: string[];
@@ -30,12 +31,11 @@ export default function ProjectGallery({ images, title }: ProjectGalleryProps) {
         aria-label={`Open ${title} screenshot`}
         className="relative w-full aspect-video rounded-md overflow-hidden border border-term-border bg-term-bg-inset cursor-pointer block group"
       >
-        <Image
+        <FadeImage
+          key={images[active]}
           src={images[active]}
           alt={`${title} — ${active + 1}`}
-          fill
           sizes="(max-width: 1280px) 100vw, 1216px"
-          className="object-contain"
           priority
         />
       </button>
