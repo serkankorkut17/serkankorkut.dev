@@ -98,6 +98,15 @@ export default function Navigation() {
           </button>
 
           <button
+            onClick={() => window.dispatchEvent(new Event("cmdk-open"))}
+            title="Command palette (⌘K)"
+            aria-label="Open command palette"
+            className="hidden sm:flex items-center h-[30px] px-2 bg-transparent border border-term-border text-term-fg-muted rounded cursor-pointer font-inherit text-[11px] hover:border-term-accent hover:text-term-accent transition-colors"
+          >
+            ⌘K
+          </button>
+
+          <button
             onClick={onToggleTheme}
             title="Toggle theme"
             className="w-[30px] h-[30px] bg-transparent border border-term-border text-term-fg-muted rounded cursor-pointer flex items-center justify-center font-inherit"

@@ -12,6 +12,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { SITE_URL, SITE_NAME, SITE_TAGLINE, SITE_DESCRIPTION } from "@/lib/site";
 import JsonLd from "@/components/seo/JsonLd";
+import CommandPalette from "@/components/command/CommandPalette";
 
 const montserrat = Montserrat({
 	weight: ["400", "500", "600", "700", "800", "900"],
@@ -89,6 +90,7 @@ export default async function RootLayout({
 				<JsonLd />
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					<Navigation />
+					<CommandPalette />
 					<ScrollToTopButton />
 					{children}
 					<Footer />
