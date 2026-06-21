@@ -9,10 +9,6 @@
     "backToHome": "Ana Sayfa'ya Dön",
     "contact": "İletişim"
   },
-  "ProjectsSection": {
-    "viewGallery": "Galeriyi Görüntüle ({count} görsel)",
-    "more": "+{count} daha"
-  },
   "QRPage": {
     "title": "QR Kod Oluşturucu",
     "description": "Logo ve renklerle özel QR kodları oluşturun",
@@ -255,7 +251,7 @@
   "Projects": {
     "tag": "// projects.list",
     "title": "Seçilmiş işler",
-    "sub": "Odaklı bir index. Detay için bir satıra tıklayın.",
+    "sub": "Odaklı bir index. Projeyi açmak için bir satıra tıklayın.",
     "col1": "NO.",
     "col2": "YIL",
     "col3": "PROJE",

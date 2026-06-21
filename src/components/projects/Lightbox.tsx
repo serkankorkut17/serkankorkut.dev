@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 
 interface LightboxProps {
@@ -18,6 +18,8 @@ export default function Lightbox({
   onClose,
   onIndexChange,
 }: LightboxProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
+
   const prev = useCallback(() => {
     onIndexChange((index - 1 + images.length) % images.length);
   }, [index, images.length, onIndexChange]);
@@ -25,6 +27,10 @@ export default function Lightbox({
   const next = useCallback(() => {
     onIndexChange((index + 1) % images.length);
   }, [index, images.length, onIndexChange]);
+
+  useEffect(() => {
+    dialogRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -42,11 +48,13 @@ export default function Lightbox({
 
   return (
     <div
+      ref={dialogRef}
+      tabIndex={-1}
       role="dialog"
       aria-modal="true"
       aria-label={alt}
       onClick={onClose}
-      className="fixed inset-0 z-[200] bg-black/90 flex items-center justify-center font-mono"
+      className="fixed inset-0 z-[200] bg-black/90 flex items-center justify-center font-mono outline-none"
     >
       {/* Close */}
       <button

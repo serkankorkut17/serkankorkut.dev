@@ -9,10 +9,6 @@
     "backToHome": "Back to Home",
     "contact": "Contact"
   },
-  "ProjectsSection": {
-    "viewGallery": "View Gallery ({count} images)",
-    "more": "+{count} more"
-  },
   "QRPage": {
     "title": "QR Code Generator",
     "description": "Create custom QR codes with logos and colors",
@@ -257,7 +253,7 @@
   "Projects": {
     "tag": "// projects.list",
     "title": "Selected work",
-    "sub": "A focused index. Click any row to expand.",
+    "sub": "A focused index. Click any row to open the full project.",
     "col1": "NO.",
     "col2": "YEAR",
     "col3": "PROJECT",

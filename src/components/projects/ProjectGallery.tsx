@@ -27,7 +27,7 @@ export default function ProjectGallery({ images, title }: ProjectGalleryProps) {
       {/* Main image */}
       <button
         onClick={() => setOpen(true)}
-        aria-label="Open image"
+        aria-label={`Open ${title} screenshot`}
         className="relative w-full aspect-video rounded-md overflow-hidden border border-term-border bg-term-bg-inset cursor-pointer block group"
       >
         <Image
