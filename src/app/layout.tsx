@@ -10,6 +10,8 @@ import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import { SITE_URL, SITE_NAME, SITE_TAGLINE, SITE_DESCRIPTION } from "@/lib/site";
+import JsonLd from "@/components/seo/JsonLd";
 
 const montserrat = Montserrat({
 	weight: ["400", "500", "600", "700", "800", "900"],
@@ -28,9 +30,24 @@ const jetbrains = JetBrains_Mono({
 
 // Export the metadata
 export const metadata: Metadata = {
-	metadataBase: new URL("https://serkankorkut.dev"),
-	title: "Serkan Korkut",
-	description: "Welcome to my personal website",
+	metadataBase: new URL(SITE_URL),
+	title: {
+		default: `${SITE_NAME} — ${SITE_TAGLINE}`,
+		template: `%s · ${SITE_NAME}`,
+	},
+	description: SITE_DESCRIPTION,
+	openGraph: {
+		type: "website",
+		siteName: SITE_NAME,
+		url: SITE_URL,
+		title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+		description: SITE_DESCRIPTION,
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+		description: SITE_DESCRIPTION,
+	},
 };
 
 export default async function RootLayout({
@@ -64,6 +81,7 @@ export default async function RootLayout({
 			<body
 				className={`${montserrat.className} bg-term-bg text-term-fg`}
 			>
+				<JsonLd />
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					<Navigation />
 					<ScrollToTopButton />
